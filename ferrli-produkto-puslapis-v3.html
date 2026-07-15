@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Ferrli — Bomby Styler Silk+ · Koncepcija v3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF;
+  --panel:#F6F5F3;
+  --panel-warm:#F5EFEB;
+  --ink:#1D1D1F;
+  --gray:#6E6E73;
+  --gray-light:#A1A1A6;
+  --hairline:rgba(29,29,31,.10);
+  --navy:#33406F;
+  --gold:#B98A5E;
+  --radius:24px;
+  --font-sans:"Instrument Sans",-apple-system,"SF Pro Text","Segoe UI",sans-serif;
+  --font-serif:"Fraunces",Georgia,serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-sans);background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+.d-only{display:block}
+.m-only{display:none}
+
+/* two-tone heading */
+.h2{font-size:44px;font-weight:650;letter-spacing:-.022em;line-height:1.1}
+.h2 .sub{color:var(--gray-light);font-weight:650}
+.lead{color:var(--gray);font-size:17px;margin-top:14px;max-width:560px}
+
+/* reveal — subtle */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+.btn{background:var(--ink);color:#fff;border:none;border-radius:980px;padding:12px 24px;font-size:14.5px;font-weight:600;transition:opacity .2s}
+.btn:hover{opacity:.85}
+.link{color:var(--navy);text-decoration:none;font-weight:500}
+.link:hover{text-decoration:underline}
+
+/* ---------- header ---------- */
+header.site{position:absolute;top:0;left:0;right:0;z-index:50;padding:20px 0}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--font-serif);font-style:italic;font-weight:600;font-size:27px;color:var(--ink);text-decoration:none}
+nav.main{display:flex;gap:32px}
+nav.main a{color:var(--ink);text-decoration:none;font-size:14px;font-weight:500;opacity:.8}
+nav.main a:hover{opacity:1}
+.head-icons{display:flex;gap:18px;font-size:14px;opacity:.8}
+
+/* ---------- desktop top buybar ---------- */
+.buybar{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.82);backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid var(--hairline);transform:translateY(-110%);transition:transform .4s ease}
+.buybar.show{transform:none}
+.buybar .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.buybar .bb-name{font-weight:600;font-size:15px}
+.buybar nav{display:flex;gap:24px;font-size:13px}
+.buybar nav a{color:var(--gray);text-decoration:none}
+.buybar nav a:hover{color:var(--ink)}
+.buybar .bb-right{display:flex;align-items:center;gap:18px}
+.buybar .bb-price{font-size:15px;font-weight:600}
+.buybar .btn{padding:8px 20px;font-size:13.5px}
+
+/* ---------- mobile bottom bar ---------- */
+.bottombar{display:none}
+
+/* ---------- hero ---------- */
+.hero{position:relative;height:88vh;min-height:620px;max-height:820px}
+.hero-visual{position:relative;height:100%;overflow:hidden}
+.hero img.bg{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.hero .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,15,18,.14),rgba(30,15,18,0) 34%,rgba(30,15,18,0) 62%,rgba(30,15,18,.26))}
+.hero-copy{position:absolute;left:32px;bottom:48px;color:#fff;max-width:480px}
+.hero-copy .kicker{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;opacity:.8;margin-bottom:12px}
+.hero-copy h1{font-family:var(--font-serif);font-weight:400;font-size:52px;line-height:1.05;text-shadow:0 2px 20px rgba(30,10,15,.2)}
+.hero-copy h1 em{font-style:italic}
+.hero-copy p{margin-top:14px;font-size:16px;opacity:.92;max-width:400px}
+
+/* buy card — flat */
+.buycard{position:absolute;right:56px;top:50%;transform:translateY(-50%);width:352px;background:#fff;border-radius:22px;border:1px solid var(--hairline);box-shadow:0 4px 28px rgba(29,29,31,.07);padding:28px}
+.buycard h2{font-size:23px;font-weight:650;letter-spacing:-.015em}
+.buycard .rating{margin-top:6px;font-size:13px;color:var(--gray)}
+.buycard .rating .stars{color:var(--gold);letter-spacing:1.5px;font-size:12px;margin-right:6px}
+.opt-label{font-size:12px;font-weight:600;color:var(--gray);margin:22px 0 10px;text-transform:uppercase;letter-spacing:.07em}
+.tiles{display:flex;flex-direction:column;gap:10px}
+.tile{display:flex;justify-content:space-between;align-items:center;width:100%;text-align:left;background:#fff;border:1px solid var(--hairline);border-radius:14px;padding:14px 16px;transition:border-color .15s}
+.tile:hover{border-color:rgba(29,29,31,.3)}
+.tile b{font-size:14.5px;font-weight:600;display:block}
+.tile span{font-size:12.5px;color:var(--gray)}
+.tile .t-check{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--hairline);flex:none;margin-left:14px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff}
+.tile.active{border:2px solid var(--ink);padding:13px 15px}
+.tile.active .t-check{background:var(--ink);border-color:var(--ink)}
+.price-row{display:flex;align-items:baseline;gap:12px;margin-top:22px}
+.price{font-size:28px;font-weight:650;letter-spacing:-.02em}
+.price-note{font-size:12.5px;color:var(--gray)}
+.buycard .btn{width:100%;margin-top:18px;padding:14px;font-size:15px;border-radius:14px}
+.buycard .micro{margin-top:18px;border-top:1px solid var(--hairline)}
+.buycard .micro div{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--hairline);font-size:12.5px;color:var(--gray)}
+.buycard .micro div:last-child{border-bottom:none;padding-bottom:0}
+.buycard .micro b{color:var(--ink);font-weight:600}
+
+/* ---------- proof strip ---------- */
+.proofstrip{border-bottom:1px solid var(--hairline)}
+.proofstrip .wrap{display:grid;grid-template-columns:repeat(4,1fr);padding-top:30px;padding-bottom:30px;gap:24px}
+.proof-item{text-align:center}
+.proof-item b{display:block;font-size:24px;font-weight:650;letter-spacing:-.02em}
+.proof-item span{font-size:12.5px;color:var(--gray)}
+
+/* ---------- editorial ---------- */
+.editorial{padding:120px 0 96px;text-align:center}
+.editorial h2{font-size:48px;font-weight:650;letter-spacing:-.022em;line-height:1.1;max-width:760px;margin:0 auto}
+.editorial h2 .sub{color:var(--gray-light)}
+.editorial p{max-width:540px;margin:22px auto 0;font-size:17px;color:var(--gray)}
+
+/* ---------- split ---------- */
+.split-section{padding:0 0 110px}
+.split{display:grid;grid-template-columns:1fr 360px;gap:64px;align-items:start}
+.split>*{min-width:0}
+.split-left>*+*{margin-top:110px}
+.block h3{font-size:34px;font-weight:650;letter-spacing:-.02em;line-height:1.12}
+.block h3 .sub{color:var(--gray-light)}
+.block>p{color:var(--gray);font-size:16px;max-width:540px;margin-top:12px}
+
+.argcards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px}
+.argcard{background:var(--panel);border-radius:var(--radius);padding:26px 22px}
+.argcard .a-stat{font-size:30px;font-weight:650;letter-spacing:-.02em;color:var(--navy)}
+.argcard h4{font-size:15.5px;font-weight:650;margin:10px 0 6px}
+.argcard p{font-size:13.5px;color:var(--gray);line-height:1.5}
+
+.tech-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;margin-top:32px}
+.tech-photo{border-radius:var(--radius);overflow:hidden;min-height:400px;position:relative;background:var(--panel)}
+.tech-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.tech-photo .tag{position:absolute;left:16px;bottom:16px;background:rgba(255,255,255,.85);backdrop-filter:blur(10px);border-radius:980px;padding:7px 14px;font-size:12px;font-weight:600}
+.tech-list{display:flex;flex-direction:column;gap:14px}
+.tech-item{background:var(--panel);border-radius:var(--radius);padding:24px;flex:1}
+.tech-item h4{font-size:15px;font-weight:650;margin-bottom:6px}
+.tech-item h4 small{display:block;font-size:11.5px;color:var(--gray-light);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+.tech-item p{font-size:13px;color:var(--gray);line-height:1.5}
+
+.hair-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:32px}
+.hair-card{background:var(--panel);border-radius:var(--radius);padding:24px 18px;text-align:center}
+.hair-card h4{font-size:14px;font-weight:650}
+.hair-card p{font-size:12.5px;color:var(--gray);line-height:1.45;margin-top:6px}
+.hair-card .pick{display:inline-block;margin-top:12px;font-size:11px;font-weight:600;background:#fff;border:1px solid var(--hairline);border-radius:980px;padding:4px 11px;color:var(--ink)}
+
+.results{background:var(--panel);border-radius:28px;padding:48px;margin-top:32px}
+.results .r-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:34px}
+.results .r-item b{display:block;font-size:46px;font-weight:650;letter-spacing:-.025em;line-height:1;color:var(--navy)}
+.results .r-item span{display:block;margin-top:10px;font-size:13.5px;color:var(--gray);line-height:1.5}
+.results .foot{margin-top:30px;font-size:11.5px;color:var(--gray-light)}
+
+/* ---------- rail ---------- */
+.rail{position:sticky;top:80px}
+.railcard{background:#fff;border:1px solid var(--hairline);border-radius:22px;padding:26px}
+.railcard .r-head{display:flex;justify-content:space-between;align-items:flex-start}
+.railcard h4{font-size:17px;font-weight:650}
+.railcard .r-sub{font-size:12px;color:var(--gray);margin-top:2px}
+.railcard .r-price{font-size:19px;font-weight:650;white-space:nowrap}
+.railcard .r-installment{font-size:12px;color:var(--gray);text-align:right}
+.rail-list{margin-top:20px;border-top:1px solid var(--hairline)}
+.rail-item{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid var(--hairline);font-size:13px;color:var(--gray);line-height:1.45}
+.rail-item .ri-ico{color:var(--navy);font-size:14px;flex:none;width:18px;text-align:center;padding-top:1px}
+.rail-item b{color:var(--ink);font-weight:600;display:block}
+.railcard .btn{width:100%;margin-top:20px;padding:14px;border-radius:14px;font-size:14.5px}
+.rail-gift{margin-top:14px;background:var(--panel);border-radius:14px;padding:12px 15px;font-size:12.5px;color:var(--gray)}
+.rail-gift b{color:var(--ink)}
+
+/* ---------- videos ---------- */
+.videos{background:#1D1D1F;color:#fff;padding:100px 0 110px}
+.videos .head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px;gap:32px}
+.videos .h2 .sub{color:rgba(255,255,255,.45)}
+.videos .head p{max-width:330px;font-size:14.5px;color:rgba(255,255,255,.55)}
+.vid-controls{display:flex;gap:8px;margin-top:16px}
+.vc-btn{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.22);background:transparent;color:#fff;font-size:15px;transition:all .2s}
+.vc-btn:hover{background:#fff;color:var(--ink)}
+.vid-track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;scrollbar-width:none}
+.vid-track::-webkit-scrollbar{display:none}
+.vcard{flex:0 0 264px;scroll-snap-align:start;border-radius:20px;overflow:hidden;position:relative;aspect-ratio:9/15;background:#2A2A2C}
+.vcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.vcard:hover img{transform:scale(1.04)}
+.vcard .v-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,0) 35%,rgba(0,0,0,.62) 100%)}
+.vcard .v-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--ink)}
+.vcard .v-dur{position:absolute;top:14px;right:14px;background:rgba(0,0,0,.45);backdrop-filter:blur(6px);border-radius:980px;padding:4px 11px;font-size:11px;font-weight:600}
+.vcard .v-meta{position:absolute;left:16px;right:16px;bottom:16px}
+.vcard .v-meta .stars{color:var(--gold);font-size:11px;letter-spacing:1.5px}
+.vcard .v-meta b{display:block;font-size:14px;margin-top:5px}
+.vcard .v-meta span{font-size:12px;color:rgba(255,255,255,.7)}
+.vcard.quote{background:#2A2A2C;display:flex;flex-direction:column;justify-content:space-between;padding:24px}
+.vcard.quote p{font-family:var(--font-serif);font-style:italic;font-weight:350;font-size:18px;line-height:1.42;margin-top:14px}
+.vcard.quote .q-mark{font-family:var(--font-serif);font-style:italic;font-size:52px;line-height:.6;color:var(--gold)}
+.vcard.quote .v-meta{position:static;margin-top:auto}
+.videos .ugc-note{margin-top:30px;font-size:12px;color:rgba(255,255,255,.35)}
+
+/* ---------- testimonials ---------- */
+.testi{padding:110px 0}
+.testi .head{text-align:center;margin-bottom:48px}
+.testi .lead{margin:14px auto 0}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.tcard{background:var(--panel);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;gap:12px}
+.tcard .stars{color:var(--gold);letter-spacing:1.5px;font-size:12px}
+.tcard p{font-size:14px;color:#3C3C40;line-height:1.55;flex:1}
+.tcard .t-foot{display:flex;justify-content:space-between;align-items:center}
+.tcard .t-who b{font-size:13px;display:block}
+.tcard .t-who span{font-size:11.5px;color:var(--gray)}
+.tcard .t-tag{font-size:10.5px;font-weight:600;background:#fff;border:1px solid var(--hairline);border-radius:980px;padding:4px 10px;color:var(--gray)}
+.tcard .verified{font-size:11px;color:var(--navy);font-weight:600}
+
+/* ---------- comparison ---------- */
+.compare{padding:110px 0;background:var(--panel)}
+.compare .head{text-align:center;max-width:600px;margin:0 auto 48px}
+.compare .lead{margin:14px auto 0}
+.cmp-table{background:#fff;border-radius:24px;overflow:hidden;border:1px solid var(--hairline)}
+.cmp-table table{width:100%;border-collapse:collapse;font-size:13.5px}
+.cmp-table th,.cmp-table td{padding:16px 20px;text-align:center;border-bottom:1px solid var(--hairline)}
+.cmp-table tr:last-child th,.cmp-table tr:last-child td{border-bottom:none}
+.cmp-table th:first-child,.cmp-table td:first-child{text-align:left;font-weight:500;color:var(--gray);width:27%}
+.cmp-table thead th{font-size:13.5px;font-weight:650;padding-top:22px;color:var(--gray)}
+.cmp-table thead th small{display:block;font-weight:400;color:var(--gray-light);font-size:11.5px;margin-top:2px}
+.cmp-table .ferrli-col{background:var(--panel);color:var(--ink)}
+.cmp-table .badge{display:inline-block;background:var(--ink);color:#fff;font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;border-radius:980px;padding:3px 9px;margin-bottom:7px}
+.yes{color:var(--navy);font-weight:700}
+.no{color:#C7C7CC}
+.cmp-verdict{text-align:center;margin-top:30px;font-family:var(--font-serif);font-style:italic;font-size:19px;color:var(--gray)}
+/* mobile comparison switcher */
+.cmp-mobile{display:none}
+.seg{display:flex;background:rgba(29,29,31,.06);border-radius:980px;padding:3px;gap:2px;margin:0 auto 24px;max-width:420px}
+.seg button{flex:1;border:none;background:transparent;border-radius:980px;padding:9px 6px;font-size:12.5px;font-weight:600;color:var(--gray);transition:all .2s}
+.seg button.active{background:#fff;color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.cmp-panel{display:none;background:#fff;border:1px solid var(--hairline);border-radius:20px;overflow:hidden}
+.cmp-panel.active{display:block}
+.cmp-panel .cp-head{display:grid;grid-template-columns:1fr 76px 76px;padding:14px 18px;font-size:11px;font-weight:650;color:var(--gray);text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid var(--hairline)}
+.cmp-panel .cp-head span{text-align:center}
+.cmp-panel .cp-head .f{color:var(--ink)}
+.cmp-row{display:grid;grid-template-columns:1fr 76px 76px;padding:13px 18px;font-size:12.5px;color:var(--gray);border-bottom:1px solid var(--hairline);align-items:center}
+.cmp-row:last-child{border-bottom:none}
+.cmp-row span{text-align:center;font-weight:600;color:var(--ink)}
+.cmp-row span.no{color:#C7C7CC}
+
+/* ---------- FAQ ---------- */
+.faq{padding:110px 0}
+.faq .grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:start}
+.faq details{border-bottom:1px solid var(--hairline)}
+.faq summary{list-style:none;display:flex;justify-content:space-between;align-items:center;padding:22px 0;font-size:16px;font-weight:600;cursor:pointer;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .plus{font-size:20px;font-weight:300;color:var(--gray-light);transition:transform .3s;flex:none}
+.faq details[open] summary .plus{transform:rotate(45deg)}
+.faq details p{padding:0 0 22px;color:var(--gray);font-size:14.5px;max-width:540px}
+
+/* ---------- guarantee ---------- */
+.guarantee{padding:0 0 110px}
+.g-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.gcard{background:var(--panel);border-radius:var(--radius);padding:28px 24px}
+.gcard h4{font-size:15px;font-weight:650;margin-bottom:6px}
+.gcard h4 b{display:block;font-size:26px;font-weight:650;letter-spacing:-.02em;color:var(--navy);margin-bottom:8px}
+.gcard p{font-size:12.5px;color:var(--gray);line-height:1.5}
+
+/* ---------- ladder ---------- */
+.ladder{padding:110px 0;background:var(--panel)}
+.ladder .head{text-align:center;margin-bottom:48px}
+.ladder .lead{margin:14px auto 0}
+.ladder-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.lcard{border-radius:24px;padding:34px 30px;background:#fff;border:1px solid var(--hairline);position:relative;transition:transform .3s}
+.lcard:hover{transform:translateY(-4px)}
+.lcard.core{background:var(--navy);border-color:var(--navy);color:#fff}
+.lcard .l-tier{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--gray-light)}
+.lcard.core .l-tier{color:rgba(255,255,255,.55)}
+.lcard h3{font-size:23px;font-weight:650;margin:12px 0 6px;letter-spacing:-.015em}
+.lcard .l-for{font-size:13px;color:var(--gray);min-height:40px;line-height:1.5}
+.lcard.core .l-for{color:rgba(255,255,255,.65)}
+.lcard .l-price{font-size:20px;font-weight:650;margin-top:20px}
+.lcard .l-link{display:inline-block;margin-top:14px;font-size:13px;font-weight:600;color:var(--navy);text-decoration:none}
+.lcard.core .l-link{color:#fff}
+.lcard .l-link:hover{text-decoration:underline}
+.lcard .l-pop{position:absolute;top:22px;right:22px;background:rgba(255,255,255,.16);border-radius:980px;padding:4px 11px;font-size:10.5px;font-weight:600}
+.ladder .l-note{text-align:center;margin-top:36px;font-size:13px;color:var(--gray)}
+
+/* ---------- footer ---------- */
+footer{background:#1D1D1F;color:rgba(255,255,255,.5);padding:64px 0 36px;font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;align-items:flex-start;gap:40px}
+footer .logo{color:#fff;font-size:24px}
+footer .f-note{max-width:280px;margin-top:12px;line-height:1.6}
+footer .cols{display:flex;gap:64px}
+footer h5{color:#fff;font-size:12px;letter-spacing:.09em;text-transform:uppercase;margin-bottom:14px}
+footer a{display:block;color:rgba(255,255,255,.5);text-decoration:none;margin-bottom:8px}
+footer a:hover{color:#fff}
+footer .base{border-top:1px solid rgba(255,255,255,.1);margin-top:48px;padding-top:22px;display:flex;justify-content:space-between;font-size:11.5px}
+
+/* ============================================================
+   MOBILE — sava logika, ne sumažintas desktopas
+   ============================================================ */
+@media (max-width:1024px){
+  .split{grid-template-columns:1fr}
+  .rail{position:static}
+  .buycard{right:24px;width:330px}
+  nav.main{display:none}
+}
+@media (max-width:740px){
+  .d-only{display:none}
+  .m-only{display:block}
+  body{padding-bottom:76px;overflow-x:clip} /* vieta bottom bar */
+  .wrap{padding:0 20px}
+  .h2{font-size:30px}
+
+  /* hero: vaizdas + kortelė tampa atskirais moduliais */
+  .hero{height:auto;min-height:0;max-height:none}
+  .hero-visual{height:58vh;min-height:420px}
+  .hero img.bg{object-position:38% 25%}
+  .hero-copy{left:20px;right:20px;bottom:28px}
+  .hero-copy h1{font-size:38px}
+  .hero-copy p{font-size:14.5px}
+  .buycard{position:static;transform:none;width:auto;margin:0;border:none;border-radius:0;box-shadow:none;padding:28px 20px 8px}
+
+  /* proof: horizontali juosta */
+  .proofstrip .wrap{display:flex;overflow-x:auto;gap:0;scrollbar-width:none;padding-top:20px;padding-bottom:20px}
+  .proofstrip .wrap::-webkit-scrollbar{display:none}
+  .proof-item{flex:0 0 46%;scroll-snap-align:start;border-right:1px solid var(--hairline)}
+  .proof-item:last-child{border-right:none}
+  .proof-item b{font-size:20px}
+
+  .editorial{padding:72px 0 56px}
+  .editorial h2{font-size:32px}
+  .editorial p{font-size:15px}
+
+  .split-section{padding-bottom:64px}
+  .split-left>*+*{margin-top:72px}
+  .block h3{font-size:26px}
+
+  /* moduliai virsta horizontaliais snap takeliais su „peek" — grynas CSS, be JS */
+  .hscroll-m{display:flex !important;flex-direction:row !important;grid-template-columns:none !important;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-left:-20px;margin-right:-20px;padding:0 20px 8px;scrollbar-width:none}
+  .hscroll-m::-webkit-scrollbar{display:none}
+  .hscroll-m>*{flex:0 0 78%;scroll-snap-align:center;min-width:0}
+  .hair-grid.hscroll-m>*{flex:0 0 62%}
+  .g-grid.hscroll-m>*{flex:0 0 70%}
+  .ladder-grid.hscroll-m>*{flex:0 0 82%}
+  .testi-grid.hscroll-m>*{flex:0 0 82%}
+  .tech-list.hscroll-m .tech-item{padding:22px;min-height:190px}
+
+  .tech-grid{grid-template-columns:1fr}
+  .tech-photo{min-height:340px}
+  .tech-photo img{position:static;height:340px}
+
+  .results{padding:32px 24px}
+  .results .r-grid{grid-template-columns:1fr;gap:24px;margin-top:24px}
+  .results .r-item{display:flex;align-items:baseline;gap:16px}
+  .results .r-item b{font-size:38px}
+  .results .r-item span{margin-top:0}
+
+  /* rail desktopo — paslepiam, mobile'e info tampa sekcija */
+  .rail{display:none}
+
+  .videos{padding:64px 0 72px}
+  .videos .head{flex-direction:column;align-items:flex-start;gap:14px;margin-bottom:28px}
+  .vid-controls{display:none}
+  .vid-track{margin:0 -20px;padding:0 20px 8px}
+  .vcard{flex:0 0 74vw;max-width:300px}
+
+  .testi{padding:72px 0}
+  .compare{padding:72px 0}
+  .cmp-table{display:none}
+  .cmp-mobile{display:block}
+  .cmp-verdict{font-size:16px;padding:0 12px}
+
+  .faq{padding:72px 0}
+  .faq .grid{grid-template-columns:1fr;gap:28px}
+
+  .guarantee{padding-bottom:72px}
+  .ladder{padding:72px 0}
+
+  footer .wrap{flex-direction:column;gap:32px}
+  footer .cols{flex-wrap:wrap;gap:32px}
+  footer .base{flex-direction:column;gap:6px}
+
+  /* mobile bottom bar */
+  .bottombar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:110;background:rgba(255,255,255,.85);backdrop-filter:blur(20px) saturate(1.6);border-top:1px solid var(--hairline);padding:10px 20px calc(10px + env(safe-area-inset-bottom));align-items:center;justify-content:space-between;transform:translateY(110%);transition:transform .35s ease}
+  .bottombar.show{transform:none}
+  .bottombar .bt-name{font-size:13.5px;font-weight:600}
+  .bottombar .bt-price{font-size:12.5px;color:var(--gray)}
+  .bottombar .btn{padding:11px 26px;font-size:14px}
+
+  .buybar{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- desktop top buybar -->
+<div class="buybar" id="buybar">
+  <div class="wrap">
+    <div class="bb-name">Bomby Styler Silk+</div>
+    <nav>
+      <a href="#kodel">Kodėl verta</a>
+      <a href="#technologija">Technologija</a>
+      <a href="#atsiliepimai">Atsiliepimai</a>
+      <a href="#palyginimas">Palyginimas</a>
+      <a href="#duk">DUK</a>
+    </nav>
+    <div class="bb-right">
+      <div class="bb-price">€169</div>
+      <button class="btn">Pirkti</button>
+    </div>
+  </div>
+</div>
+
+<!-- mobile bottom bar -->
+<div class="bottombar" id="bottombar">
+  <div>
+    <div class="bt-name">Bomby Styler Silk+</div>
+    <div class="bt-price">€169 · arba 3 × €56.33</div>
+  </div>
+  <button class="btn">Pirkti</button>
+</div>
+
+<!-- header -->
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="#">Ferrli</a>
+    <nav class="main">
+      <a href="#">Parduotuvė</a>
+      <a href="#">Rinkiniai</a>
+      <a href="#">Technologija</a>
+      <a href="#">Pagalba</a>
+    </nav>
+    <div class="head-icons">
+      <span>Paieška</span>
+      <span>Krepšelis</span>
+    </div>
+  </div>
+</header>
+
+<!-- hero -->
+<section class="hero" id="hero">
+  <div class="hero-visual">
+    <img class="bg" src="mero%20image.png" alt="Ferrli Bomby Styler Silk+">
+    <div class="scrim"></div>
+    <div class="hero-copy">
+      <div class="kicker">Ferrli · Beauty Tech</div>
+      <h1>Salonas.<br><em>Tavo namuose.</em></h1>
+      <p>Džiovina, formuoja ir suteikia blizgesį vienu judesiu — saugodamas plauką.</p>
+    </div>
+  </div>
+  <div class="buycard" id="buycard">
+    <h2>Bomby Styler Silk+</h2>
+    <div class="rating"><span class="stars">★★★★★</span>4.9 · 2 431 atsiliepimai</div>
+    <div class="opt-label">Šepečio dydis</div>
+    <div class="tiles" id="sizes">
+      <button class="tile"><span><b>42 mm</b><span>Ploniems ir trumpesniems plaukams</span></span><span class="t-check">✓</span></button>
+      <button class="tile active"><span><b>46 mm</b><span>Ilgiems plaukams ir apimčiai</span></span><span class="t-check">✓</span></button>
+    </div>
+    <div class="price-row">
+      <div class="price">€169</div>
+      <div class="price-note">arba 3 × €56.33 dalimis</div>
+    </div>
+    <button class="btn">Pirkti dabar</button>
+    <div class="micro">
+      <div><b>Pristatymas rytoj</b>&nbsp;— užsakius iki 15:00, nemokamai</div>
+      <div><b>30 d. bandymui</b>&nbsp;— grąžinimas be klausimų</div>
+      <div><b>2 m. garantija</b>&nbsp;— servisas Lietuvoje</div>
+    </div>
+  </div>
+</section>
+
+<!-- proof strip -->
+<section class="proofstrip">
+  <div class="wrap">
+    <div class="proof-item reveal"><b>12 000+</b><span>klientų Lietuvoje</span></div>
+    <div class="proof-item reveal"><b>★ 4.9 / 5</b><span>atsiliepimų vidurkis</span></div>
+    <div class="proof-item reveal"><b>94%</b><span>rekomenduotų draugei</span></div>
+    <div class="proof-item reveal"><b>30 d.</b><span>bandymo laikotarpis</span></div>
+  </div>
+</section>
+
+<!-- editorial -->
+<section class="editorial">
+  <div class="wrap reveal">
+    <h2>Ne dar vienas fenas. <span class="sub">Visa plaukų rutina viename įrankyje.</span></h2>
+    <p>Bomby Styler Silk+ pakeičia feną, šepetį ir formavimo įrankius. Išdžiovina, suteikia apimties ir sukuria švelnias bangas — be karščio žalos.</p>
+  </div>
+</section>
+
+<!-- split -->
+<section class="split-section">
+  <div class="wrap">
+    <div class="split">
+
+      <div class="split-left">
+
+        <div class="block reveal" id="kodel">
+          <h3>Kodėl verta. <span class="sub">Trys priežastys.</span></h3>
+          <div class="argcards hscroll-m">
+            <div class="argcard">
+              <div class="a-stat">15 min</div>
+              <h4>Vietoj keturiasdešimties</h4>
+              <p>Džiovinimas ir formavimas vyksta vienu metu — vidutinio ilgio plaukams užtenka ~15 minučių.</p>
+            </div>
+            <div class="argcard">
+              <div class="a-stat">1 judesys</div>
+              <h4>Salono apimtis be įgūdžių</h4>
+              <p>Ovalus šepetys pakelia plauką prie šaknų — nereikia žongliruoti fenu ir apvaliu šepečiu.</p>
+            </div>
+            <div class="argcard">
+              <div class="a-stat">−28°</div>
+              <h4>Švelniau plaukui</h4>
+              <p>Žemesnė džiovinimo temperatūra nei įprasto feno — mažiau šiurkštumo, daugiau blizgesio.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="block reveal" id="technologija">
+          <h3>Technologija. <span class="sub">Sukurta švelnumui.</span></h3>
+          <p>Formavimas neturi palikti plaukų sausų ir trapių. Silk+ derina tris technologijas, kurios veikia kartu.</p>
+          <div class="tech-grid">
+            <div class="tech-photo">
+              <img src="product%20features.png" alt="Bomby Styler Silk+ naudojimas">
+              <div class="tag">SILK+ šerių technologija</div>
+            </div>
+            <div class="tech-list hscroll-m">
+              <div class="tech-item">
+                <h4><small>Infrared</small>Infraraudonoji šiluma</h4>
+                <p>Džiovina plauką iš vidaus žemesnėje temperatūroje — paviršius neperkaista, drėgmė išlieka.</p>
+              </div>
+              <div class="tech-item">
+                <h4><small>Ionic</small>Jonizacija blizgesiui</h4>
+                <p>Neigiami jonai neutralizuoja statinę elektrą — mažiau pūkavimosi, lygesnis paviršius.</p>
+              </div>
+              <div class="tech-item">
+                <h4><small>Silk+</small>Šerno ir nailono šeriai</h4>
+                <p>Natūralūs šeriai paskirsto plauko aliejus, nailoniniai — iššukuoja ir suformuoja.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="block reveal">
+          <h3>Tavo plaukams. <span class="sub">Kad ir kokie jie būtų.</span></h3>
+          <div class="hair-grid hscroll-m">
+            <div class="hair-card">
+              <h4>Tiesūs, be apimties</h4>
+              <p>Pakelia šaknis, sukuria natūralią apimtį be lako.</p>
+              <span class="pick">46 mm</span>
+            </div>
+            <div class="hair-card">
+              <h4>Banguoti, pasišiaušę</h4>
+              <p>Sulygina paviršių ir suvaldo pūkavimąsi.</p>
+              <span class="pick">46 mm</span>
+            </div>
+            <div class="hair-card">
+              <h4>Ploni, trumpesni</h4>
+              <p>Mažesnė galvutė tiksliau formuoja ties galiukais.</p>
+              <span class="pick">42 mm</span>
+            </div>
+            <div class="hair-card">
+              <h4>Dažyti, jautrūs</h4>
+              <p>Žemesnė temperatūra saugo spalvą ir struktūrą.</p>
+              <span class="pick">42 / 46 mm</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="block reveal">
+          <div class="results">
+            <h3>Po 4 savaičių. <span class="sub">Skaičiai kalba patys.</span></h3>
+            <div class="r-grid">
+              <div class="r-item"><b>93%</b><span>pastebėjo lygesnius, mažiau pasišiaušusius plaukus</span></div>
+              <div class="r-item"><b>89%</b><span>sako, kad plaukai atrodo „kaip iš salono“</span></div>
+              <div class="r-item"><b>2×</b><span>greitesnis rytinis ritualas nei su fenu ir šepečiu</span></div>
+            </div>
+            <div class="foot">2026 m. vidinė apklausa — 214 Ferrli klienčių, naudojusių Silk+ kasdien 4 savaites.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- desktop sticky rail -->
+      <aside class="rail">
+        <div class="railcard">
+          <div class="r-head">
+            <div>
+              <h4>Bomby Styler Silk+</h4>
+              <div class="r-sub">46 mm · Midnight Blue</div>
+            </div>
+            <div>
+              <div class="r-price">€169</div>
+              <div class="r-installment">3 × €56.33</div>
+            </div>
+          </div>
+          <div class="rail-list">
+            <div class="rail-item"><span class="ri-ico">›</span><div><b>Užsakyk iki 15:00</b> pristatysime rytoj, visoje Lietuvoje nemokamai</div></div>
+            <div class="rail-item"><span class="ri-ico">›</span><div><b>30 dienų bandymui</b> netiks — grąžinsi be klausimų</div></div>
+            <div class="rail-item"><span class="ri-ico">›</span><div><b>2 metų garantija</b> ir servisas Lietuvoje</div></div>
+            <div class="rail-item"><span class="ri-ico">›</span><div><b>Mokėk dalimis</b> — 3 × €56.33 be pabrangimo</div></div>
+          </div>
+          <button class="btn">Į krepšelį</button>
+          <div class="rail-gift"><b>Dovana?</b> Pridėsime premium dėžutę ir atvirutę nemokamai.</div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- videos -->
+<section class="videos" id="atsiliepimai">
+  <div class="wrap">
+    <div class="head reveal">
+      <div>
+        <div class="h2">Tikros klientės. <span class="sub">Tikri rezultatai.</span></div>
+      </div>
+      <div>
+        <p>Ne studijoje ir ne su modeliais — nufilmuota klienčių namuose.</p>
+        <div class="vid-controls">
+          <button class="vc-btn" onclick="slideVideos(-1)">←</button>
+          <button class="vc-btn" onclick="slideVideos(1)">→</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="vid-track" id="vidtrack">
+      <div class="vcard">
+        <img src="product%20features.png" alt="" style="object-position:20% 15%">
+        <div class="v-scrim"></div>
+        <div class="v-play">▶</div>
+        <div class="v-dur">0:42</div>
+        <div class="v-meta">
+          <div class="stars">★★★★★</div>
+          <b>Gabija, 27</b>
+          <span>„Pirmą kartą — ir jau kaip iš salono“</span>
+        </div>
+      </div>
+      <div class="vcard quote">
+        <div>
+          <div class="q-mark">“</div>
+          <p>Grąžinau savo Dyson. Rimtai. Rezultatas tas pats, o skirtumą pasilikau atostogoms.</p>
+        </div>
+        <div class="v-meta">
+          <div class="stars">★★★★★</div>
+          <b>Monika, 34</b>
+          <span>Patvirtintas pirkimas</span>
+        </div>
+      </div>
+      <div class="vcard">
+        <img src="product%20features2.png" alt="" style="object-position:50% 10%">
+        <div class="v-scrim"></div>
+        <div class="v-play">▶</div>
+        <div class="v-dur">1:05</div>
+        <div class="v-meta">
+          <div class="stars">★★★★★</div>
+          <b>Austėja, 31</b>
+          <span>„Dažyti plaukai — jokio šiurkštumo“</span>
+        </div>
+      </div>
+      <div class="vcard">
+        <img src="mero%20image.png" alt="" style="object-position:30% 20%">
+        <div class="v-scrim"></div>
+        <div class="v-play">▶</div>
+        <div class="v-dur">0:38</div>
+        <div class="v-meta">
+          <div class="stars">★★★★★</div>
+          <b>Rūta, 24</b>
+          <span>„Ryto rutina — 12 minučių“</span>
+        </div>
+      </div>
+      <div class="vcard quote">
+        <div>
+          <div class="q-mark">“</div>
+          <p>Plaukai ploni, bijojau, kad nudegins. Po mėnesio — sveikesni nei prieš.</p>
+        </div>
+        <div class="v-meta">
+          <div class="stars">★★★★★</div>
+          <b>Eglė, 42</b>
+          <span>Patvirtintas pirkimas</span>
+        </div>
+      </div>
+      <div class="vcard">
+        <img src="product%20features.png" alt="" style="object-position:80% 30%">
+        <div class="v-scrim"></div>
+        <div class="v-play">▶</div>
+        <div class="v-dur">0:51</div>
+        <div class="v-meta">
+          <div class="stars">★★★★★</div>
+          <b>Karolina, 29</b>
+          <span>„Prieš / po — banguoti plaukai“</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ugc-note reveal">Vietos tikram UGC turiniui — vertikalūs 9:16 klienčių video, atsidarantys per visą ekraną.</div>
+  </div>
+</section>
+
+<!-- testimonials -->
+<section class="testi">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="h2">★ 4.9 <span class="sub">iš 2 431 atsiliepimo.</span></div>
+      <p class="lead">94% klienčių rekomenduotų Silk+ draugei.</p>
+    </div>
+    <div class="testi-grid hscroll-m">
+      <div class="tcard reveal">
+        <div class="stars">★★★★★</div>
+        <p>Ilgai svarsčiau tarp šito ir Shark. Nugalėjo kaina ir tai, kad garantija Lietuvoje. Po trijų mėnesių galiu pasakyti — geriausias pirkinys metuose.</p>
+        <div class="t-foot">
+          <div class="t-who"><b>Ieva K.</b><span>Vilnius · prieš 2 sav.</span></div>
+          <span class="t-tag">Ilgi, tiesūs</span>
+        </div>
+        <div class="verified">✓ Patvirtintas pirkimas</div>
+      </div>
+      <div class="tcard reveal">
+        <div class="stars">★★★★★</div>
+        <p>Man 52 ir plaukai jau nebe tie, kas buvo. Su šituo šepečiu apimtis laikosi visą dieną. Dukra dabar nori tokio pat.</p>
+        <div class="t-foot">
+          <div class="t-who"><b>Danguolė M.</b><span>Kaunas · prieš 1 mėn.</span></div>
+          <span class="t-tag">Ploni, dažyti</span>
+        </div>
+        <div class="verified">✓ Patvirtintas pirkimas</div>
+      </div>
+      <div class="tcard reveal">
+        <div class="stars">★★★★☆</div>
+        <p>Rezultatas puikus, bet reikėjo poros dienų priprasti prie judesio. Žiūrėkite jų video pamokas — po jų viskas stojo į vietas.</p>
+        <div class="t-foot">
+          <div class="t-who"><b>Greta S.</b><span>Klaipėda · prieš 3 sav.</span></div>
+          <span class="t-tag">Banguoti</span>
+        </div>
+        <div class="verified">✓ Patvirtintas pirkimas</div>
+      </div>
+      <div class="tcard reveal">
+        <div class="stars">★★★★★</div>
+        <p>Pirkau kaip dovaną mamai. Supakavo į labai gražią dėžutę, pridėjo atvirutę. Mama laiminga, aš irgi — nes dabar skolinuosi.</p>
+        <div class="t-foot">
+          <div class="t-who"><b>Justina P.</b><span>Vilnius · prieš 1 sav.</span></div>
+          <span class="t-tag">Dovana</span>
+        </div>
+        <div class="verified">✓ Patvirtintas pirkimas</div>
+      </div>
+      <div class="tcard reveal">
+        <div class="stars">★★★★★</div>
+        <p>Naudoju kasdien jau pusę metų. Plaukai sveikesni nei kada nors — kirpėja paklausė, ką darau kitaip. Parodžiau Ferrli.</p>
+        <div class="t-foot">
+          <div class="t-who"><b>Aistė B.</b><span>Šiauliai · prieš 2 mėn.</span></div>
+          <span class="t-tag">Ilgi, dažyti</span>
+        </div>
+        <div class="verified">✓ Patvirtintas pirkimas</div>
+      </div>
+      <div class="tcard reveal">
+        <div class="stars">★★★★★</div>
+        <p>42 mm versija idealiai tinka mano karė šukuosenai. Galiukai užsilenkia į vidų kaip po salono. Už tokią kainą — nerealu.</p>
+        <div class="t-foot">
+          <div class="t-who"><b>Simona V.</b><span>Panevėžys · prieš 5 d.</span></div>
+          <span class="t-tag">Trumpi</span>
+        </div>
+        <div class="verified">✓ Patvirtintas pirkimas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- comparison -->
+<section class="compare" id="palyginimas">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="h2">Palyginkime. <span class="sub">Sąžiningai.</span></div>
+      <p class="lead">Nesakome, kad kiti blogi. Sakome, kad už premium rezultatą nebūtina mokėti premium antkainio.</p>
+    </div>
+
+    <!-- desktop table -->
+    <div class="cmp-table reveal">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Paprastas fenas<small>+ apvalus šepetys</small></th>
+            <th class="ferrli-col"><span class="badge">Protingas pasirinkimas</span><br>Ferrli Bomby Silk+</th>
+            <th>Shark FlexStyle</th>
+            <th>Dyson Airwrap</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Džiovina ir formuoja vienu metu</td><td><span class="no">—</span></td><td class="ferrli-col"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+          <tr><td>Temperatūros kontrolė saugo plauką</td><td><span class="no">—</span></td><td class="ferrli-col"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+          <tr><td>Infraraudonoji džiovinimo technologija</td><td><span class="no">—</span></td><td class="ferrli-col"><span class="yes">✓</span></td><td><span class="no">—</span></td><td><span class="no">—</span></td></tr>
+          <tr><td>Jonizacija blizgesiui</td><td><span class="no">—</span></td><td class="ferrli-col"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+          <tr><td>Garantija ir servisas Lietuvoje</td><td><span class="no">nevienoda</span></td><td class="ferrli-col"><span class="yes">✓ 2 metai</span></td><td><span class="no">per platintoją</span></td><td><span class="no">per platintoją</span></td></tr>
+          <tr><td><b style="color:var(--ink)">Kaina</b></td><td>~€40–70</td><td class="ferrli-col"><b style="font-size:16px">€169</b></td><td>~€260</td><td>~€550</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- mobile: segmented switcher -->
+    <div class="cmp-mobile reveal">
+      <div class="seg" id="cmpseg">
+        <button class="active" data-cmp="0">Fenas</button>
+        <button data-cmp="1">Shark</button>
+        <button data-cmp="2">Dyson</button>
+      </div>
+      <div class="cmp-panel active" data-panel="0">
+        <div class="cp-head"><span style="text-align:left"></span><span class="f">Ferrli</span><span>Fenas</span></div>
+        <div class="cmp-row">Džiovina ir formuoja vienu metu<span>✓</span><span class="no">—</span></div>
+        <div class="cmp-row">Temperatūros kontrolė<span>✓</span><span class="no">—</span></div>
+        <div class="cmp-row">Infraraudonoji technologija<span>✓</span><span class="no">—</span></div>
+        <div class="cmp-row">Jonizacija blizgesiui<span>✓</span><span class="no">—</span></div>
+        <div class="cmp-row">Garantija Lietuvoje<span>2 m.</span><span class="no">—</span></div>
+        <div class="cmp-row"><b style="color:var(--ink)">Kaina</b><span>€169</span><span>€40+</span></div>
+      </div>
+      <div class="cmp-panel" data-panel="1">
+        <div class="cp-head"><span style="text-align:left"></span><span class="f">Ferrli</span><span>Shark</span></div>
+        <div class="cmp-row">Džiovina ir formuoja vienu metu<span>✓</span><span>✓</span></div>
+        <div class="cmp-row">Temperatūros kontrolė<span>✓</span><span>✓</span></div>
+        <div class="cmp-row">Infraraudonoji technologija<span>✓</span><span class="no">—</span></div>
+        <div class="cmp-row">Jonizacija blizgesiui<span>✓</span><span>✓</span></div>
+        <div class="cmp-row">Garantija Lietuvoje<span>2 m.</span><span class="no">platint.</span></div>
+        <div class="cmp-row"><b style="color:var(--ink)">Kaina</b><span>€169</span><span>~€260</span></div>
+      </div>
+      <div class="cmp-panel" data-panel="2">
+        <div class="cp-head"><span style="text-align:left"></span><span class="f">Ferrli</span><span>Dyson</span></div>
+        <div class="cmp-row">Džiovina ir formuoja vienu metu<span>✓</span><span>✓</span></div>
+        <div class="cmp-row">Temperatūros kontrolė<span>✓</span><span>✓</span></div>
+        <div class="cmp-row">Infraraudonoji technologija<span>✓</span><span class="no">—</span></div>
+        <div class="cmp-row">Jonizacija blizgesiui<span>✓</span><span>✓</span></div>
+        <div class="cmp-row">Garantija Lietuvoje<span>2 m.</span><span class="no">platint.</span></div>
+        <div class="cmp-row"><b style="color:var(--ink)">Kaina</b><span>€169</span><span>~€550</span></div>
+      </div>
+    </div>
+
+    <div class="cmp-verdict reveal">„Beveik visos premium funkcijos — už trečdalį Dyson kainos.“</div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="duk">
+  <div class="wrap">
+    <div class="grid">
+      <div class="reveal">
+        <div class="h2">Klausimai. <span class="sub">Atsakyti iš anksto.</span></div>
+        <p class="lead">Sąžiningi atsakymai į tai, ko iš tikrųjų klausiate — dar prieš klausdamos draugės ar Google.</p>
+      </div>
+      <div class="reveal">
+        <details open>
+          <summary>Ar negadina plaukų? <span class="plus">+</span></summary>
+          <p>Ne. Silk+ džiovina žemesnėje temperatūroje nei įprastas fenas — infraraudonoji šiluma džiovina plauką iš vidaus, o jonizacija uždaro žvynelius. Dauguma klienčių po mėnesio pastebi, kad plaukai atrodo sveikiau, ne prasčiau.</p>
+        </details>
+        <details>
+          <summary>Ar tinka mano plaukų tipui? <span class="plus">+</span></summary>
+          <p>42 mm — trumpesniems ir plonesniems plaukams, 46 mm — ilgiems ir apimčiai. Veikia su tiesiais, banguotais ir dažytais plaukais. Jei abejoji — parašyk mums, patarsime pagal tavo plaukų nuotrauką.</p>
+        </details>
+        <details>
+          <summary>Kuo skiriasi nuo Shark ar Dyson? <span class="plus">+</span></summary>
+          <p>Technologijos esmė ta pati: džiovinimas ir formavimas vienu metu su karščio kontrole. Skirtumas — kaina ir priedai: Dyson moki už prekės ženklą ir priedų sistemą, kurios dauguma nenaudoja. Palyginimas — aukščiau.</p>
+        </details>
+        <details>
+          <summary>Ką daryti, jei netiks? <span class="plus">+</span></summary>
+          <p>Turi 30 dienų išbandyti namuose. Netiks — grąžini be jokių klausimų, pinigus grąžiname per 3 darbo dienas. Grąžinimo siuntimas — nemokamas.</p>
+        </details>
+        <details>
+          <summary>Kiek užtrunka susitvarkyti plaukus? <span class="plus">+</span></summary>
+          <p>Vidutinio ilgio plaukams — apie 15 minučių nuo rankšluosčiu nusausintų iki pilnai suformuotų. Su fenu ir šepečiu tas pats rezultatas užtrunka 30–40 min ir reikalauja įgūdžių.</p>
+        </details>
+        <details>
+          <summary>Kaip greitai gausiu? <span class="plus">+</span></summary>
+          <p>Užsakius iki 15:00 — pristatome kitą darbo dieną visoje Lietuvoje. Pristatymas nemokamas, galima rinktis kurjerį arba paštomatą.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- guarantee -->
+<section class="guarantee">
+  <div class="wrap">
+    <div class="g-grid hscroll-m">
+      <div class="gcard reveal">
+        <h4><b>30 d.</b>Bandymui namuose</h4>
+        <p>Netiks — grąžinsi be klausimų, siuntimas mūsų sąskaita.</p>
+      </div>
+      <div class="gcard reveal">
+        <h4><b>2 m.</b>Garantija</h4>
+        <p>Servisas Lietuvoje. Gedimo atveju — keičiame, ne siuntinėjame.</p>
+      </div>
+      <div class="gcard reveal">
+        <h4><b>Rytoj</b>Pristatymas</h4>
+        <p>Užsakyk iki 15:00 — rytoj jau namuose. Nemokamai.</p>
+      </div>
+      <div class="gcard reveal">
+        <h4><b>3×</b>Dalimis be pabrangimo</h4>
+        <p>3 × €56.33 — be palūkanų, sprendimas per 2 minutes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ladder -->
+<section class="ladder">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="h2">Ferrli kolekcija. <span class="sub">Rask savo.</span></div>
+      <p class="lead">Trys linijos, dvylika įrankių — kiekvienam plaukų tipui ir tikslui.</p>
+    </div>
+    <div class="ladder-grid hscroll-m">
+      <div class="lcard reveal">
+        <div class="l-tier">Start</div>
+        <h3>Bomby Air</h3>
+        <div class="l-for">Pirmasis premium žingsnis — paprastam kasdieniam formavimui.</div>
+        <div class="l-price">nuo €99</div>
+        <a class="l-link" href="#">Pažinti liniją ›</a>
+      </div>
+      <div class="lcard core reveal">
+        <div class="l-pop">Populiariausia</div>
+        <div class="l-tier">Core</div>
+        <h3>Bomby Styler Silk+</h3>
+        <div class="l-for">Geriausias kainos ir rezultato balansas — salonas namuose kasdien.</div>
+        <div class="l-price">€169</div>
+        <a class="l-link" href="#">Šis puslapis ›</a>
+      </div>
+      <div class="lcard reveal">
+        <div class="l-tier">Lux</div>
+        <h3>Silk Pro Max</h3>
+        <div class="l-for">Stipriausia technologija, priedų sistema, premium rinkinys.</div>
+        <div class="l-price">nuo €297</div>
+        <a class="l-link" href="#">Pažinti liniją ›</a>
+      </div>
+    </div>
+    <div class="l-note">Kiekvienas iš 12 produktų turi savo vaidmenį — nereikia rinktis iš penkių panašių kortelių.</div>
+  </div>
+</section>
+
+<!-- footer -->
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="logo">Ferrli</div>
+      <p class="f-note">Accessible premium beauty tech. Salono rezultatas namuose — be salono kainos.</p>
+    </div>
+    <div class="cols">
+      <div>
+        <h5>Parduotuvė</h5>
+        <a href="#">Visi įrankiai</a>
+        <a href="#">Rinkiniai</a>
+        <a href="#">Dovanų idėjos</a>
+      </div>
+      <div>
+        <h5>Pagalba</h5>
+        <a href="#">Pristatymas ir grąžinimas</a>
+        <a href="#">Garantija</a>
+        <a href="#">DUK</a>
+      </div>
+      <div>
+        <h5>Ferrli</h5>
+        <a href="#">Technologija</a>
+        <a href="#">Bendruomenė</a>
+        <a href="#">Kontaktai</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap base">
+    <span>© 2026 Ferrli. Dizaino koncepcija — Object.lt</span>
+    <span>Koncepcija v3 · Produkto puslapis</span>
+  </div>
+</footer>
+
+<script>
+// desktop top buybar + mobile bottom bar
+const buybar=document.getElementById('buybar');
+const bottombar=document.getElementById('bottombar');
+const buycard=document.getElementById('buycard');
+window.addEventListener('scroll',()=>{
+  const past=window.scrollY>buycard.offsetTop+buycard.offsetHeight-60;
+  buybar.classList.toggle('show',past);
+  bottombar.classList.toggle('show',past);
+},{passive:true});
+
+// reveal
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// size tiles
+document.querySelectorAll('#sizes .tile').forEach(t=>{
+  t.addEventListener('click',()=>{
+    document.querySelectorAll('#sizes .tile').forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+  });
+});
+
+// video slider (desktop arrows)
+function slideVideos(dir){
+  document.getElementById('vidtrack').scrollBy({left:dir*286,behavior:'smooth'});
+}
+
+// mobile comparison segmented control
+document.querySelectorAll('#cmpseg button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('#cmpseg button').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    document.querySelectorAll('.cmp-panel').forEach(p=>{
+      p.classList.toggle('active',p.dataset.panel===b.dataset.cmp);
+    });
+  });
+});
+</script>
+</body>
+</html>
