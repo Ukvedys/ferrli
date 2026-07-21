@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Ferrli — Katalogas · Keturios kategorijos, vienas ritualas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&amp;family=Instrument+Sans:wght@400..600&amp;display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   FERRLI Nº07 — "The Catalogue"
+   The real shop, hung like a gallery.
+   Four chapters — dryers, straighteners, cosmetics, accessories.
+   Products, prices & photographs: ferrlihair.lt
+   ============================================================ */
+:root{
+  --white:#FFFFFF;
+  --paper:#F5F3F0;
+  --ink:#161513;
+  --body:#5F5B55;
+  --faint:#9B968E;
+  --line:rgba(22,21,19,.14);
+  --navy:#3A4C7A;
+  --serif:"Fraunces",Georgia,serif;
+  --sans:"Instrument Sans",-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--white);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer}
+a{color:inherit}
+.wrap{max-width:1800px;margin:0 auto;padding:0 clamp(24px,4vw,72px)}
+
+.label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);font-weight:500}
+.display{font-family:var(--serif);font-weight:340;letter-spacing:-.01em;line-height:1.06}
+.display em{font-style:italic;font-weight:320}
+.body-text{font-size:16px;color:var(--body);line-height:1.75}
+
+.reveal{opacity:0;transform:translateY(10px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+
+.btn{background:var(--ink);color:#fff;border:none;border-radius:2px;padding:17px 40px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;transition:opacity .2s;display:inline-block;text-decoration:none}
+.btn:hover{opacity:.8}
+
+/* ---------- header ---------- */
+header.site{border-bottom:1px solid var(--line);position:relative;z-index:20;background:var(--white)}
+header.site .wrap{display:flex;align-items:center;gap:44px;height:76px}
+.logo{font-family:var(--serif);font-style:italic;font-weight:500;font-size:25px;text-decoration:none;margin-right:8px;display:flex;align-items:center}
+.logo img{height:24px;width:auto;display:block}
+nav.main{display:flex;gap:30px;flex:1}
+nav.main a{text-decoration:none;font-size:13px;letter-spacing:.06em;color:var(--body);transition:color .2s}
+nav.main a:hover{color:var(--ink)}
+nav.main a.on{color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:3px}
+.search{display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding:6px 2px;width:200px;text-decoration:none;color:var(--body);font-size:13px}
+.search input{border:none;outline:none;font-family:inherit;font-size:13px;width:100%;background:transparent;color:var(--ink)}
+.search input::placeholder{color:var(--faint)}
+.search .s-ico{font-size:13px;color:var(--faint)}
+.head-links{display:flex;gap:26px;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.head-links a{text-decoration:none;color:var(--body)}
+.head-links a:hover{color:var(--ink)}
+.head-links b{color:var(--ink);font-weight:600}
+.mobile-nav{display:none}
+
+/* ============================================================
+   HERO — the categories ARE the hero.
+   Three columns: dryers | straighteners | (cosmetics / accessories).
+   ============================================================ */
+.hero-wrap{max-width:1840px;margin:0 auto;padding:16px 20px 0}
+.mosaic{display:flex;gap:14px;height:clamp(580px,85vh,920px)}
+.mosaic>*{min-width:0;flex:1 1 0;transition:flex-grow .55s cubic-bezier(.33,0,.2,1)}
+.mosaic>*:hover{flex-grow:1.18}
+.m-col{display:flex;flex-direction:column;gap:14px;min-height:0}
+.m-col>.mtile{flex:2 1 0;min-height:0;transition:flex-grow .55s cubic-bezier(.33,0,.2,1)}
+.m-col>.mtile.small{flex:1 1 0}
+.m-col>.mtile:hover{flex-grow:2.5}
+.m-col>.mtile.small:hover{flex-grow:1.4}
+.mtile{position:relative;display:block;overflow:hidden;border-radius:2px;background:var(--paper);text-decoration:none;min-height:0}
+.mtile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.mtile:hover img:not(.swap){transform:scale(1.025)}
+.mtile .swap{opacity:0;transform:scale(.93);transition:opacity .5s ease,transform .7s cubic-bezier(.25,0,.2,1);z-index:2}
+.mtile:hover .swap{opacity:1;transform:scale(1.06);transition:opacity .5s ease,transform 5s cubic-bezier(.16,0,.12,1)}
+.m-label{position:absolute;left:14px;bottom:14px;right:auto;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-radius:2px;padding:15px 20px 14px;max-width:calc(100% - 28px);display:flex;align-items:baseline;gap:16px;z-index:3;transform-origin:left bottom;transition:transform .45s cubic-bezier(.33,0,.2,1)}
+.mtile:hover .m-label{transform:scale(1.13)}
+.m-label .ml-no{font-family:var(--serif);font-style:italic;font-weight:320;font-size:14px;color:var(--faint);flex:none}
+.m-label .ml-main{min-width:0}
+.m-label h2{font-family:var(--serif);font-weight:380;font-size:clamp(19px,1.5vw,26px);letter-spacing:-.01em;line-height:1.1;color:var(--ink)}
+.m-label .ml-lt{font-family:var(--serif);font-style:italic;font-weight:320;font-size:12px;color:var(--faint);margin-top:3px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.m-label .ml-meta{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;margin-top:7px;display:block}
+.m-label .ml-arr{font-family:var(--serif);font-size:18px;color:var(--faint);flex:none;align-self:center;transition:transform .25s,color .25s}
+.mtile:hover .ml-arr{transform:translateX(5px);color:var(--ink)}
+.mtile.small .m-label{padding:11px 16px 10px}
+.mtile.small .m-label h2{font-size:clamp(16px,1.1vw,19px)}
+.mtile.small .m-label .ml-lt{display:none}
+.mtile.small .m-label .ml-meta{margin-top:4px}
+.mtile .plate-ph .ph-cap{left:20px;bottom:18px}
+.mtile.blend{background:#F4D8D6}
+.mtile.blend img{object-fit:contain;mix-blend-mode:multiply;padding:6%}
+
+/* promise band — big, clear, nothing hidden */
+.promise{border-bottom:1px solid var(--line);margin-top:20px}
+.promise .wrap{display:grid;grid-template-columns:repeat(3,1fr)}
+.promise .pr{padding:clamp(28px,2.6vw,42px) clamp(24px,2.5vw,44px) clamp(30px,2.6vw,44px) 0;border-right:1px solid var(--line)}
+.promise .pr:nth-child(2),.promise .pr:nth-child(3){padding-left:clamp(24px,2.5vw,44px)}
+.promise .pr:last-child{border-right:none;padding-right:0}
+.promise b{font-family:var(--serif);font-weight:340;font-size:clamp(32px,2.6vw,48px);letter-spacing:-.02em;line-height:1;display:block}
+.promise b em{font-style:italic;font-weight:320}
+.promise span{display:block;margin-top:12px;font-size:13.5px;color:var(--body);line-height:1.6;max-width:280px}
+.promise span strong{color:var(--ink);font-weight:600}
+
+/* ============================================================
+   CHAPTERS — bento: one wide feature, large siblings, a fact tile
+   ============================================================ */
+.chapter{border-top:1px solid var(--line);padding-top:24px;margin-top:clamp(96px,8vw,140px);display:flex;justify-content:space-between;align-items:baseline;gap:20px}
+.chapter .ch-lt{font-family:var(--serif);font-style:italic;font-weight:320;font-size:13px;color:var(--faint)}
+main>section:first-of-type .chapter{margin-top:clamp(56px,5vw,84px)}
+.fam-head{display:grid;grid-template-columns:3fr 2fr;gap:56px;margin-top:40px;align-items:end}
+.fam-head>*{min-width:0}
+.fam-head h2{font-size:clamp(30px,2.9vw,54px)}
+.fam-head .body-text{max-width:420px}
+
+.bento{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+.bento>*{min-width:0}
+.subrow{grid-column:1/-1;display:flex;align-items:baseline;gap:16px;padding:26px 0 4px}
+.subrow .label{color:var(--ink)}
+.subrow .s-lt{font-family:var(--serif);font-style:italic;font-weight:320;font-size:12.5px;color:var(--faint)}
+.subrow .s-line{flex:1;border-bottom:1px solid var(--line);transform:translateY(-4px)}
+
+/* --- feature card --- */
+.fcard{grid-column:1/-1;display:grid;grid-template-columns:3fr 2.2fr;border:1px solid var(--line);border-radius:2px;overflow:hidden;text-decoration:none;transition:border-color .3s;background:#fff}
+.fcard:hover{border-color:var(--ink)}
+.fcard .f-copy{padding:clamp(30px,3.2vw,56px);display:flex;flex-direction:column;align-items:flex-start;min-width:0}
+.fcard .f-tier{margin-top:auto;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);font-weight:600;display:flex;gap:14px;align-items:baseline}
+.fcard .f-tier em{font-family:var(--serif);font-style:italic;text-transform:none;letter-spacing:0;font-size:12px;font-weight:320}
+.fcard h3{font-family:var(--serif);font-weight:340;font-size:clamp(28px,2.4vw,44px);letter-spacing:-.015em;line-height:1.08;margin-top:18px}
+.fcard h3 em{font-style:italic;font-weight:320}
+.fcard .f-lt{font-family:var(--serif);font-style:italic;font-weight:320;font-size:15px;color:var(--faint);margin-top:8px}
+.fcard .f-line{margin-top:14px;font-size:15.5px;color:var(--body);line-height:1.7;max-width:420px}
+.fcard .f-spec{display:flex;gap:8px;margin-top:22px;flex-wrap:wrap}
+.fcard .f-spec span{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);border:1px solid var(--line);border-radius:999px;padding:5px 12px}
+.fcard .f-foot{padding-top:26px;display:flex;align-items:baseline;gap:14px;width:100%;border-top:1px solid var(--line);margin-top:auto}
+.fcard .f-foot .p{font-family:var(--serif);font-weight:340;font-size:28px;letter-spacing:-.01em}
+.fcard .f-foot .old{font-size:13.5px;color:var(--faint);text-decoration:line-through}
+.fcard .f-foot .go{margin-left:auto;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;border-bottom:1px solid var(--ink);padding-bottom:2px;white-space:nowrap}
+.fcard .f-foot .go i{font-style:normal;display:inline-block;transition:transform .25s}
+.fcard:hover .f-foot .go i{transform:translateX(4px)}
+.fcard .f-img{position:relative;background:#EFE6E2;min-height:420px;overflow:hidden}
+.fcard .f-img.sq{aspect-ratio:1/1;min-height:0;height:auto;align-self:start}
+.fcard .f-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.fcard:hover .f-img img{transform:scale(1.02)}
+.fcard .f-img .swap{opacity:0;transform:scale(1);transition:opacity .5s ease,transform .6s ease}
+.fcard:hover .f-img .swap{opacity:1;transform:scale(1.07);transition:opacity .5s ease,transform 4.5s cubic-bezier(.16,0,.12,1)}
+.c-img img.pblend,.f-img img.pblend{mix-blend-mode:multiply;object-fit:contain;padding:8%}
+.c-img img.pfit,.f-img img.pfit{object-fit:contain;padding:6%}
+.f-img img.pcover{mix-blend-mode:multiply;object-fit:cover;padding:0}
+.fcard:hover .f-img .swap{opacity:1}
+
+/* --- standard card --- */
+.card{border:1px solid var(--line);border-radius:2px;background:#fff;text-decoration:none;display:flex;flex-direction:column;transition:border-color .3s;scroll-margin-top:90px}
+.card:hover{border-color:var(--ink)}
+.card .c-img{position:relative;aspect-ratio:1/1;background:#EFE6E2;overflow:hidden}
+.card .c-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.card:hover .c-img img{transform:scale(1.03)}
+.card .c-img .swap{opacity:0;transform:scale(1);transition:opacity .5s ease,transform .6s ease}
+.card:hover .c-img .swap{opacity:1;transform:scale(1.07);transition:opacity .5s ease,transform 4.5s cubic-bezier(.16,0,.12,1)}
+.card:hover .c-img .swap{opacity:1}
+.card .c-body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:9px;flex:1}
+.card .c-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.card .c-tier{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);font-weight:600}
+.card .c-arr{font-family:var(--serif);font-size:18px;color:var(--faint);line-height:1;transition:transform .25s,color .25s}
+.card:hover .c-arr{transform:translateX(4px);color:var(--ink)}
+.card h3{font-family:var(--serif);font-weight:400;font-size:22px;letter-spacing:-.01em}
+.card h3 em{font-style:italic;font-weight:340}
+.card .c-lt{font-family:var(--serif);font-style:italic;font-weight:320;font-size:13px;color:var(--faint);margin-top:-4px}
+.card .c-line{font-size:13.5px;color:var(--body);line-height:1.6;flex:1}
+.card .c-price{display:flex;align-items:baseline;gap:10px;border-top:1px solid var(--line);padding-top:13px}
+.card .c-price .p{font-family:var(--serif);font-weight:340;font-size:22px;letter-spacing:-.01em}
+.card .c-price .old{font-size:12.5px;color:var(--faint);text-decoration:line-through}
+.card .c-price .c-note{margin-left:auto;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);font-weight:600}
+.card .c-price .c-note.save{color:var(--navy)}
+.card.flash{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink)}
+
+/* --- plate placeholder / image fallback --- */
+.plate-ph{position:absolute;inset:0;background:
+  radial-gradient(120% 90% at 50% 8%, #FAF8F5 0%, var(--paper) 58%, #EDE9E3 100%)}
+.plate-ph .frame{position:absolute;inset:14px;border:1px solid var(--line);border-radius:1px}
+.plate-ph svg{position:absolute;left:50%;top:47%;transform:translate(-50%,-50%);width:54%;max-width:225px;height:auto;stroke:var(--ink);opacity:.5;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.plate-ph .ph-no{position:absolute;right:24px;top:20px;font-family:var(--serif);font-style:italic;font-weight:320;font-size:44px;color:var(--ink);opacity:.12;line-height:1}
+.plate-ph .ph-cap{display:none}
+.plate-ph.fb .ph-mark{display:none}
+.plate-ph.fb .ph-mark{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);font-family:var(--serif);font-style:italic;font-weight:320;font-size:30px;color:var(--ink);opacity:.25}
+.fcard .plate-ph svg{width:40%}
+
+/* --- fact tile --- */
+.tile{border:1px solid var(--line);border-radius:2px;background:var(--paper);padding:clamp(24px,2.2vw,36px);display:flex;flex-direction:column;justify-content:flex-end;min-height:300px}
+.tile .t-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);font-weight:600;margin-bottom:auto}
+.tile b{font-family:var(--serif);font-weight:340;font-size:clamp(38px,2.9vw,56px);letter-spacing:-.02em;line-height:1;display:block}
+.tile b em{font-style:italic;font-weight:320}
+.tile span{margin-top:14px;font-size:14px;color:var(--body);line-height:1.65;max-width:300px}
+.tile.quote-tile{justify-content:center}
+.tile.quote-tile b{font-size:clamp(20px,1.5vw,27px);font-style:italic;line-height:1.35;letter-spacing:-.01em}
+
+/* ============================================================
+   THE MATCH
+   ============================================================ */
+.match-grid{display:grid;grid-template-columns:3fr 2fr;gap:clamp(32px,3.5vw,72px);margin-top:48px;align-items:start}
+.match-grid>*{min-width:0}
+.mq{border-top:1px solid var(--line);padding:24px 0 26px}
+.mq .mq-q{display:flex;gap:14px;align-items:baseline}
+.mq .mq-n{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--faint);width:20px;flex:none}
+.mq h3{font-family:var(--serif);font-weight:400;font-size:20px;letter-spacing:-.01em}
+.mq .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;padding-left:34px}
+.chip{border:1px solid var(--line);background:transparent;border-radius:999px;padding:9px 18px;font-size:12.5px;color:var(--body);transition:all .2s}
+.chip:hover{border-color:var(--ink);color:var(--ink)}
+.chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.m-note{font-size:11px;color:var(--faint);margin-top:6px;line-height:1.7;max-width:380px}
+
+.m-result{background:var(--ink);color:#fff;border-radius:2px;padding:clamp(30px,3vw,48px);position:sticky;top:24px;min-height:380px;display:flex;flex-direction:column}
+.m-result .mr-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:600}
+.m-result .mr-no{font-family:var(--serif);font-style:italic;font-weight:320;font-size:clamp(40px,3vw,58px);line-height:1;margin-top:22px;color:rgba(255,255,255,.92)}
+.m-result h3{font-family:var(--serif);font-weight:340;font-size:clamp(24px,2vw,34px);letter-spacing:-.01em;margin-top:10px}
+.m-result h3 em{font-style:italic}
+.m-result .mr-lt{font-family:var(--serif);font-style:italic;font-weight:320;font-size:13.5px;color:rgba(255,255,255,.5);margin-top:6px}
+.m-result .mr-why{margin-top:14px;font-size:13.5px;color:rgba(255,255,255,.65);line-height:1.7;max-width:300px}
+.m-result .mr-foot{margin-top:auto;padding-top:24px;border-top:1px solid rgba(255,255,255,.18);display:flex;align-items:baseline;gap:14px}
+.m-result .mr-p{font-family:var(--serif);font-weight:340;font-size:26px}
+.m-result .mr-old{font-size:12.5px;color:rgba(255,255,255,.45);text-decoration:line-through}
+.m-result .mr-go{margin-left:auto;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#fff;text-decoration:none;border-bottom:1px solid #fff;padding-bottom:2px;white-space:nowrap}
+.m-result .mr-go i{font-style:normal;display:inline-block;transition:transform .25s}
+.m-result .mr-go:hover i{transform:translateX(4px)}
+.m-result.dim .mr-no,.m-result.dim h3{opacity:.35}
+.m-result.dim .mr-why{color:rgba(255,255,255,.4)}
+
+/* ============================================================
+   ACCESSORIES — six small frames
+   ============================================================ */
+.acc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+.acc-grid>*{min-width:0}
+.acc-grid .card .c-img{aspect-ratio:4/3.1}
+.acc-grid .card h3{font-size:20px}
+
+/* ============================================================
+   PROOF
+   ============================================================ */
+.proof-quote{margin-top:52px;text-align:center}
+.proof-quote .pq{font-family:var(--serif);font-weight:340;font-style:italic;font-size:clamp(23px,2.1vw,38px);line-height:1.35;max-width:760px;margin:0 auto}
+.proof-quote .pq-who{margin-top:20px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.counters{display:grid;grid-template-columns:repeat(3,1fr);margin-top:64px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.counters>*{min-width:0;text-align:center;padding:30px 14px;border-right:1px solid var(--line)}
+.counters>*:last-child{border-right:none}
+.counters b{font-family:var(--serif);font-weight:340;font-size:32px;display:block;letter-spacing:-.02em}
+.counters span{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);display:block;margin-top:9px}
+
+/* ============================================================
+   CTA
+   ============================================================ */
+.cta{margin-top:clamp(96px,8vw,140px);background:#E4DCD6;border-radius:2px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+.cta>*{min-width:0}
+.cta .c-copy{padding:clamp(40px,4.5vw,72px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.cta .c-kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#8C8177;font-weight:600;margin-bottom:20px}
+.cta h2{font-family:var(--serif);font-weight:340;font-size:clamp(30px,2.9vw,46px);letter-spacing:-.015em;line-height:1.1}
+.cta h2 em{font-style:italic}
+.cta .c-sub{margin-top:16px;font-size:16px;color:#6B6058;line-height:1.65;max-width:380px}
+.cta .c-price{margin-top:28px;font-family:var(--serif);font-weight:340;font-size:26px}
+.cta .c-price s{font-family:var(--sans);font-size:14px;color:#8C8177;margin-left:10px}
+.cta .c-price small{font-family:var(--sans);font-size:12.5px;color:#8C8177;margin-left:12px}
+.cta .btn{margin-top:22px;padding:17px 52px}
+.cta .c-micro{margin-top:18px;font-size:11.5px;color:#8C8177}
+.cta .c-img{position:relative;min-height:420px}
+.cta .c-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 26%}
+
+/* ---------- footer ---------- */
+footer{margin-top:130px;border-top:1px solid var(--line);padding:40px 0 56px}
+footer .wrap{display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap}
+footer .f-l img{height:18px;width:auto;display:block;opacity:.85}
+footer .f-m{font-size:11.5px;color:var(--faint)}
+footer .f-r{display:flex;gap:24px;font-size:12px;color:var(--body)}
+footer .f-r a{text-decoration:none}
+footer .f-r a:hover{color:var(--ink)}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+@media (max-width:1100px){
+  .fcard{grid-template-columns:1fr 1fr}
+  .bento,.acc-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:940px){
+  .wrap{padding:0 22px}
+  header.site .wrap{height:62px;gap:20px}
+  nav.main,.search{display:none}
+  body{overflow-x:clip}
+  .head-links{margin-left:auto}
+  .mobile-nav{display:flex;gap:8px;overflow-x:auto;padding:10px 16px 11px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.96);scrollbar-width:none;position:sticky;top:0;z-index:19}
+  .mobile-nav::-webkit-scrollbar{display:none}
+  .mobile-nav a{flex:none;text-decoration:none;color:var(--body);font-size:10px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:8px 12px;background:var(--white)}
+  .mobile-nav a:active{border-color:var(--ink);color:var(--ink)}
+  section[id]{scroll-margin-top:58px}
+
+  .hero-wrap{padding:12px 16px 0}
+  .mosaic{display:flex;flex-direction:column;height:auto;gap:12px}
+  .mosaic .mtile{aspect-ratio:4/2.9}
+  .m-col{display:flex;flex-direction:column;gap:12px}
+  .m-col .mtile{aspect-ratio:4/2.9}
+  .m-col .mtile.small{aspect-ratio:4/1.6}
+
+  .assure-strip .wrap{grid-template-columns:1fr}
+  .assure-strip .as{border-right:none;border-bottom:1px solid var(--line);padding:12px 0}
+  .assure-strip .as:last-child{border-bottom:none}
+  .assure-strip .as:nth-child(2),.assure-strip .as:nth-child(3){padding-left:0}
+
+  .chapter{margin-top:84px}
+  .fam-head{grid-template-columns:1fr;gap:16px;margin-top:32px}
+  .bento{grid-template-columns:1fr;gap:14px;margin-top:36px}
+  .fcard{grid-template-columns:1fr}
+  .fcard .f-img{min-height:0;aspect-ratio:4/4;order:-1}
+  .fcard .f-copy{padding:26px 24px 30px}
+  .tile{min-height:240px}
+
+  .match-grid{grid-template-columns:1fr;gap:36px;margin-top:36px}
+  .mq .chips{padding-left:0}
+  .m-result{position:static;min-height:0}
+
+  .acc-grid{grid-template-columns:1fr;gap:14px}
+
+  .counters{grid-template-columns:1fr;margin-top:44px}
+  .counters>*{border-right:none;border-bottom:1px solid var(--line);padding:24px 14px}
+  .counters>*:last-child{border-bottom:none}
+
+  .cta{grid-template-columns:1fr;margin-top:80px}
+  .cta .c-img{min-height:0;aspect-ratio:4/3;order:-1}
+  .cta .c-copy{padding:32px 24px 40px}
+
+  footer{margin-top:88px}
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="index.html"><img src="img/ferrli2.svg" alt="Ferrli"></a>
+    <nav class="main">
+      <a href="index.html" class="on">Katalogas</a>
+      <a href="#dryers">Džiovintuvai</a>
+      <a href="#straighteners">Formavimo įrankiai</a>
+      <a href="#cosmetics">Kosmetika</a>
+      <a href="#accessories">Aksesuarai</a>
+      <a href="#match">Atranka</a>
+    </nav>
+    <a class="search" href="#match"><span class="s-ico">⌕</span><span>Rasti savo</span></a>
+    <div class="head-links">
+      <a href="#">Parduotuvė ↗</a>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav" aria-label="Produktų kategorijos">
+  <a href="#dryers">Džiovintuvai</a>
+  <a href="#straighteners">Formavimas</a>
+  <a href="#cosmetics">Kosmetika</a>
+  <a href="#accessories">Aksesuarai</a>
+  <a href="#match">Kuris man?</a>
+</nav>
+
+<!-- ============ HERO — the categories are the hero ============ -->
+<div class="hero-wrap">
+  <div class="mosaic reveal">
+
+    <a class="mtile" href="#dryers">
+      <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">01</span><span class="ph-cap">Chapter 01 · ferrlihair.lt</span></span>
+      <img src="img/hero-01-dryers.jpg?v=3" data-fb="img/cutout.png" alt="Plaukų džiovintuvai">
+      <img class="swap" src="img/hero-01-product.jpg" alt="SUPERIONIC gold džiovintuvas">
+      <span class="m-label">
+        <span class="ml-no">01</span>
+        <span class="ml-main">
+          <h2>Plaukų džiovintuvai</h2>
+          <span class="ml-lt">Greitai. Tyliai. Švelniai.</span>
+          <span class="ml-meta">6 įrankiai · nuo €99</span>
+        </span>
+        <span class="ml-arr">→</span>
+      </span>
+    </a>
+
+    <a class="mtile" href="#straighteners">
+      <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">02</span><span class="ph-cap">Chapter 02 · ferrlihair.lt</span></span>
+      <img src="img/hero-02-straighteners.jpg?v=3" data-fb="https://www.ferrlihair.lt/wp-content/uploads/2023/10/siauras-ir-large-tiesintuvas-foto.png" alt="Plaukų tiesintuvai">
+      <img class="swap" src="img/hero-02-product.jpg" alt="Infraraudonųjų spindulių tiesintuvas">
+      <span class="m-label">
+        <span class="ml-no">02</span>
+        <span class="ml-main">
+          <h2>Formavimo įrankiai</h2>
+          <span class="ml-lt">Tiesinimui, bangoms ir garbanoms</span>
+          <span class="ml-meta">7 įrankiai · nuo €128</span>
+        </span>
+        <span class="ml-arr">→</span>
+      </span>
+    </a>
+
+    <div class="m-col">
+      <a class="mtile" href="#cosmetics">
+        <img src="img/hero-03-cosmetics.jpg?v=3" data-fb="https://www.ferrlihair.lt/wp-content/uploads/2025/11/LUMERA-by-Ferrli-2.png" alt="Kosmetika">
+        <span class="m-label">
+          <span class="ml-no">03</span>
+          <span class="ml-main">
+            <h2>Kosmetika</h2>
+            <span class="ml-lt">Plaukų priežiūra ir Boom Bloom</span>
+            <span class="ml-meta">6 produktai · nuo €39</span>
+          </span>
+          <span class="ml-arr">→</span>
+        </span>
+      </a>
+      <a class="mtile small" href="#accessories">
+        <img src="img/hero-04-accessories.jpg?v=3" data-fb="https://www.ferrlihair.lt/wp-content/uploads/2023/10/IMG_3806-1-1-600x600.webp" alt="Aksesuarai">
+        <span class="m-label">
+          <span class="ml-no">04</span>
+          <span class="ml-main">
+            <h2>Aksesuarai</h2>
+            <span class="ml-meta">6 detalės · nuo €22</span>
+          </span>
+          <span class="ml-arr">→</span>
+        </span>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<div class="promise reveal">
+  <div class="wrap">
+    <div class="pr"><b>1–2 <em>d.</em></b><span><strong>Pristatymas visoje Lietuvoje</strong> — užsakyk šiandien, formuok rytoj.</span></div>
+    <div class="pr"><b>3 <em>×.</em></b><span><strong>Mokėk dalimis</strong> — be palūkanų, bet kuriam įrankiui.</span></div>
+    <div class="pr"><b>24 <em>mėn.</em></b><span><strong>Vietinė garantija ir servisas</strong> — nieko nesiunčiame į užsienį.</span></div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <!-- ============ 01 HAIR DRYERS ============ -->
+  <section id="dryers">
+    <div class="chapter reveal"><span class="label">01 — Plaukų džiovintuvai</span><span class="ch-lt">„Greitai ir tyliai“</span></div>
+    <div class="fam-head">
+      <h2 class="display reveal">Džiovina greitai. Išlieka <em>tylūs.</em></h2>
+      <p class="body-text reveal">Joniniai, infraraudonųjų spindulių ir itin lengvi — įrankiai, išgarsinę Ferrli. Kiekvienas jų formuoja plaukus džiovindamas.</p>
+    </div>
+    <div class="bento">
+
+      <a class="fcard reveal" href="#" id="ionic-ultra">
+        <span class="f-copy">
+          <span class="f-tier">Džiovintuvas — flagmanas <em>tylusis</em></span>
+          <h3>FERRLI IONIC <em>Ultra.</em></h3>
+          <span class="f-line">350 gramų rankoje, 54 decibelai kambaryje ir 500 milijonų neigiamų jonų kiekviename oro sraute. Tyliausias savo klasėje.</span>
+          <span class="f-spec"><span>350 g</span><span>54 dB</span><span>500 mln. jonų</span><span>Savaiminis valymas</span></span>
+          <span class="f-foot"><span class="p">€299</span><span class="old">€499</span><span class="go">Žiūrėti <i>→</i></span></span>
+        </span>
+        <span class="f-img sq">
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-no">01</span></span>
+          <img class="pcover" src="img/cards/f01.jpg" alt="FERRLI IONIC Ultra dryer">
+          <img class="swap" src="img/cards/f01-hover.jpg?v=3" alt="FERRLI IONIC Ultra — campaign">
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="super-ionic">
+        <span class="c-img">
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">02</span><span class="ph-cap">Plate Nº 02 · ferrlihair.lt</span></span>
+          <img loading="lazy" class="pblend" src="img/cards/p02.jpg?v=2" alt="Ferrli SUPER IONIC džiovintuvas">
+          <img class="swap" loading="lazy" src="img/cards/p02-hover.jpg?v=2" alt="SUPER IONIC in use">
+        </span>
+        <span class="c-body">
+          <h3>SUPER <em>IONIC.</em></h3>
+          <span class="c-line">Salono galios oro srautas džiovinimo laiką trumpina perpus, o jonai neleidžia plaukams pūstis.</span>
+          <span class="c-price"><span class="p">€199</span><span class="old">€499</span><span class="c-note save">Sutaupai €300</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="product-silk.html" id="silk-plus">
+        <span class="c-img">
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">03</span><span class="ph-cap">Plate Nº 03 · ferrlihair.lt</span></span>
+          <img loading="lazy" class="pblend" src="img/cards/p03.jpg" alt="Bomby Styler Silk+">
+          <img class="swap" loading="lazy" src="img/cards/p03-hover-hq.jpg" alt="Bomby Styler Silk+ in use">
+        </span>
+        <span class="c-body">
+          <h3>Bomby Styler <em>Silk+.</em></h3>
+          <span class="c-line">Džiovina, pakelia ir formuoja vienu įprastu šukavimo judesiu — salono apimtis per 15 minučių.</span>
+          <span class="c-price"><span class="p">€169</span><span class="old">€249</span><span class="c-note">Produkto puslapis →</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="bomby-classic">
+        <span class="c-img">
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">04</span><span class="ph-cap">Plate Nº 04 · ferrlihair.lt</span></span>
+          <img loading="lazy" class="pblend" src="img/cards/p04.jpg" alt="Bomby Styler classic infrared">
+          <img class="swap" loading="lazy" src="img/cards/p04-hover.jpg" alt="Bomby Styler classic in use">
+        </span>
+        <span class="c-body">
+          <h3>Bomby Styler <em>classic.</em></h3>
+          <span class="c-line">Švelniausia pažintis su formuojančiais džiovintuvais — infraraudonųjų spindulių šiluma veikia iš vidaus.</span>
+          <span class="c-price"><span class="p">€99</span><span class="old">€159</span><span class="c-note save">Sutaupai €60</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="infrared-dryer">
+        <span class="c-img">
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">05</span><span class="ph-cap">Plate Nº 05 · ferrlihair.lt</span></span>
+          <img loading="lazy" class="pblend" src="https://www.ferrlihair.lt/wp-content/uploads/2023/10/img_4809.png" alt="Infraraudonųjų spindulių džiovintuvas">
+          <img class="swap" loading="lazy" src="img/cards/p05-hover.jpg" alt="Infrared Dryer in use">
+        </span>
+        <span class="c-body">
+          <h3>Infrared <em>Dryer.</em></h3>
+          <span class="c-line">Džiovina iš vidaus žemesnėje temperatūroje — daugiau blizgesio, mažiau išsausėjimo.</span>
+          <span class="c-price"><span class="p">€169</span><span class="old">€199</span><span class="c-note">Klasika</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="phenomenal">
+        <span class="c-img">
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">06</span><span class="ph-cap">Plate Nº 06 · ferrlihair.lt</span></span>
+          <img loading="lazy" class="pblend" src="img/cards/p06.jpg" alt="PHENOMENAL styler">
+          <img class="swap" loading="lazy" src="img/cards/p06-hover.jpg" alt="PHENOMENAL styler in use">
+        </span>
+        <span class="c-body">
+          <h3>PHENOMENAL <em>styler.</em></h3>
+          <span class="c-line">Vienas prietaisas pakeičia visą stalčių — džiovina, garbanoja, tiesina ir kuria apimtį su šešiais antgaliais.</span>
+          <span class="c-price"><span class="p">€299</span><span class="old">€429</span><span class="c-note save">Sutaupai €130</span></span>
+        </span>
+      </a>
+
+      <div class="tile reveal">
+        <span class="t-label">Kodėl pirmauja</span>
+        <b>54 <em>dB.</em></b>
+        <span>Tylesnis už pokalbį. IONIC Ultra veikia bibliotekos garsumu ir sveria vos 350 gramų.</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ 02 STRAIGHTENERS ============ -->
+  <section id="straighteners">
+    <div class="chapter reveal"><span class="label">02 — Formavimo įrankiai</span><span class="ch-lt">„Tiesinimui ir garbanoms“</span></div>
+    <div class="fam-head">
+      <h2 class="display reveal">Tiesūs, kai taip <em>nusprendi.</em></h2>
+      <p class="body-text reveal">Infraraudonieji spinduliai, garai ar kryptingas oras — ir įrankiai bangoms bei garbanoms. Norima forma žemiausioje jai pakankamoje temperatūroje.</p>
+    </div>
+    <div class="bento">
+
+      <a class="fcard reveal" href="#" id="ferrli-classic">
+        <span class="f-copy">
+          <span class="f-tier">Tiesintuvas <em>Ferrli klasika</em></span>
+          <h3>Ferrli <em>classic.</em></h3>
+          <span class="f-line">Veidrodinio titano plokštelės ir infraraudonieji spinduliai tiesina plauką iš vidaus. Įrankis, nuo kurio prasidėjo Ferrli reputacija.</span>
+          <span class="f-spec"><span>Veidrodinis titanas</span><span>Infraraudonieji spinduliai</span><span>Sidabro jonai</span><span>≤ 230°</span></span>
+          <span class="f-foot"><span class="p">€128</span><span class="old">€180</span><span class="go">Žiūrėti <i>→</i></span></span>
+        </span>
+        <span class="f-img">
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">07</span><span class="ph-cap">Plate Nº 07 · ferrlihair.lt</span></span>
+          <img loading="lazy" class="pblend" src="img/cards/p07.jpg" alt="Infraraudonųjų spindulių tiesintuvas Ferrli classic">
+          <img class="swap" loading="lazy" src="img/cards/p07-hover-v2.jpg" alt="Modelis tiesina plaukus su Ferrli classic">
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="ferrli-large">
+        <span class="c-img">
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">08</span><span class="ph-cap">Plate Nº 08 · ferrlihair.lt</span></span>
+          <img loading="lazy" class="pblend" src="img/cards/p08.jpg" alt="Ferrli Large tiesintuvas">
+          <img class="swap" loading="lazy" src="img/cards/p08-hover-v2.jpg" alt="Modelis tiesina ilgus plaukus su Ferrli Large">
+        </span>
+        <span class="c-body">
+          <h3>Ferrli <em>Large.</em></h3>
+          <span class="c-line">Plačios veidrodinio titano plokštelės ilgiems ar storiems plaukams — mažiau judesių, greitesnis rezultatas.</span>
+          <span class="c-price"><span class="p">€128</span><span class="old">€180</span><span class="c-note">Platusis</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="nano">
+        <span class="c-img">
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">09</span><span class="ph-cap">Plate Nº 09 · ferrlihair.lt</span></span>
+          <img loading="lazy" class="pblend" src="https://www.ferrlihair.lt/wp-content/uploads/2023/10/sss.webp" alt="Ferrli Nano Tourmaline tiesintuvas">
+          <img class="swap" loading="lazy" src="img/cards/p09-hover-v2.jpg" alt="Modelis tiksliai formuoja plaukus su Nano Tourmaline">
+        </span>
+        <span class="c-body">
+          <h3>Nano <em>Tourmaline.</em></h3>
+          <span class="c-line">Siauros turmalino plokštelės pasiekia kirpčiukus, šaknis ir trumpus sluoksnius — tikslumui arti odos.</span>
+          <span class="c-price"><span class="p">€149</span><span class="c-note">Tikslusis</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="steam-me">
+        <span class="c-img">
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">10</span><span class="ph-cap">Plate Nº 10 · ferrlihair.lt</span></span>
+          <img loading="lazy" class="pblend" src="img/cards/p10.jpg" alt="STEAM ME turbo veidrodinis tiesintuvas">
+          <img class="swap" loading="lazy" src="img/cards/p10-hover-v2.jpg" alt="Modelis tiesina plaukus su STEAM ME">
+        </span>
+        <span class="c-body">
+          <h3>STEAM <em>ME.</em></h3>
+          <span class="c-line">Garai padeda išlaikyti drėgmę, o veidrodinės plokštelės slysta per plauką — glotnus, stiklo blizgesio rezultatas.</span>
+          <span class="c-price"><span class="p">€149</span><span class="old">€299</span><span class="c-note save">Sutaupai €150</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="phen-straightener">
+        <span class="c-img">
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">11</span><span class="ph-cap">Plate Nº 11 · ferrlihair.lt</span></span>
+          <img loading="lazy" class="pblend" src="img/cards/p11.jpg" alt="Phenomenal straightener">
+          <img class="swap" loading="lazy" src="img/cards/p11-hover-v2.jpg" alt="Modelis formuoja plaukus su Phenomenal oro tiesintuvu">
+        </span>
+        <span class="c-body">
+          <h3>Phenomenal <em>straightener.</em></h3>
+          <span class="c-line">Be karštų plokštelių — kryptingas oro srautas džiovina ir tiesina vienu judesiu, tinkamu kasdienai.</span>
+          <span class="c-price"><span class="p">€199</span><span class="old">€369</span><span class="c-note save">Sutaupai €170</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="wavy">
+        <span class="c-img">
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">12</span><span class="ph-cap">Plate Nº 12 · ferrlihair.lt</span></span>
+          <img loading="lazy" class="pblend" src="img/cards/p12.jpg" alt="Wavy Dream bangavimo žnyplės">
+          <img class="swap" loading="lazy" src="img/cards/p12-hover-v2.jpg" alt="Modelis formuoja bangas su Wavy Dream">
+        </span>
+        <span class="c-body">
+          <h3>Wavy <em>Dream.</em></h3>
+          <span class="c-line">Minkštos bangos, išliekančios ir antrą dieną — veidrodinis titanas ir turmalinas padeda išlaikyti drėgmę.</span>
+          <span class="c-price"><span class="p">€128</span><span class="old">€149</span><span class="c-note">Bangoms</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="five-sec">
+        <span class="c-img">
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">13</span><span class="ph-cap">Plate Nº 13 · ferrlihair.lt</span></span>
+          <img loading="lazy" src="img/cards/p13.jpg" alt="Ferrli 5 seconds garbanojimo rinkinys">
+          <img class="swap" loading="lazy" src="img/cards/p13-hover-v2.jpg" alt="Modelis garbanoja plaukus su Ferrli 5 seconds rinkiniu">
+        </span>
+        <span class="c-body">
+          <h3>5 seconds <em>Set.</em></h3>
+          <span class="c-line">Ryški garbana per penkias sekundes — pilnas rinkinys su jonų generatoriumi tiek spiralėms, tiek minkštoms garbanoms.</span>
+          <span class="c-price"><span class="p">€189</span><span class="c-note">Rinkinys</span></span>
+        </span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ============ 03 COSMETICS ============ -->
+  <section id="cosmetics">
+    <div class="chapter reveal"><span class="label">03 — Kosmetika</span><span class="ch-lt">„Rezultatui išlaikyti“</span></div>
+    <div class="fam-head">
+      <h2 class="display reveal">Įrankis sukuria. <em>Priemonė</em> išsaugo.</h2>
+      <p class="body-text reveal">Ferrli plaukų priežiūra ir naujoji Boom Bloom galvos odos linija — apsauga, drėgmė ir blizgesys tarp formavimų.</p>
+    </div>
+    <div class="bento">
+
+      <a class="fcard reveal" href="#" id="lumera">
+        <span class="f-copy">
+          <span class="f-tier">Šviesos terapija <em>sezono atradimas</em></span>
+          <h3>Ferrli <em>Luméra.</em></h3>
+          <span class="f-line">Salono šviesos terapijos ritualas namuose — LED kaukė, apie kurią klausiama dažniau nei apie bet kurį kitą katalogo įrankį.</span>
+          <span class="f-spec"><span>LED terapija</span><span>Namų ritualas</span><span>3 × €99,67</span></span>
+          <span class="f-foot"><span class="p">€299</span><span class="old">€490</span><span class="go">Žiūrėti <i>→</i></span></span>
+        </span>
+        <span class="f-img">
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">14</span><span class="ph-cap">Plate Nº 14 · ferrlihair.lt</span></span>
+          <img loading="lazy" class="pblend" src="img/cards/p14.jpg" alt="Ferrli Luméra LED kaukė">
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="luxe">
+        <span class="c-img">
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">15</span><span class="ph-cap">Plate Nº 15 · ferrlihair.lt</span></span>
+          <img loading="lazy" src="https://www.ferrlihair.lt/wp-content/uploads/2025/02/Black-and-White-Classic-Refined-Skincare-Product-Features-Instagram-Post-1.png" alt="LUXE RADIANCE rinkinys">
+        </span>
+        <span class="c-body">
+          <h3>LUXE <em>RADIANCE.</em></h3>
+          <span class="c-line">Apsauga, maitinimas ir blizgesys viename rinkinyje — spalvai tarp apsilankymų salone.</span>
+          <span class="c-price"><span class="p">€89</span><span class="old">€128</span><span class="c-note save">Sutaupai €39</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="volume-care">
+        <span class="c-img">
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">16</span><span class="ph-cap">Plate Nº 16 · ferrlihair.lt</span></span>
+          <img loading="lazy" src="https://www.ferrlihair.lt/wp-content/uploads/2025/02/Black-and-White-Classic-Refined-Skincare-Product-Features-Instagram-Post-3.png" alt="VOLUME &amp; CARE rinkinys">
+        </span>
+        <span class="c-body">
+          <h3>VOLUME <em>&amp; CARE.</em></h3>
+          <span class="c-line">Drėgmė ir pakėlimas ploniems plaukams — visą dieną išliekanti apimtis be standumo ar sunkumo.</span>
+          <span class="c-price"><span class="p">€95</span><span class="old">€137</span><span class="c-note save">Sutaupai €42</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="perfect-look">
+        <span class="c-img">
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">17</span><span class="ph-cap">Plate Nº 17 · ferrlihair.lt</span></span>
+          <img loading="lazy" src="https://www.ferrlihair.lt/wp-content/uploads/2025/01/Black-and-White-Classic-Refined-Skincare-Product-Features-Instagram-Post-7.png" alt="PERFECT LOOK rinkinys">
+        </span>
+        <span class="c-body">
+          <h3>PERFECT <em>LOOK.</em></h3>
+          <span class="c-line">Nuo apsaugos nuo karščio iki baigiamojo blizgesio — kasdieniam formavimui skirtas rinkinys.</span>
+          <span class="c-price"><span class="p">€95</span><span class="old">€138</span><span class="c-note save">Sutaupai €43</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="murumuru">
+        <span class="c-img">
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">18</span><span class="ph-cap">Plate Nº 18 · ferrlihair.lt</span></span>
+          <img loading="lazy" src="https://www.ferrlihair.lt/wp-content/uploads/2023/10/image_6483441-5-scaled.jpg" alt="MURUMURU Glow kaukė">
+        </span>
+        <span class="c-body">
+          <h3>MURUMURU <em>Glow.</em></h3>
+          <span class="c-line">Nenuplaunama murumuru sviesto kaukė — tarp plovimų išliekantis blizgesys be likučių.</span>
+          <span class="c-price"><span class="p">€39</span><span class="c-note">Blizgesiui</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="boom-bloom">
+        <span class="c-img">
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">19</span><span class="ph-cap">Plate Nº 19 · ferrlihair.lt</span></span>
+          <img loading="lazy" class="pblend" src="img/cards/p19.jpg" alt="Boom Bloom šampūnas">
+        </span>
+        <span class="c-body">
+          <h3>Boom <em>Bloom.</em></h3>
+          <span class="c-line">Priežiūra prasideda nuo galvos odos — drėkinantis ir apsaugantis šampūnas, pakankamai švelnus kasdienai.</span>
+          <span class="c-price"><span class="p">€39</span><span class="c-note save">Nauja linija</span></span>
+        </span>
+      </a>
+
+      <div class="tile quote-tile reveal">
+        <span class="t-label">Ferrli taisyklė</span>
+        <b>„Įrankis sukuria formą. Lentyna padeda ją išsaugoti.“</b>
+        <span>Ferrli plaukų priežiūra, 2026</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ 04 ACCESSORIES ============ -->
+  <section id="accessories">
+    <div class="chapter reveal"><span class="label">04 — Aksesuarai</span><span class="ch-lt">„Mažos detalės“</span></div>
+    <div class="fam-head">
+      <h2 class="display reveal">Svarbios <em>smulkmenos.</em></h2>
+      <p class="body-text reveal">Antgaliai, šepečiai ir dėklai — detalės, dėl kurių penkerių metų įrankis vis dar jaučiasi kaip naujas.</p>
+    </div>
+    <div class="acc-grid">
+
+      <a class="card reveal" href="#" id="curl-bomb">
+        <span class="c-img">
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">a</span><span class="ph-cap">Plate a · ferrlihair.lt</span></span>
+          <img loading="lazy" class="pblend" src="https://www.ferrlihair.lt/wp-content/uploads/2023/10/IMG_3806-1-1-600x600.webp" alt="SUPERIONIC Curl Bomb antgalis">
+        </span>
+        <span class="c-body">
+          <h3>Curl <em>Bomb.</em></h3>
+          <span class="c-line">Oro srautu, o ne karštomis žnyplėmis formuojamos garbanos — turmalinu dengtas SUPERIONIC antgalis.</span>
+          <span class="c-price"><span class="p">€89</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="straight-bomb">
+        <span class="c-img">
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">b</span><span class="ph-cap">Plate b · ferrlihair.lt</span></span>
+          <img loading="lazy" class="pblend" src="https://www.ferrlihair.lt/wp-content/uploads/2023/10/IMG_3805-1.webp" alt="SUPERIONIC Straight Bomb antgalis">
+        </span>
+        <span class="c-body">
+          <h3>Straight <em>Bomb.</em></h3>
+          <span class="c-line">Tiesina ir glotnina oro sraute — karštos plokštelės niekada neliečia plaukų.</span>
+          <span class="c-price"><span class="p">€39</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="silk-ring">
+        <span class="c-img">
+          <span class="plate-ph">
+            <span class="frame"></span>
+            <svg viewBox="0 0 160 160">
+              <circle cx="80" cy="74" r="34"/>
+              <circle cx="80" cy="74" r="22"/>
+              <path d="M80 32 v-10 M110 44 l7 -7 M122 74 h10 M110 104 l7 7 M80 116 v10 M50 104 l-7 7 M38 74 h-10 M50 44 l-7 -7"/>
+            </svg>
+            <span class="ph-no">c</span>
+            <span class="ph-cap">Plate c · Photography at ferrlihair.lt</span>
+          </span>
+        </span>
+        <span class="c-body">
+          <h3>Silk Protein <em>ring.</em></h3>
+          <span class="c-line">Šilko baltymų žiedas oro sraute — daugiau švelnumo su kiekvienu džiovinimu.</span>
+          <span class="c-price"><span class="p">€39</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="mag-case">
+        <span class="c-img">
+          <span class="plate-ph">
+            <span class="frame"></span>
+            <svg viewBox="0 0 160 160">
+              <rect x="26" y="42" width="108" height="76" rx="10"/>
+              <path d="M26 80 h108"/>
+              <circle cx="62" cy="62" r="10"/>
+              <path d="M62 52 h30 a4 4 0 0 1 4 4 v12 a4 4 0 0 1 -4 4 h-30"/>
+              <path d="M56 72 l-3 26 a4 4 0 0 0 4 5 h4 a4 4 0 0 0 4 -5 l-2 -24"/>
+              <circle cx="104" cy="99" r="5"/>
+              <circle cx="120" cy="99" r="5"/>
+            </svg>
+            <span class="ph-no">d</span>
+            <span class="ph-cap">Plate d · Photography at ferrlihair.lt</span>
+          </span>
+        </span>
+        <span class="c-body">
+          <h3>Magnetic <em>Case.</em></h3>
+          <span class="c-line">Magnetai pagauna džiovintuvą vos priartinus — jokių paieškų ir subraižyto korpuso.</span>
+          <span class="c-price"><span class="p">€69</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="brush-me">
+        <span class="c-img">
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">e</span><span class="ph-cap">Plate e · ferrlihair.lt</span></span>
+          <img loading="lazy" src="https://www.ferrlihair.lt/wp-content/uploads/2023/10/IMG_6674.webp" alt="FERRLI Brush me šukos">
+        </span>
+        <span class="c-body">
+          <h3>Brush <em>me.</em></h3>
+          <span class="c-line">Kasdienės šukos, švelnios drėgniems plaukams — platūs dantukai išpainioja nepešdami.</span>
+          <span class="c-price"><span class="p">€22</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="glow-brush">
+        <span class="c-img">
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">f</span><span class="ph-cap">Plate f · ferrlihair.lt</span></span>
+          <img loading="lazy" src="https://www.ferrlihair.lt/wp-content/uploads/2023/12/image_6483441-6.jpg" alt="Glow let it glow šepetys">
+        </span>
+        <span class="c-body">
+          <h3>Glow <em>brush.</em></h3>
+          <span class="c-line">Šepetys Glow kaukės ritualui — išpainioja netempdamas ir glotnina kiekvienu judesiu.</span>
+          <span class="c-price"><span class="p">€39</span></span>
+        </span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ============ 05 THE MATCH ============ -->
+  <section id="match">
+    <div class="chapter reveal"><span class="label">05 — Atranka</span><span class="ch-lt">„Kuris mano?“</span></div>
+    <div class="fam-head">
+      <h2 class="display reveal">Trys atsakymai. Vienas <em>pasirinkimas.</em></h2>
+      <p class="body-text reveal">Dvidešimt penki produktai yra katalogas, ne sprendimas. Trys klausimai palieka tą, kurį pasirinktų tavo plaukai.</p>
+    </div>
+
+    <div class="match-grid">
+      <div class="reveal">
+        <div class="mq">
+          <div class="mq-q"><span class="mq-n">i.</span><h3>Tavo plaukų ilgis</h3></div>
+          <div class="chips" data-q="length">
+            <button class="chip" data-v="short">Trumpi</button>
+            <button class="chip on" data-v="mid">Vidutinio ilgio</button>
+            <button class="chip" data-v="long">Ilgi</button>
+          </div>
+        </div>
+        <div class="mq">
+          <div class="mq-q"><span class="mq-n">ii.</span><h3>Kokio rezultato nori</h3></div>
+          <div class="chips" data-q="goal">
+            <button class="chip on" data-v="volume">Apimtis ir minkštos bangos</button>
+            <button class="chip" data-v="sleek">Glotnūs ir tiesūs</button>
+            <button class="chip" data-v="curls">Ryškios garbanos</button>
+            <button class="chip" data-v="dry">Tik greitai išdžiovinti</button>
+          </div>
+        </div>
+        <div class="mq">
+          <div class="mq-q"><span class="mq-n">iii.</span><h3>Požiūris į karštį</h3></div>
+          <div class="chips" data-q="heat">
+            <button class="chip on" data-v="balanced">Tinka subalansuotas</button>
+            <button class="chip" data-v="gentle">Kuo švelniau</button>
+          </div>
+          <p class="m-note" style="padding-left:34px">„Kuo švelniau“ veda prie infraraudonųjų spindulių, garų ir oro srauto įrankių — žemesnė temperatūra, toks pats rezultatas.</p>
+        </div>
+      </div>
+
+      <div class="m-result reveal" id="mresult">
+        <span class="mr-label">Tavo pasirinkimas</span>
+        <div class="mr-no" id="mr-no">Nº 03</div>
+        <h3 id="mr-name">Bomby Styler <em>Silk+.</em></h3>
+        <p class="mr-why" id="mr-why">Nes: vidutinio ilgio plaukai, apimtis ir minkštos bangos, subalansuotas karštis.</p>
+        <div class="mr-foot">
+          <span class="mr-p" id="mr-price">€169</span>
+          <span class="mr-old" id="mr-old">€249</span>
+          <a class="mr-go" id="mr-link" href="product-silk.html">Žiūrėti <i>→</i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROOF ============ -->
+  <section id="proof">
+    <div class="chapter reveal"><span class="label">06 — Įrodymai</span><span class="ch-lt">„Tikros patirtys“</span></div>
+    <div class="proof-quote reveal">
+      <div class="pq">„Grąžinau premium ženklo formavimo įrankį. Rezultatas toks pats — už skirtumą išvažiavau atostogų.“</div>
+      <div class="pq-who">Monika, 34 — patvirtinta pirkėja</div>
+    </div>
+    <div class="counters">
+      <div class="reveal"><b>12 000+</b><span>klienčių</span></div>
+      <div class="reveal"><b>4,9 / 5</b><span>vidutinis įvertinimas</span></div>
+      <div class="reveal"><b>94%</b><span>rekomenduotų</span></div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="cta reveal">
+    <div class="c-copy">
+      <div class="c-kicker">Nuo ko pradeda dauguma</div>
+      <h2>Pradėk nuo to,<br>apie kurį visi <em>kalba.</em></h2>
+      <p class="c-sub">Nº 03, Bomby Styler Silk+ — Ferrli vardą išgarsinęs įrankis. Džiovina, pakelia ir formuoja vienu pažįstamu judesiu.</p>
+      <div class="c-price">€169 <s>€249</s> <small>Nº 03 · Bomby Styler Silk+</small></div>
+      <a class="btn" href="product-silk.html">Žiūrėti</a>
+      <div class="c-micro">Pristatymas per 1–2 darbo dienas · 24 mėn. garantija · paprastas grąžinimas</div>
+    </div>
+    <div class="c-img">
+      <img src="img/podium.png" alt="Bomby Styler Silk+ on podium">
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="f-l"><img src="img/ferrli2.svg" alt="Ferrli"></span>
+    <span class="f-m">© 2026 · Koncepcija Nº 07 „Katalogas“ — Object.lt · Produktai, kainos ir fotografija: ferrlihair.lt</span>
+    <span class="f-r">
+      <a href="#">Pristatymas</a>
+      <a href="#">Grąžinimas</a>
+      <a href="#">Kontaktai</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+// reveal on scroll
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// broken remote images → the plate behind shows through
+document.querySelectorAll('.c-img img, .f-img img, .mtile img').forEach(im=>{
+  const step=()=>{
+    if(im.dataset.fb){im.src=im.dataset.fb;delete im.dataset.fb}
+    else{im.style.display='none'}
+  };
+  im.addEventListener('error',step);
+  if(im.complete && im.naturalWidth===0){step()}
+});
+
+// ============ THE MATCH — real catalogue ============
+const P={
+  silk:{no:'Nº 03',name:'Bomby Styler <em>Silk+.</em>',lt:'„Šukuoseną formuojantis džiovintuvas“',price:'€169',old:'€249',href:'product-silk.html'},
+  classicBomby:{no:'Nº 04',name:'Bomby Styler <em>classic.</em>',lt:'„Bomby Styler classic infrared“',price:'€99',old:'€159',href:'#'},
+  phenomenal:{no:'Nº 06',name:'PHENOMENAL <em>styler.</em>',lt:'„Vienas prietaisas — šeši antgaliai“',price:'€299',old:'€429',href:'#'},
+  classic:{no:'Nº 07',name:'Ferrli <em>classic.</em>',lt:'„Infraraudonųjų spindulių tiesintuvas“',price:'€128',old:'€180',href:'#'},
+  large:{no:'Nº 08',name:'Ferrli <em>Large.</em>',lt:'„Infraraudonųjų spindulių tiesintuvas Large“',price:'€128',old:'€180',href:'#'},
+  nano:{no:'Nº 09',name:'Nano <em>Tourmaline.</em>',lt:'„Nano Tourmaline Edition tiesintuvas“',price:'€149',old:'',href:'#'},
+  steam:{no:'Nº 10',name:'STEAM <em>ME.</em>',lt:'„Turbo veidrodinis tiesintuvas“',price:'€149',old:'€299',href:'#'},
+  wavy:{no:'Nº 12',name:'Wavy <em>Dream.</em>',lt:'„Bangavimo žnyplės“',price:'€128',old:'€149',href:'#'},
+  fivesec:{no:'Nº 13',name:'5 seconds <em>Set.</em>',lt:'„Garbanojimo rinkinys“',price:'€189',old:'',href:'#'},
+  infrared:{no:'Nº 05',name:'Infrared <em>Dryer.</em>',lt:'„Infraraudonųjų spindulių džiovintuvas“',price:'€169',old:'€199',href:'#'},
+  ionic:{no:'Nº 01',name:'FERRLI IONIC <em>Ultra.</em>',lt:'„Ultra lengvas ir ultra tylus džiovintuvas“',price:'€299',old:'€499',href:'#'},
+  superionic:{no:'Nº 02',name:'SUPER <em>IONIC.</em>',lt:'„Ferrli SUPER IONIC džiovintuvas“',price:'€199',old:'€499',href:'#'}
+};
+const MAP={
+  balanced:{
+    volume:{short:'classicBomby',mid:'silk',long:'phenomenal'},
+    sleek:{short:'nano',mid:'classic',long:'large'},
+    curls:{short:'wavy',mid:'wavy',long:'fivesec'},
+    dry:{short:'infrared',mid:'ionic',long:'superionic'}
+  },
+  gentle:{
+    volume:{short:'silk',mid:'silk',long:'silk'},
+    sleek:{short:'steam',mid:'steam',long:'steam'},
+    curls:{short:'wavy',mid:'wavy',long:'wavy'},
+    dry:{short:'ionic',mid:'ionic',long:'ionic'}
+  }
+};
+const WHY={
+  length:{short:'trumpi plaukai',mid:'vidutinio ilgio plaukai',long:'ilgi plaukai'},
+  goal:{volume:'apimtis ir minkštos bangos',sleek:'glotnūs ir tiesūs',curls:'ryškios garbanos',dry:'greitas džiovinimas'},
+  heat:{balanced:'subalansuotas karštis',gentle:'kuo švelnesnis karštis'}
+};
+const state={length:'mid',goal:'volume',heat:'balanced'};
+function renderMatch(){
+  const id=MAP[state.heat][state.goal][state.length];
+  const p=P[id];
+  document.getElementById('mr-no').textContent=p.no;
+  document.getElementById('mr-name').innerHTML=p.name;
+  document.getElementById('mr-price').textContent=p.price;
+  document.getElementById('mr-old').textContent=p.old;
+  document.getElementById('mr-link').setAttribute('href',p.href);
+  document.getElementById('mr-why').textContent='Nes: '+WHY.length[state.length]+', '+WHY.goal[state.goal]+', '+WHY.heat[state.heat]+'.';
+  const box=document.getElementById('mresult');
+  box.classList.add('dim');
+  setTimeout(()=>box.classList.remove('dim'),190);
+}
+document.querySelectorAll('.chips').forEach(g=>{
+  g.addEventListener('click',e=>{
+    const b=e.target.closest('.chip');
+    if(!b)return;
+    g.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    state[g.dataset.q]=b.dataset.v;
+    renderMatch();
+  });
+});
+</script>
+</body>
+</html>

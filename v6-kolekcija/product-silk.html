@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Ferrli — Bomby Styler Silk+ · Nº 02 of 14</title>
+<title>Ferrli — Bomby Styler Silk+ · Nº 03 of 25</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Instrument+Sans:wght@400..600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&amp;family=Instrument+Sans:wght@400..600&amp;display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   FERRLI Nº02 — "Gallery / Split"
+   FERRLI PRODUCT Nº03 — "Gallery / Split"
    2/3 the object, 1/3 the decision.
    One colour, one line, plenty of air.
    ============================================================ */
@@ -48,7 +48,7 @@ a{color:inherit}
 header.site{border-bottom:1px solid var(--line)}
 header.site .wrap{display:flex;align-items:center;gap:44px;height:76px}
 .logo{font-family:var(--serif);font-style:italic;font-weight:500;font-size:25px;text-decoration:none;margin-right:8px;display:flex;align-items:center}
-.logo img{height:29px;width:auto;display:block}
+.logo img{height:24px;width:auto;display:block}
 nav.main{display:flex;gap:30px;flex:1}
 nav.main a{text-decoration:none;font-size:13px;letter-spacing:.06em;color:var(--body);transition:color .2s}
 nav.main a:hover{color:var(--ink)}
@@ -60,6 +60,7 @@ nav.main a:hover{color:var(--ink)}
 .head-links a{text-decoration:none;color:var(--body)}
 .head-links a:hover{color:var(--ink)}
 .head-links b{color:var(--ink);font-weight:600}
+.mobile-nav{display:none}
 
 /* ---------- layout: 2/3 + 1/3 — visas blokas 20px nuo ekrano kraštų ---------- */
 .wrap-layout{max-width:1840px;padding:0 20px}
@@ -286,7 +287,7 @@ a.ucard:hover .u-arr{transform:translateX(4px);color:var(--ink)}
 footer{margin-top:130px;border-top:1px solid var(--line);padding:40px 0 56px}
 footer .wrap{display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap}
 footer .f-l{font-family:var(--serif);font-style:italic;font-size:20px}
-footer .f-l img{height:22px;width:auto;display:block;opacity:.85}
+footer .f-l img{height:18px;width:auto;display:block;opacity:.85}
 footer .f-m{font-size:11.5px;color:var(--faint)}
 footer .f-r{display:flex;gap:24px;font-size:12px;color:var(--body)}
 footer .f-r a{text-decoration:none}
@@ -302,6 +303,11 @@ footer .f-r a:hover{color:var(--ink)}
   body{padding-bottom:64px}
   header.site .wrap{height:62px;gap:20px}
   nav.main,.search{display:none}
+  .head-links{margin-left:auto}
+  .mobile-nav{display:flex;gap:8px;overflow-x:auto;padding:10px 16px 11px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.96);scrollbar-width:none;position:sticky;top:0;z-index:109}
+  .mobile-nav::-webkit-scrollbar{display:none}
+  .mobile-nav a{flex:none;text-decoration:none;color:var(--body);font-size:10px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:8px 12px;background:var(--white)}
+  section[id],#buy{scroll-margin-top:58px}
 
   body{overflow-x:clip}
   .layout{display:flex;flex-direction:column}
@@ -383,7 +389,7 @@ footer .f-r a:hover{color:var(--ink)}
 
 <header class="site">
   <div class="wrap">
-    <a class="logo" href="index.html"><img src="img/ferrli_logo.svg" alt="Ferrli"></a>
+    <a class="logo" href="index.html"><img src="img/ferrli2.svg" alt="Ferrli"></a>
     <nav class="main">
       <a href="index.html">Catalogue</a>
       <a href="index.html#dryers">Dryers</a>
@@ -397,6 +403,13 @@ footer .f-r a:hover{color:var(--ink)}
     </div>
   </div>
 </header>
+
+<nav class="mobile-nav" aria-label="Product page sections">
+  <a href="#buy">Product</a>
+  <a href="#technology">Technology</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#compare">Comparison</a>
+</nav>
 
 <div class="wrap wrap-layout">
   <div class="layout">
@@ -488,7 +501,7 @@ footer .f-r a:hover{color:var(--ink)}
       </section>
 
       <!-- 02 technology — click a feature to see it -->
-      <section>
+      <section id="technology">
         <div class="chapter reveal"><span class="label">02 — Technology</span></div>
         <div class="tech-grid">
           <div class="t-img reveal" id="techimg">
@@ -536,7 +549,7 @@ footer .f-r a:hover{color:var(--ink)}
       </section>
 
       <!-- 03 proof -->
-      <section>
+      <section id="reviews">
         <div class="chapter reveal"><span class="label">03 — Proof</span></div>
 
         <div class="quote-stage reveal" id="quotes">
@@ -668,7 +681,7 @@ footer .f-r a:hover{color:var(--ink)}
       </section>
 
       <!-- 04 comparison -->
-      <section>
+      <section id="compare">
         <div class="chapter reveal"><span class="label">04 — Comparison</span></div>
         <div class="cmp-head">
           <h2 class="display reveal">The same core technology. Not the same <em>price</em>.</h2>
@@ -750,7 +763,7 @@ footer .f-r a:hover{color:var(--ink)}
           <div class="ucard this">
             <span class="u-img"><img src="img/alt-current.png" alt="Bomby Styler Silk+"></span>
             <span class="u-body">
-              <span class="u-top"><span class="u-tier">Nº 02 · Core — this page</span></span>
+              <span class="u-top"><span class="u-tier">Nº 03 · Core — this page</span></span>
               <h3>Bomby Styler Silk+</h3>
               <span class="u-diff">
                 <span><b>Everything on this page</b> — infrared, ionic, Silk+ bristles.</span>
@@ -760,15 +773,15 @@ footer .f-r a:hover{color:var(--ink)}
             </span>
           </div>
           <a class="ucard" href="index.html#phenomenal">
-            <span class="u-img"><img src="img/alt-upgrade.png" alt="Silk Pro Max"></span>
+            <span class="u-img"><img src="img/alt-upgrade.png" alt="PHENOMENAL styler"></span>
             <span class="u-body">
-              <span class="u-top"><span class="u-tier">Nº 03 · Lux</span><span class="u-arr">→</span></span>
-              <h3>Silk Pro Max</h3>
+              <span class="u-top"><span class="u-tier">Nº 06 · Multi-tool</span><span class="u-arr">→</span></span>
+              <h3>PHENOMENAL styler</h3>
               <span class="u-diff">
-                <span><b>+ 30% stronger airflow</b> — dries long hair in ~10 min.</span>
-                <span><b>+ 4 heat modes</b> and a copper Lux barrel.</span>
+                <span><b>+ six attachments</b> — dry, straighten, curl and volumise.</span>
+                <span><b>+ one case</b> for the entire styling routine.</span>
               </span>
-              <span class="u-price"><span class="p">€219</span><span class="u-delta">+ €50 to upgrade</span></span>
+              <span class="u-price"><span class="p">€299</span><span class="u-delta">+ €130</span></span>
             </span>
           </a>
           <a class="ucard" href="index.html#dryers">
@@ -784,7 +797,7 @@ footer .f-r a:hover{color:var(--ink)}
             </span>
           </a>
         </div>
-        <p class="coll-note reveal">Part of the Ferrli catalogue — every product and price as listed on ferrlihair.lt.</p>
+        <p class="coll-note reveal">Part of the Ferrli catalogue — every product page will live in this store.</p>
       </section>
 
       <!-- CTA — sprendimo momentas -->
@@ -807,7 +820,7 @@ footer .f-r a:hover{color:var(--ink)}
 
 <footer>
   <div class="wrap">
-    <span class="f-l"><img src="img/ferrli_logo.svg" alt="Ferrli"></span>
+    <span class="f-l"><img src="img/ferrli2.svg" alt="Ferrli"></span>
     <span class="f-m">© 2026 · Concept Nº 07 “The Catalogue” — Object.lt</span>
     <span class="f-r">
       <a href="#">Shipping</a>
