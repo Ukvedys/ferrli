@@ -102,7 +102,7 @@ nav.main a:hover{color:var(--ink)}
 .tech-grid .t-img{position:sticky;top:24px;overflow:hidden;border-radius:999px;aspect-ratio:4/5.1;background:var(--paper)}
 .t-img .ti{position:absolute;inset:0;opacity:0;transition:opacity .65s ease}
 .t-img .ti.on{opacity:1}
-.t-img img{width:100%;height:100%;object-fit:cover}
+.t-img img,.t-img video{width:100%;height:100%;object-fit:cover;display:block}
 .tech-row{padding:26px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:40px 1fr;gap:18px;cursor:pointer;opacity:.5;transition:opacity .35s ease}
 .tech-row:hover{opacity:.8}
 .tech-row.on{opacity:1;cursor:default}
@@ -503,9 +503,9 @@ footer .f-r a:hover{color:var(--ink)}
         <div class="chapter reveal"><span class="label">02 — Technologija</span></div>
         <div class="tech-grid">
           <div class="t-img reveal" id="techimg">
-            <div class="ti on"><img src="img/tech-infrared.png" alt="Infrared emitters glowing"></div>
-            <div class="ti"><img src="img/tech-ionic.png" alt="Ionic airflow through hair"></div>
-            <div class="ti"><img src="img/tech-bristles.png" alt="Boar and nylon bristles close-up"></div>
+            <div class="ti on"><video muted loop playsinline preload="metadata" poster="img/tech-infrared.png" aria-label="Infraraudonųjų spindulių technologija"><source src="img/technology-video/infrared.mp4?v=2" type="video/mp4"></video></div>
+            <div class="ti"><video muted loop playsinline preload="metadata" poster="img/tech-ionic.png" aria-label="Jonų kondicionavimo technologija"><source src="img/technology-video/ionic.mp4?v=2" type="video/mp4"></video></div>
+            <div class="ti"><video muted loop playsinline preload="metadata" poster="img/tech-bristles.png" aria-label="Šerno ir nailono šerelių technologija"><source src="img/technology-video/bristles.mp4?v=2" type="video/mp4"></video></div>
           </div>
           <div id="techlist">
             <div class="tech-row on reveal" data-t="0">
@@ -860,13 +860,23 @@ dots.forEach((d,j)=>d.addEventListener('click',()=>{clearInterval(qt);showQ(j);q
 // technology feature switcher
 const trows=[...document.querySelectorAll('#techlist .tech-row')];
 const timgs=[...document.querySelectorAll('#techimg .ti')];
+function syncTechMedia(active){
+  timgs.forEach((item,i)=>{
+    const video=item.querySelector('video');
+    if(!video)return;
+    if(i===active){video.play().catch(()=>{})}
+    else{video.pause();if(video.readyState)video.currentTime=0}
+  });
+}
 trows.forEach(r=>{
   r.addEventListener('click',()=>{
     const i=+r.dataset.t;
     trows.forEach(x=>x.classList.toggle('on',x===r));
     timgs.forEach((im,j)=>im.classList.toggle('on',j===i));
+    syncTechMedia(i);
   });
 });
+syncTechMedia(0);
 
 // UGC video: hover = tylus grojimas, click = garsas
 document.querySelectorAll('#films .film').forEach(f=>{
