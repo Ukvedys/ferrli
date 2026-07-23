@@ -85,13 +85,14 @@ header.site.scrolled + .search-panel{top:64px}
 /* ============================================================
    CAMPAIGN HERO — V8 hierarchy above the V6 catalogue mosaic.
    ============================================================ */
-.campaign-hero{min-height:min(820px,calc(100vh - 32px));position:relative;overflow:hidden;background:#f2c5c0}
+.campaign-hero{min-height:min(820px,calc(100vh - 32px));position:relative;overflow:hidden;background:#EDAF9C}
+.campaign-girls{position:absolute;z-index:1;right:-6vw;bottom:0;width:min(70vw,1320px);height:auto;max-width:none;pointer-events:none;user-select:none}
 .campaign-copy{position:relative;z-index:2;max-width:1800px;min-height:min(820px,calc(100vh - 32px));margin:0 auto;padding:112px clamp(24px,4vw,72px);display:flex;flex-direction:column;justify-content:center}
 .campaign-copy .label{color:#7D5F55;margin-bottom:22px}
-.campaign-copy h1{max-width:620px;font:300 clamp(42px,4.6vw,68px)/1.05 var(--serif);letter-spacing:-.045em}
+.campaign-copy h1{max-width:600px;font:300 clamp(42px,4.6vw,68px)/1.05 var(--serif);letter-spacing:-.045em}
 .campaign-copy p{max-width:520px;margin-top:24px;color:#4D4947;font-size:17px;line-height:1.7}
 .campaign-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
-.brand-seal{position:absolute;z-index:3;right:5vw;top:154px;width:150px;height:auto;display:block;filter:drop-shadow(0 10px 24px rgba(22,21,19,.08));transform:rotate(3deg)}
+.brand-seal{position:absolute;z-index:3;left:clamp(24px,4vw,72px);top:154px;width:132px;height:auto;display:block;filter:drop-shadow(0 10px 24px rgba(22,21,19,.08));transform:rotate(-3deg)}
 
 /* ---------- category mosaic ---------- */
 .categories-section{padding:clamp(72px,7vw,112px) 0 0}
@@ -470,13 +471,14 @@ footer .f-r a:hover{color:var(--ink)}
   .mobile-nav a:active{border-color:var(--ink);color:var(--ink)}
   section[id]{scroll-margin-top:58px}
 
-  .campaign-hero{min-height:0;display:block}
-  .campaign-copy{min-height:0;display:block;padding:412px 14px 46px;background:transparent}
+  .campaign-hero{min-height:700px;display:block}
+  .campaign-girls{width:150%;right:-42%;bottom:auto;top:126px}
+  .campaign-copy{min-height:700px;display:block;padding:472px 14px 46px;background:transparent}
   .campaign-copy h1{max-width:100%;font-size:clamp(38px,10.8vw,46px)}
   .campaign-copy p{font-size:15px}
   .campaign-actions{display:grid;grid-template-columns:1fr}
   .campaign-actions .btn{width:100%;text-align:center}
-  .brand-seal{width:108px;right:16px;top:154px}
+  .brand-seal{width:82px;left:16px;right:auto;top:142px}
   .categories-section{padding-top:64px}
   .hero-wrap{padding:0 14px}
   .mosaic{display:flex;flex-direction:column;height:auto;gap:12px}
@@ -565,6 +567,7 @@ footer .f-r a:hover{color:var(--ink)}
 <div class="search-panel" id="search-panel"><div class="wrap"><input id="site-search" type="search" placeholder="Search products" aria-label="Search products"><button class="btn" id="search-close">Close</button></div></div>
 
 <section class="campaign-hero" id="top">
+  <img class="campaign-girls" src="img/hero-girls.png" alt="Four women holding Ferrli hair styling tools">
   <img class="brand-seal" src="../v6-kolekcija/img/beauty-tech-innovation-award-badge.svg" alt="Beauty Tech Innovation Award — Healthy Hair">
   <div class="campaign-copy">
     <h1>Beautiful hair shouldn’t come at the cost of healthy hair.</h1>
