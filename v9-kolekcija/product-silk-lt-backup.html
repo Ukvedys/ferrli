@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Ferrli — Bomby Styler Silk+ · Nº 03 iš 25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&amp;family=Instrument+Sans:wght@400..600&amp;display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   FERRLI PRODUCT Nº03 — "Gallery / Split"
+   2/3 the object, 1/3 the decision.
+   One colour, one line, plenty of air.
+   ============================================================ */
+:root{
+  --white:#FFFFFF;
+  --paper:#F5F3F0;
+  --ink:#161513;
+  --body:#5F5B55;
+  --faint:#9B968E;
+  --line:rgba(22,21,19,.14);
+  --navy:#3A4C7A;
+  --gold:#161513;
+  --serif:"Fraunces",Georgia,serif;
+  --sans:"Instrument Sans",-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--white);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer}
+a{color:inherit}
+.wrap{max-width:1800px;margin:0 auto;padding:0 clamp(24px,4vw,72px)}
+
+.label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);font-weight:500}
+.display{font-family:var(--serif);font-weight:340;letter-spacing:-.01em;line-height:1.06}
+.display em{font-style:italic;font-weight:320}
+.body-text{font-size:16px;color:var(--body);line-height:1.75}
+
+.reveal{opacity:0;transform:translateY(10px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+
+.btn{background:var(--ink);color:#fff;border:none;border-radius:2px;padding:17px 40px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;transition:opacity .2s}
+.btn:hover{opacity:.8}
+
+/* ---------- header ---------- */
+header.site{border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;gap:44px;height:76px}
+.logo{font-family:var(--serif);font-style:italic;font-weight:500;font-size:25px;text-decoration:none;margin-right:8px;display:flex;align-items:center}
+.logo img{height:24px;width:auto;display:block}
+nav.main{display:flex;gap:30px;flex:1}
+nav.main a{text-decoration:none;font-size:13px;letter-spacing:.06em;color:var(--body);transition:color .2s}
+nav.main a:hover{color:var(--ink)}
+.search{display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding:6px 2px;width:200px;text-decoration:none;color:var(--body);font-size:13px}
+.search input{border:none;outline:none;font-family:inherit;font-size:13px;width:100%;background:transparent;color:var(--ink)}
+.search input::placeholder{color:var(--faint)}
+.search .s-ico{font-size:13px;color:var(--faint)}
+.head-links{display:flex;gap:26px;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.head-links a{text-decoration:none;color:var(--body)}
+.head-links a:hover{color:var(--ink)}
+.head-links b{color:var(--ink);font-weight:600}
+.mobile-nav{display:none}
+
+/* ---------- layout: 2/3 + 1/3 — visas blokas 20px nuo ekrano kraštų ---------- */
+.wrap-layout{max-width:1840px;padding:0 20px}
+.layout{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);grid-template-rows:auto 1fr;column-gap:0;align-items:start}
+.hero-block{grid-column:1;grid-row:1;min-width:0;padding:20px 20px 0 0} /* 20px iš visų pusių: kairė=ekranas, dešinė=linija */
+.content{grid-column:1;grid-row:2;min-width:0;padding-left:clamp(4px,2.6vw,52px)}
+.rail-col{grid-column:2;grid-row:1/3;min-width:0;border-left:1px solid var(--line);align-self:stretch}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;border-radius:2px;height:clamp(440px,74vh,880px);background:var(--paper)}
+.hero .slide{position:absolute;inset:0;opacity:0;transition:opacity .7s ease}
+.hero .slide.on{opacity:1}
+.hero .slide img{width:100%;height:100%;object-fit:cover;object-position:center 28%}
+.hero .nav{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.92);color:var(--ink);font-size:15px;display:flex;align-items:center;justify-content:center;transition:opacity .2s;z-index:3}
+.hero .nav:hover{opacity:.75}
+.hero .nav.prev{left:18px}
+.hero .nav.next{right:18px}
+.hero-caption{display:flex;justify-content:space-between;margin-top:14px;font-size:12px;color:var(--faint);padding:0 4px}
+
+/* ---------- chapters (2/3) ---------- */
+.content{padding-right:clamp(40px,4vw,88px)}
+.chapter{border-top:1px solid var(--line);padding-top:24px;margin-top:clamp(96px,9vw,150px)}
+.content>section:first-child .chapter{margin-top:clamp(56px,5vw,84px)}
+
+.ritual-grid{display:grid;grid-template-columns:3fr 2fr;gap:56px;margin-top:44px;align-items:start}
+.ritual-grid>*{min-width:0}
+.ritual-grid h2{font-size:clamp(30px,2.9vw,54px)}
+.ritual-grid .col-r{padding-top:10px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);margin-top:76px;border-top:1px solid var(--line)}
+.facts>*{min-width:0;padding:30px 30px 4px;border-right:1px solid var(--line)}
+.facts>*:first-child{padding-left:0}
+.facts>*:last-child{border-right:none;padding-right:0}
+.facts b{font-family:var(--serif);font-weight:340;font-size:clamp(36px,2.6vw,50px);letter-spacing:-.02em;display:block;line-height:1}
+.facts span{display:block;margin-top:13px;font-size:15px;color:var(--body);line-height:1.6}
+
+/* tech — interaktyvus: eilutė keičia nuotrauką ir atsiskleidžia */
+.tech-grid{display:grid;grid-template-columns:2fr 3fr;gap:56px;margin-top:44px;align-items:start}
+.tech-grid>*{min-width:0}
+.tech-grid .t-img{position:sticky;top:24px;overflow:hidden;border-radius:999px;aspect-ratio:4/5.1;background:var(--paper)}
+.t-img .ti{position:absolute;inset:0;opacity:0;transition:opacity .65s ease}
+.t-img .ti.on{opacity:1}
+.t-img img,.t-img video{width:100%;height:100%;object-fit:cover;display:block}
+.tech-row{padding:26px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:40px 1fr;gap:18px;cursor:pointer;opacity:.5;transition:opacity .35s ease}
+.tech-row:hover{opacity:.8}
+.tech-row.on{opacity:1;cursor:default}
+.tech-row:first-child{padding-top:4px}
+.tech-row .n{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--faint);padding-top:4px}
+.tech-row h3{font-family:var(--serif);font-weight:400;font-size:22px;letter-spacing:-.01em}
+.tech-row p{margin-top:7px;font-size:15.5px;color:var(--body);line-height:1.7;max-width:440px}
+.tech-row .more{max-height:0;overflow:hidden;transition:max-height .55s ease}
+.tech-row.on .more{max-height:220px}
+.tech-row .more p{margin-top:12px;font-size:14px;color:var(--body);line-height:1.7}
+.tech-row .more .spec{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.tech-row .more .spec span{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);border:1px solid var(--line);border-radius:999px;padding:5px 12px}
+.tech-note{margin-top:32px;font-size:12px;color:var(--faint);max-width:380px;line-height:1.7}
+
+/* plate — du panaudojimo įrodymai */
+.plate{margin-top:120px}
+.plate .duo{display:grid;grid-template-columns:2fr 1fr;gap:16px}
+.plate .duo>*{min-width:0}
+.plate figure{margin:0}
+.plate .imgw{overflow:hidden;border-radius:24px;height:clamp(320px,30vw,520px);background:var(--paper)}
+.plate .imgw img{width:100%;height:100%;object-fit:cover}
+.plate figcaption{display:flex;justify-content:space-between;gap:12px;margin-top:12px;font-size:12px;color:var(--faint)}
+
+/* proof */
+.quote-stage{margin-top:52px;text-align:center;min-height:200px;display:flex;flex-direction:column;justify-content:center;position:relative}
+.quote{font-family:var(--serif);font-weight:340;font-style:italic;font-size:clamp(23px,2.1vw,38px);line-height:1.35;max-width:760px;margin:0 auto;opacity:0;transition:opacity .8s ease;position:absolute;left:50%;transform:translateX(-50%);width:100%;padding:0 12px}
+.quote.on{opacity:1;position:relative;left:auto;transform:none}
+.quote-who{margin-top:22px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.quote-dots{display:flex;gap:8px;justify-content:center;margin-top:26px}
+.quote-dots button{width:6px;height:6px;border-radius:50%;border:none;background:var(--line);padding:0;transition:background .3s}
+.quote-dots button.on{background:var(--ink)}
+.counters{display:grid;grid-template-columns:repeat(3,1fr);margin-top:76px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.counters>*{min-width:0;text-align:center;padding:30px 14px;border-right:1px solid var(--line)}
+.counters>*:last-child{border-right:none}
+.counters b{font-family:var(--serif);font-weight:340;font-size:32px;display:block;letter-spacing:-.02em}
+.counters span{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);display:block;margin-top:9px}
+
+.films{margin-top:84px}
+.films .row{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;scrollbar-width:none}
+.films .row::-webkit-scrollbar{display:none}
+.film{flex:0 0 clamp(200px,14vw,248px);scroll-snap-align:start}
+.film .frame{aspect-ratio:9/16;overflow:hidden;border-radius:2px;position:relative;background:var(--paper);cursor:pointer}
+.film .frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.film .frame .ply{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--ink);transition:opacity .3s;pointer-events:none}
+.film.playing .frame .ply{opacity:0}
+.film .frame .dur{position:absolute;right:10px;top:10px;font-size:10px;letter-spacing:.08em;color:#fff;background:rgba(22,21,19,.5);padding:3px 8px;border-radius:2px;pointer-events:none}
+.film .frame .snd{position:absolute;left:10px;top:10px;font-size:10px;letter-spacing:.08em;color:#fff;background:rgba(22,21,19,.55);padding:3px 9px;border-radius:2px;opacity:0;transition:opacity .3s;pointer-events:none}
+.film.sound .frame .snd{opacity:1}
+.film .cap{margin-top:11px;font-size:11.5px;color:var(--body);line-height:1.5}
+.film .cap b{display:block;font-weight:600;color:var(--ink);font-size:12px}
+.films .foot{margin-top:22px;font-size:11px;color:var(--faint)}
+
+/* reviews — gausos debesis */
+.reviews{margin-top:110px}
+.rev-head{display:flex;justify-content:space-between;align-items:baseline;gap:20px;margin-bottom:26px}
+.rev-head .rh-l{font-family:var(--serif);font-weight:340;font-size:22px;letter-spacing:-.01em}
+.rev-head .rh-l em{font-style:italic}
+.rev-head a{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:2px;white-space:nowrap}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.rev-grid>*{min-width:0}
+.rcard{padding:32px 34px;display:flex;flex-direction:column;gap:13px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.rcard:nth-child(3n){border-right:none;padding-right:0}
+.rcard:nth-child(3n+1){padding-left:0}
+.rcard:nth-child(n+4){border-bottom:none}
+.rcard .stars{color:var(--gold);letter-spacing:2px;font-size:12px}
+.rcard p{font-size:15.5px;color:#4A463F;line-height:1.7;flex:1}
+.rcard .r-foot{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.rcard .r-foot b{font-size:13px;display:block}
+.rcard .r-meta{font-size:11px;color:var(--faint);margin-top:2px}
+.rcard .r-tag{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);white-space:nowrap}
+.rcard .r-ver{font-size:11px;color:var(--navy);font-weight:600}
+
+/* comparison */
+.cmp-head{display:grid;grid-template-columns:3fr 2fr;gap:56px;margin-top:44px;align-items:end}
+.cmp-head>*{min-width:0}
+.cmp-head h2{font-size:clamp(28px,2.5vw,48px)}
+.cmp{margin-top:52px;border-top:1px solid var(--line)}
+.cmp-row{display:grid;grid-template-columns:5fr 2fr 2fr 2fr;border-bottom:1px solid var(--line);align-items:center}
+.cmp-row>*{min-width:0;padding:18px 8px;font-size:13px}
+.cmp-row .c-label{color:var(--body);padding-left:0}
+.cmp-row .c{text-align:center;color:var(--faint)}
+.cmp-row .c.f{color:var(--ink);font-weight:600}
+.cmp-row.head>*{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:500;padding-top:22px}
+.cmp-row.head .c.f{color:var(--ink)}
+.cmp-foot{margin-top:20px;font-size:11px;color:var(--faint)}
+
+/* FAQ */
+.faq-grid{display:grid;grid-template-columns:2fr 3fr;gap:56px;margin-top:44px}
+.faq-grid>*{min-width:0}
+.faq-grid h2{font-size:clamp(26px,2.3vw,42px)}
+.faq-grid .lead{margin-top:14px}
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:22px 0;cursor:pointer}
+summary::-webkit-details-marker{display:none}
+summary h3{font-family:var(--serif);font-weight:400;font-size:18px;letter-spacing:-.01em}
+summary .pl{font-family:var(--serif);font-weight:300;font-size:21px;color:var(--faint);transition:transform .3s;flex:none}
+details[open] summary .pl{transform:rotate(45deg)}
+details p{padding:0 0 24px;font-size:15.5px;color:var(--body);line-height:1.75;max-width:500px}
+
+/* upsell — pasirinkimas su laiptine aukštyn */
+.upsell{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.upsell>*{min-width:0}
+.ucard{border:1px solid var(--line);border-radius:2px;background:#fff;text-align:left;padding:0;text-decoration:none;transition:border-color .3s;display:flex;flex-direction:column}
+a.ucard:hover{border-color:var(--ink)}
+.ucard.this{border-color:var(--ink)}
+.ucard .u-img{overflow:hidden;aspect-ratio:4/4.2;display:block}
+.ucard .u-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+a.ucard:hover .u-img img{transform:scale(1.02)}
+.u-body{padding:22px 24px 26px;display:flex;flex-direction:column;gap:12px;flex:1}
+.u-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.u-tier{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);font-weight:600}
+.u-arr{font-family:var(--serif);font-size:18px;color:var(--faint);line-height:1;transition:transform .25s,color .25s}
+a.ucard:hover .u-arr{transform:translateX(4px);color:var(--ink)}
+.ucard h3{font-family:var(--serif);font-weight:400;font-size:21px;letter-spacing:-.01em;color:var(--ink)}
+.u-diff{display:flex;flex-direction:column;gap:5px;flex:1}
+.u-diff span{font-size:13.5px;color:var(--body);line-height:1.55}
+.u-diff span b{color:var(--ink);font-weight:600}
+.u-price{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-top:1px solid var(--line);padding-top:14px}
+.u-price .p{font-family:var(--serif);font-weight:340;font-size:23px;letter-spacing:-.01em;color:var(--ink)}
+.u-delta{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--navy);white-space:nowrap}
+.ucard.this .u-delta{color:var(--faint)}
+.coll-note{margin-top:24px;font-size:12px;color:var(--faint)}
+
+/* CTA — pabudimas iš scrollo */
+.cta{margin-top:clamp(96px,9vw,150px);background:#E4DCD6;border-radius:2px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+.cta>*{min-width:0}
+.cta .c-copy{padding:clamp(40px,4.5vw,72px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.cta .c-kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#8C8177;font-weight:600;margin-bottom:20px}
+.cta h2{font-family:var(--serif);font-weight:340;font-size:clamp(30px,2.9vw,46px);letter-spacing:-.015em;line-height:1.1}
+.cta h2 em{font-style:italic}
+.cta .c-sub{margin-top:16px;font-size:16px;color:#6B6058;line-height:1.65;max-width:380px}
+.cta .c-price{margin-top:28px;font-family:var(--serif);font-weight:340;font-size:26px}
+.cta .c-price small{font-family:var(--sans);font-size:12.5px;color:#8C8177;margin-left:12px}
+.cta .btn{margin-top:22px;padding:17px 52px}
+.cta .c-micro{margin-top:18px;font-size:11.5px;color:#8C8177}
+.cta .c-img{position:relative;min-height:420px}
+.cta .c-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%}
+
+/* ---------- rail (1/3) ---------- */
+.rail-col{padding:0 0 0 0}
+.rail{position:sticky;top:0;padding:clamp(36px,3vw,56px) 0 44px clamp(40px,3.6vw,80px);padding-right:0}
+.rail-inner{padding-right:0}
+.rail .no{margin-bottom:22px}
+.rail h1{font-size:clamp(30px,2.4vw,48px)}
+.rail .dek{margin-top:16px;max-width:380px}
+.rail-divider{height:1px;background:var(--line);margin:34px 0 0}
+.choices{text-align:left}
+.choice{width:100%;display:flex;align-items:center;gap:15px;background:transparent;border:none;border-bottom:1px solid var(--line);padding:18px 2px;text-align:left}
+.choice .radio{width:15px;height:15px;border-radius:50%;border:1px solid var(--faint);flex:none;position:relative;transition:border-color .2s}
+.choice.on .radio{border-color:var(--ink)}
+.choice.on .radio::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--ink)}
+.choice .c-main{flex:1}
+.choice .c-main b{font-size:13.5px;font-weight:600;display:block}
+.choice .c-main span{font-size:11.5px;color:var(--body)}
+.choice .c-side{font-size:10.5px;letter-spacing:.06em;color:var(--faint);text-transform:uppercase}
+.price-row{display:flex;align-items:flex-end;justify-content:space-between;margin-top:32px}
+.price-row .p{font-family:var(--serif);font-weight:340;font-size:42px;letter-spacing:-.02em;line-height:1}
+.price-row .note{font-size:11.5px;color:var(--body);margin-top:8px}
+.qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:2px}
+.qty button{width:36px;height:40px;border:none;background:transparent;font-size:15px;color:var(--body)}
+.qty span{width:30px;text-align:center;font-size:13px;font-weight:600}
+.rail .actions{display:flex;gap:10px;margin-top:26px}
+.rail .btn{flex:1;padding:17px 10px}
+.wish{width:52px;border:1px solid var(--line);background:transparent;border-radius:2px;font-size:15px;color:var(--body);transition:color .2s,border-color .2s}
+.wish:hover{color:var(--ink);border-color:var(--ink)}
+.assure{margin-top:30px;border-top:1px solid var(--line)}
+.assure>div{display:flex;gap:14px;padding:14px 2px;border-bottom:1px solid var(--line);font-size:12px;color:var(--body);line-height:1.55}
+.assure b{color:var(--ink);font-weight:600;display:block;font-size:12.5px}
+.assure .a-n{font-family:var(--serif);font-style:italic;color:var(--faint);font-size:13px;padding-top:1px;width:14px;flex:none}
+.rail .quiet{margin-top:22px;font-size:11px;color:var(--faint);line-height:1.7}
+
+/* crumbs + prev/next between numbers */
+.crumbs{display:flex;justify-content:space-between;align-items:baseline;gap:14px;margin-bottom:26px;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.crumbs .c-path{color:var(--faint);display:flex;gap:8px}
+.crumbs .c-path a{text-decoration:none;color:var(--faint)}
+.crumbs .c-path a:hover{color:var(--ink)}
+.crumbs .c-pn{display:flex;gap:16px}
+.crumbs .c-pn a{text-decoration:none;color:var(--body);white-space:nowrap}
+.crumbs .c-pn a:hover{color:var(--ink)}
+
+/* ---------- footer ---------- */
+footer{margin-top:130px;border-top:1px solid var(--line);padding:40px 0 56px}
+footer .wrap{display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap}
+footer .f-l{font-family:var(--serif);font-style:italic;font-size:20px}
+footer .f-l img{height:18px;width:auto;display:block;opacity:.85}
+footer .f-m{font-size:11.5px;color:var(--faint)}
+footer .f-r{display:flex;gap:24px;font-size:12px;color:var(--body)}
+footer .f-r a{text-decoration:none}
+footer .f-r a:hover{color:var(--ink)}
+
+.mbar{display:none}
+
+/* ============================================================
+   MOBILE — hero → decision → story
+   ============================================================ */
+@media (max-width:940px){
+  .wrap{padding:0 22px}
+  body{padding-bottom:64px}
+  header.site .wrap{height:62px;gap:20px}
+  nav.main,.search{display:none}
+  .head-links{margin-left:auto}
+  .mobile-nav{display:flex;gap:8px;overflow-x:auto;padding:10px 16px 11px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.96);scrollbar-width:none;position:sticky;top:0;z-index:109}
+  .mobile-nav::-webkit-scrollbar{display:none}
+  .mobile-nav a{flex:none;text-decoration:none;color:var(--body);font-size:10px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:8px 12px;background:var(--white)}
+  section[id],#buy{scroll-margin-top:58px}
+
+  body{overflow-x:clip}
+  .layout{display:flex;flex-direction:column}
+  .layout>*{min-width:0;max-width:100%;width:100%}
+  .hero-block{order:1;padding:20px 0 0}
+  .rail-col{order:2;border-left:none}
+  .content{order:3;padding-right:0}
+
+  .wrap-layout{padding:0 20px}
+  .content{padding-left:0}
+  .hero{height:clamp(380px,58vh,540px)}
+  .hero .nav{width:34px;height:34px}
+
+  .rail{position:static;padding:36px 0 8px;margin-right:0}
+  .rail h1{font-size:34px}
+
+  .chapter{margin-top:88px}
+  .content>section:first-child .chapter{margin-top:72px}
+  .ritual-grid{grid-template-columns:1fr;gap:22px;margin-top:36px}
+  .facts{grid-template-columns:1fr;border-top:none;margin-top:48px}
+  .facts>*{border-right:none;border-top:1px solid var(--line);padding:24px 0 4px}
+  .facts b{font-size:34px}
+
+  .tech-grid{grid-template-columns:1fr;gap:38px;margin-top:36px}
+  .tech-grid .t-img{max-width:320px;margin:0 auto}
+
+  .plate{margin-top:88px}
+  .plate .duo{grid-template-columns:1fr;gap:20px}
+  .plate .imgw{height:auto;aspect-ratio:3/2;border-radius:18px}
+  .plate figure:last-child .imgw{aspect-ratio:3/3.9}
+
+  .quote-stage{margin-top:36px;min-height:240px}
+  .counters{grid-template-columns:1fr;margin-top:52px}
+  .counters>*{border-right:none;border-bottom:1px solid var(--line);padding:24px 14px}
+  .counters>*:last-child{border-bottom:none}
+
+  .films{margin-top:60px}
+  .films .row{margin:0 -22px;padding:0 22px 8px}
+  .film{flex:0 0 62vw;max-width:230px}
+
+  .reviews{margin-top:72px}
+  .rev-grid{grid-template-columns:1fr}
+  .rcard{padding:26px 0;border-right:none !important;border-bottom:1px solid var(--line) !important}
+  .rcard:last-child{border-bottom:none !important}
+
+  .cmp-head{grid-template-columns:1fr;gap:18px;margin-top:36px}
+  .cmp{margin-top:36px}
+  .cmp-row{grid-template-columns:4fr 1.6fr 1.6fr 1.6fr}
+  .cmp-row>*{padding:15px 4px;font-size:11.5px}
+  .cmp-row.head>*{font-size:9px;letter-spacing:.08em}
+
+  .faq-grid{grid-template-columns:1fr;gap:24px;margin-top:36px}
+
+  .cta{grid-template-columns:1fr;margin-top:80px}
+  .cta .c-img{min-height:0;aspect-ratio:4/3;order:-1}
+  .cta .c-copy{padding:32px 24px 40px}
+
+  .upsell{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:36px -22px 0;padding:0 22px 8px;scrollbar-width:none}
+  .upsell::-webkit-scrollbar{display:none}
+  .upsell>*{flex:0 0 78%;scroll-snap-align:center}
+
+  footer{margin-top:88px}
+
+  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:110;background:rgba(255,255,255,.93);backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:13px 22px calc(13px + env(safe-area-inset-bottom));justify-content:space-between;align-items:center;transform:translateY(110%);transition:transform .35s ease}
+  .mbar.show{transform:none}
+  .mbar .m-l{font-size:13px}
+  .mbar .m-l b{font-family:var(--serif);font-style:italic;font-weight:500;font-size:15px;margin-right:10px}
+  .mbar a{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:2px}
+}
+</style>
+</head>
+<body>
+
+<!-- mobile bottom line -->
+<div class="mbar" id="mbar">
+  <div class="m-l"><b>Silk+</b> €169</div>
+  <a href="#">Pirkti</a>
+</div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="index.html"><img src="img/ferrli2.svg" alt="Ferrli"></a>
+    <nav class="main">
+      <a href="index.html">Katalogas</a>
+      <a href="index.html#dryers">Džiovintuvai</a>
+      <a href="index.html#straighteners">Formavimo įrankiai</a>
+      <a href="#reviews">Atsiliepimai</a>
+    </nav>
+    <a class="search" href="index.html#match"><span class="s-ico">⌕</span><span>Rasti savo</span></a>
+    <div class="head-links">
+      <a href="#">Parduotuvė ↗</a>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav" aria-label="Produkto puslapio skiltys">
+  <a href="#buy">Apie produktą</a>
+  <a href="#technology">Technologija</a>
+  <a href="#reviews">Atsiliepimai</a>
+  <a href="#compare">Palyginimas</a>
+</nav>
+
+<div class="wrap wrap-layout">
+  <div class="layout">
+
+    <!-- ============ HERO — 2/3, bleed left ============ -->
+    <div class="hero-block">
+      <div class="hero" id="hero">
+        <div class="slide on"><img src="img/hero.png" alt="Bomby Styler Silk+" style="object-position:center 25%"></div>
+        <div class="slide"><img src="img/podium.png" alt="Bomby Styler Silk+ on podium" style="object-position:center 40%"></div>
+        <div class="slide"><img src="img/features-1.png" alt="Bomby Styler Silk+ in use" style="object-position:center 15%"></div>
+        <div class="slide"><img src="img/features-2.png" alt="Bomby Styler Silk+ detail" style="object-position:center 20%"></div>
+        <button class="nav prev" onclick="slide(-1)">←</button>
+        <button class="nav next" onclick="slide(1)">→</button>
+      </div>
+      <div class="hero-caption">
+        <span>Bomby Styler Silk+ · Midnight Blue</span>
+        <span id="herocount">1 / 4</span>
+      </div>
+    </div>
+
+    <!-- ============ RAIL — 1/3, sticky ============ -->
+    <aside class="rail-col">
+      <div class="rail" id="buy">
+        <div class="crumbs reveal">
+          <span class="c-path"><a href="index.html">Katalogas</a><span>/</span><a href="index.html#dryers">Džiovintuvai</a></span>
+          <span class="c-pn"><a href="index.html#super-ionic" title="Nº 02 — SUPER IONIC">← Nº 02</a><a href="index.html#bomby-classic" title="Nº 04 — Bomby Styler classic">Nº 04 →</a></span>
+        </div>
+        <div class="label no reveal">Ferrli katalogas — Nº 03 iš 25 · Formuojantys džiovintuvai</div>
+        <h1 class="display reveal">Bomby Styler.<br><em>Silk+.</em></h1>
+        <p class="body-text dek reveal">Džiovina po plovimo. Pakelia prie šaknų. Formuoja galiukus ar minkštas bangas — vienu kasdieniu šukavimo judesiu.</p>
+
+        <div class="rail-divider reveal"></div>
+
+        <div class="price-row reveal">
+          <div>
+            <div class="p">€169</div>
+          </div>
+          <div class="qty">
+            <button onclick="qty(-1)">−</button><span id="qtyval">1</span><button onclick="qty(1)">+</button>
+          </div>
+        </div>
+
+        <div class="actions reveal">
+          <a class="btn" href="#">Į krepšelį</a>
+        </div>
+
+        <div class="assure reveal">
+          <div><span class="a-n">i.</span><div><b>Pristatymas per 1–2 d. d.</b>visoje Lietuvoje</div></div>
+          <div><span class="a-n">ii.</span><div><b>30 dienų išbandymas namuose</b>paprastas grąžinimas</div></div>
+          <div><span class="a-n">iii.</span><div><b>2 metų garantija</b>vietinis aptarnavimas ir servisas</div></div>
+        </div>
+
+        <p class="quiet reveal">Pristatomas dovanoti paruoštoje dėžutėje. Rankomis rašytą atviruką galima pridėti užsakant.</p>
+      </div>
+    </aside>
+
+    <!-- ============ CONTENT — 2/3 ============ -->
+    <div class="content">
+
+      <!-- 01 ritual -->
+      <section>
+        <div class="chapter reveal"><span class="label">01 — Ritualas</span></div>
+        <div class="ritual-grid">
+          <h2 class="display reveal">Vienas įrankis pakeičia feną, šepetį ir pilną formavimo stalčių.</h2>
+          <div class="col-r reveal">
+            <p class="body-text">Salono rezultatas niekada nepriklausė nuo įrankių kiekio — jį kuria kartu veikiantys karštis, įtempimas ir laikas. Silk+ visus tris sutalpina vienoje rankoje.</p>
+          </div>
+        </div>
+        <div class="facts">
+          <div class="reveal"><b>15 min</b><span>nuo drėgnų iki suformuotų — vietoje 40 minučių su fenu ir apvaliu šepečiu</span></div>
+          <div class="reveal"><b>1 judesys</b><span>džiovina ir formuoja vienu metu — nereikia salono technikos</span></div>
+          <div class="reveal"><b>−28°</b><span>vėsiau nei įprastu džiovintuvu — plaukuose išlieka daugiau drėgmės</span></div>
+        </div>
+      </section>
+
+      <!-- plate: du panaudojimai -->
+      <section class="plate">
+        <div class="duo reveal">
+          <figure>
+            <div class="imgw"><img src="img/use-volume-hq.jpg" alt="Volume at the roots" style="object-position:center 20%"></div>
+            <figcaption><span>Apimtis prie šaknų · 46 mm</span><span>Ferrli, 2026</span></figcaption>
+          </figure>
+          <figure>
+            <div class="imgw"><img src="img/use-ends-hq.jpg" alt="Smooth, shaped ends" style="object-position:center 15%"></div>
+            <figcaption><span>Glotnūs, suformuoti galiukai · 42 mm</span></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- 02 technology — click a feature to see it -->
+      <section id="technology">
+        <div class="chapter reveal"><span class="label">02 — Technologija</span></div>
+        <div class="tech-grid">
+          <div class="t-img reveal" id="techimg">
+            <div class="ti on"><video muted loop playsinline preload="metadata" poster="img/tech-infrared.png" aria-label="Infraraudonųjų spindulių technologija"><source src="img/technology-video/infrared.mp4?v=2" type="video/mp4"></video></div>
+            <div class="ti"><video muted loop playsinline preload="metadata" poster="img/tech-ionic.png" aria-label="Jonų kondicionavimo technologija"><source src="img/technology-video/ionic.mp4?v=2" type="video/mp4"></video></div>
+            <div class="ti"><video muted loop playsinline preload="metadata" poster="img/tech-bristles.png" aria-label="Šerno ir nailono šerelių technologija"><source src="img/technology-video/bristles.mp4?v=3" type="video/mp4"></video></div>
+          </div>
+          <div id="techlist">
+            <div class="tech-row on reveal" data-t="0">
+              <span class="n">i.</span>
+              <div>
+                <h3>Infraraudonųjų spindulių šiluma</h3>
+                <p>Džiovina plauką iš vidaus, ne nuo paviršiaus. Žemesnė temperatūra padeda išlaikyti drėgmę.</p>
+                <div class="more">
+                  <p>105 infraraudonųjų spindulių elementai šildo plauko branduolį tiesiogiai, todėl vanduo išgaruoja švelniai. Silk+ gali formuoti iki 28° žemesnėje temperatūroje nei įprastas džiovintuvas.</p>
+                  <div class="spec"><span>105 elementai</span><span>−28° lyginant su fenu</span><span>3 karščio režimai</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="tech-row reveal" data-t="1">
+              <span class="n">ii.</span>
+              <div>
+                <h3>Joninis kondicionavimas</h3>
+                <p>Neigiami jonai glotnina kutikulę ir neutralizuoja statinį krūvį. Blizgesys kyla iš lygaus paviršiaus, ne purškiklio.</p>
+                <div class="more">
+                  <p>Integruotas generatorius su kiekvienu judesiu į oro srautą išleidžia milijonus neigiamų jonų. Jie glotnina kutikulę, padeda išlaikyti drėgmę ir mažina plaukų elektrinimąsi.</p>
+                  <div class="spec"><span>20 mln. jonų / cm³</span><span>Antistatinis poveikis</span><span>Be papildomų priemonių</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="tech-row reveal" data-t="2">
+              <span class="n">iii.</span>
+              <div>
+                <h3>Šerno ir nailono šereliai</h3>
+                <p>Natūralūs šereliai paskirsto plaukų aliejus per ilgį, o nailono spygliukai išpainioja ir laiko formą.</p>
+                <div class="more">
+                  <p>Tankūs natūralūs šereliai glotnina paviršių nuo šaknų iki galiukų, o ilgesni nailono spygliukai suima sruogą ir suteikia jai formą.</p>
+                  <div class="spec"><span>SILK+ derinys</span><span>Natūralūs šereliai</span><span>Formavimo spygliukai</span></div>
+                </div>
+              </div>
+            </div>
+            <p class="tech-note reveal">Visos trys technologijos veikia kartu su kiekvienu judesiu. Salono rezultatas švelniau nei įprastai džiovinant.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 proof -->
+      <section id="reviews">
+        <div class="chapter reveal"><span class="label">03 — Patirtys</span></div>
+
+        <div class="quote-stage reveal" id="quotes">
+          <div class="quote on">
+            <div>„Grąžinau premium ženklo įrankį. Rezultatas toks pats — už skirtumą išvažiavau atostogų.“</div>
+            <div class="quote-who">Monika, 34 — patvirtinta pirkėja</div>
+          </div>
+          <div class="quote">
+            <div>„Kirpėja paklausė, ką pakeičiau. Parodžiau jai Ferrli.“</div>
+            <div class="quote-who">Aistė, 38 — patvirtinta pirkėja</div>
+          </div>
+          <div class="quote">
+            <div>„Mano plaukai ploni, todėl bijojau karščio. Po mėnesio jie atrodo sveikesni nei anksčiau.“</div>
+            <div class="quote-who">Eglė, 42 — patvirtinta pirkėja</div>
+          </div>
+          <div class="quote-dots" id="qdots">
+            <button class="on"></button><button></button><button></button>
+          </div>
+        </div>
+
+        <div class="counters">
+          <div class="reveal"><b>12 000+</b><span>klienčių</span></div>
+          <div class="reveal"><b>4,9 / 5</b><span>2 431 atsiliepimas</span></div>
+          <div class="reveal"><b>94%</b><span>rekomenduotų</span></div>
+        </div>
+
+        <div class="films">
+          <div class="row reveal" id="films">
+            <div class="film">
+              <div class="frame">
+                <video src="img/video/ugc-1.mp4" poster="img/video/poster-1.jpg" preload="metadata" muted loop playsinline></video>
+                <span class="ply">▶</span><span class="dur">0:13</span><span class="snd">♪ su garsu</span>
+              </div>
+              <div class="cap"><b>Gabija, 27</b>Pirmas kartas — salono rezultatas</div>
+            </div>
+            <div class="film">
+              <div class="frame">
+                <video src="img/video/ugc-2.mp4" poster="img/video/poster-2.jpg" preload="metadata" muted loop playsinline></video>
+                <span class="ply">▶</span><span class="dur">0:14</span><span class="snd">♪ su garsu</span>
+              </div>
+              <div class="cap"><b>Austėja, 31</b>Dažyti plaukai, jokio pūtimosi</div>
+            </div>
+            <div class="film">
+              <div class="frame">
+                <video src="img/video/ugc-3.mp4" poster="img/video/poster-3.jpg" preload="metadata" muted loop playsinline></video>
+                <span class="ply">▶</span><span class="dur">0:15</span><span class="snd">♪ su garsu</span>
+              </div>
+              <div class="cap"><b>Rūta, 24</b>12 minučių rytas</div>
+            </div>
+            <div class="film">
+              <div class="frame">
+                <video src="img/video/ugc-4.mp4" poster="img/video/poster-4.jpg" preload="metadata" muted loop playsinline></video>
+                <span class="ply">▶</span><span class="dur">0:19</span><span class="snd">♪ su garsu</span>
+              </div>
+              <div class="cap"><b>Karolina, 29</b>Prieš ir po — banguoti plaukai</div>
+            </div>
+            <div class="film">
+              <div class="frame">
+                <video src="img/video/ugc-5.mp4" poster="img/video/poster-5.jpg" preload="metadata" muted loop playsinline></video>
+                <span class="ply">▶</span><span class="dur">0:04</span><span class="snd">♪ su garsu</span>
+              </div>
+              <div class="cap"><b>Simona, 35</b>42 mm trumpiems plaukams</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reviews">
+          <div class="rev-head reveal">
+            <div class="rh-l">Ką parašė <em>2 431</em> pirkėjos.</div>
+            <a href="#">Skaityti visus atsiliepimus</a>
+          </div>
+          <div class="rev-grid">
+            <div class="rcard reveal">
+              <div class="stars">★★★★★</div>
+              <p>Rinkausi tarp šio ir Shark. Nugalėjo kaina ir vietinė garantija. Po trijų mėnesių — geriausias metų pirkinys.</p>
+              <div class="r-foot">
+                <div><b>Ieva K.</b><span class="r-meta">Vilnius · prieš 2 savaites</span></div>
+                <span class="r-tag">Ilgi, tiesūs</span>
+              </div>
+              <span class="r-ver">✓ Patvirtintas pirkimas</span>
+            </div>
+            <div class="rcard reveal">
+              <div class="stars">★★★★★</div>
+              <p>Man 52-eji, o plaukai nebe tokie kaip anksčiau. Su šiuo šepečiu apimtis išlieka visą dieną. Dabar tokio nori ir dukra.</p>
+              <div class="r-foot">
+                <div><b>Danguolė M.</b><span class="r-meta">Kaunas · prieš mėnesį</span></div>
+                <span class="r-tag">Ploni, dažyti</span>
+              </div>
+              <span class="r-ver">✓ Patvirtintas pirkimas</span>
+            </div>
+            <div class="rcard reveal">
+              <div class="stars">★★★★☆</div>
+              <p>Rezultatas puikus, tik prireikė kelių dienų perprasti judesį. Pažiūrėjus instrukcijas viskas susidėliojo.</p>
+              <div class="r-foot">
+                <div><b>Greta S.</b><span class="r-meta">Klaipėda · prieš 3 savaites</span></div>
+                <span class="r-tag">Banguoti</span>
+              </div>
+              <span class="r-ver">✓ Patvirtintas pirkimas</span>
+            </div>
+            <div class="rcard reveal">
+              <div class="stars">★★★★★</div>
+              <p>Pirkau mamai dovanų. Graži dėžutė, ranka rašytas atvirukas. Ji patenkinta, o aš vis pasiskolinu.</p>
+              <div class="r-foot">
+                <div><b>Justina P.</b><span class="r-meta">Vilnius · prieš savaitę</span></div>
+                <span class="r-tag">Dovana</span>
+              </div>
+              <span class="r-ver">✓ Patvirtintas pirkimas</span>
+            </div>
+            <div class="rcard reveal">
+              <div class="stars">★★★★★</div>
+              <p>Šeši kasdienio naudojimo mėnesiai. Plaukai atrodo sveikesni nei bet kada — kirpėja paklausė, ką pakeičiau. Parodžiau Ferrli.</p>
+              <div class="r-foot">
+                <div><b>Aistė B.</b><span class="r-meta">Šiauliai · prieš 2 mėnesius</span></div>
+                <span class="r-tag">Ilgi, dažyti</span>
+              </div>
+              <span class="r-ver">✓ Patvirtintas pirkimas</span>
+            </div>
+            <div class="rcard reveal">
+              <div class="stars">★★★★★</div>
+              <p>42 mm puikiai tinka mano bob kirpimui. Galiukai užsiriečia į vidų kaip po salono. Už tokią kainą — nerealu.</p>
+              <div class="r-foot">
+                <div><b>Simona V.</b><span class="r-meta">Panevėžys · prieš 5 dienas</span></div>
+                <span class="r-tag">Trumpi</span>
+              </div>
+              <span class="r-ver">✓ Patvirtintas pirkimas</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 comparison -->
+      <section id="compare">
+        <div class="chapter reveal"><span class="label">04 — Palyginimas</span></div>
+        <div class="cmp-head">
+          <h2 class="display reveal">Ta pati technologijos esmė. Ne ta pati <em>kaina.</em></h2>
+          <p class="body-text reveal">Nesakome, kad kiti blogi. Sakome, kad premium rezultatas neturi reikalauti premium antkainio.</p>
+        </div>
+        <div class="cmp reveal">
+          <div class="cmp-row head">
+            <span class="c-label"></span>
+            <span class="c">Fenas</span>
+            <span class="c f">Ferrli</span>
+            <span class="c">Premium ženklai</span>
+          </div>
+          <div class="cmp-row">
+            <span class="c-label">Džiovina ir formuoja vienu judesiu</span>
+            <span class="c">—</span><span class="c f">✓</span><span class="c">✓</span>
+          </div>
+          <div class="cmp-row">
+            <span class="c-label">Karščio kontrolė saugo plaukus</span>
+            <span class="c">—</span><span class="c f">✓</span><span class="c">✓</span>
+          </div>
+          <div class="cmp-row">
+            <span class="c-label">Infraraudonųjų spindulių džiovinimas</span>
+            <span class="c">—</span><span class="c f">✓</span><span class="c">—</span>
+          </div>
+          <div class="cmp-row">
+            <span class="c-label">Vietinė garantija ir servisas</span>
+            <span class="c">—</span><span class="c f">2 metai</span><span class="c">—</span>
+          </div>
+          <div class="cmp-row">
+            <span class="c-label">Kaina</span>
+            <span class="c">~€50</span><span class="c f">€169</span><span class="c">~€550</span>
+          </div>
+        </div>
+        <div class="cmp-foot reveal">Palyginimas rodo pagrindines funkcijas ir kainų skirtumą.</div>
+      </section>
+
+      <!-- 05 FAQ -->
+      <section>
+        <div class="chapter reveal"><span class="label">05 — Prieš perkant</span></div>
+        <div class="faq-grid">
+          <div class="reveal">
+            <h2 class="display">Klausimai, kuriuos užduoda <em>visos.</em></h2>
+            <p class="body-text lead">Atsakyti iš anksto — dar prieš klausiant draugės ar Google.</p>
+          </div>
+          <div class="reveal">
+            <details open>
+              <summary><h3>Ar jis nepažeis mano plaukų?</h3><span class="pl">+</span></summary>
+              <p>Silk+ džiovina žemesnėje temperatūroje nei įprastas fenas. Infraraudonųjų spindulių šiluma veikia iš vidaus, o joninis kondicionavimas glotnina kutikulę.</p>
+            </details>
+            <details>
+              <summary><h3>Ar tiks mano plaukų tipui?</h3><span class="pl">+</span></summary>
+              <p>42 mm modelis tinka trumpesniems ar plonesniems plaukams, 46 mm — ilgiui ir apimčiai. Tinka tiesiems, banguotiems ir dažytiems plaukams.</p>
+            </details>
+            <details>
+              <summary><h3>Kuo skiriasi nuo premium ženklų?</h3><span class="pl">+</span></summary>
+              <p>Technologijos esmė ta pati: džiovinimas ir formavimas vienu judesiu su karščio kontrole. Pagrindinis skirtumas — kaina ir mažiau nereikalingų antgalių.</p>
+            </details>
+            <details>
+              <summary><h3>O jeigu man netiks?</h3><span class="pl">+</span></summary>
+              <p>Turi 30 dienų išbandyti namuose. Jei netiks, galėsi grąžinti pagal Ferrli grąžinimo sąlygas.</p>
+            </details>
+            <details>
+              <summary><h3>Kiek trunka formavimas?</h3><span class="pl">+</span></summary>
+              <p>Vidutinio ilgio plaukams — apie 15 minučių nuo nusausintų rankšluosčiu iki suformuotų. Su fenu ir apvaliu šepečiu tas pats dažnai užtrunka 30–40 minučių.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- upsell: your setup -->
+      <section>
+        <div class="chapter reveal"><span class="label">06 — Tavo rinkinys</span></div>
+        <div class="cmp-head" style="margin-top:44px">
+          <h2 class="display reveal">Gerai. Dar geriau. <em>Abu.</em></h2>
+          <p class="body-text reveal">Silk+ yra saugus pasirinkimas. Jei smalsu, ką duoda didesnis rinkinys — štai aiškus palyginimas.</p>
+        </div>
+
+        <div class="upsell reveal" id="upsell">
+          <div class="ucard this">
+            <span class="u-img"><img src="img/alt-current.png" alt="Bomby Styler Silk+"></span>
+            <span class="u-body">
+              <span class="u-top"><span class="u-tier">Nº 03 · Pagrindinis — šis puslapis</span></span>
+              <h3>Bomby Styler Silk+</h3>
+              <span class="u-diff">
+                <span><b>Viskas šiame puslapyje</b> — infraraudonieji spinduliai, jonai ir Silk+ šereliai.</span>
+                <span>Geriausias kainos ir rezultato balansas.</span>
+              </span>
+              <span class="u-price"><span class="p">€169</span><span class="u-delta">Esi čia</span></span>
+            </span>
+          </div>
+          <a class="ucard" href="index.html#phenomenal">
+            <span class="u-img"><img src="img/alt-upgrade.png" alt="PHENOMENAL styler"></span>
+            <span class="u-body">
+              <span class="u-top"><span class="u-tier">Nº 06 · Daugiafunkcis</span><span class="u-arr">→</span></span>
+              <h3>PHENOMENAL styler</h3>
+              <span class="u-diff">
+                <span><b>+ šeši antgaliai</b> — džiovinimui, tiesinimui, garbanoms ir apimčiai.</span>
+                <span><b>+ vienas dėklas</b> visai formavimo rutinai.</span>
+              </span>
+              <span class="u-price"><span class="p">€299</span><span class="u-delta">+ €130</span></span>
+            </span>
+          </a>
+          <a class="ucard" href="index.html#dryers">
+            <span class="u-img"><img src="img/alt-combo.png" alt="The Full Ritual Set"></span>
+            <span class="u-body">
+              <span class="u-top"><span class="u-tier">Rinkinys · Silk+ ir džiovintuvas</span><span class="u-arr">→</span></span>
+              <h3>Pilnas ritualo rinkinys</h3>
+              <span class="u-diff">
+                <span><b>+ Ferrli džiovintuvas</b> — greitam pradžiovinimui, tada švelnus formavimas.</span>
+                <span>Du įrankiai skirtingoms ryto situacijoms.</span>
+              </span>
+              <span class="u-price"><span class="p">€247</span><span class="u-delta">+ €78 · sutaupai €41</span></span>
+            </span>
+          </a>
+        </div>
+        <p class="coll-note reveal">Ferrli katalogo dalis — produktai ir kainos pateikti pagal ferrlihair.lt.</p>
+      </section>
+
+      <!-- CTA — sprendimo momentas -->
+      <section class="cta reveal">
+        <div class="c-copy">
+          <h2>Rytoj ryte<br>tavo plaukai atrodo <em>taip.</em></h2>
+          <p class="c-sub">Užsisakyk čia. Išbandyk namuose 30 dienų ir, jei netiks, grąžink pagal Ferrli grąžinimo sąlygas.</p>
+          <div class="c-price">€169</div>
+          <a class="btn" href="#" style="text-decoration:none">Į krepšelį</a>
+          <div class="c-micro">30 dienų išbandymas · 2 metų garantija · paprastas grąžinimas</div>
+        </div>
+        <div class="c-img">
+          <img src="img/cta.png" alt="Bomby Styler Silk+ in its box">
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span class="f-l"><img src="img/ferrli2.svg" alt="Ferrli"></span>
+    <span class="f-m">© 2026 · Koncepcija Nº 07 „Katalogas“ — Object.lt</span>
+    <span class="f-r">
+      <a href="#">Pristatymas</a>
+      <a href="#">Grąžinimas</a>
+      <a href="#">Kontaktai</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+// reveal
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// hero carousel
+const slides=[...document.querySelectorAll('#hero .slide')];
+let si=0;
+function slide(d){
+  si=(si+d+slides.length)%slides.length;
+  slides.forEach((s,j)=>s.classList.toggle('on',j===si));
+  document.getElementById('herocount').textContent=(si+1)+' / '+slides.length;
+}
+
+// quote rotator
+const quotes=[...document.querySelectorAll('#quotes .quote')];
+const dots=[...document.querySelectorAll('#qdots button')];
+let qi=0,qt;
+function showQ(i){
+  quotes.forEach((q,j)=>q.classList.toggle('on',j===i));
+  dots.forEach((d,j)=>d.classList.toggle('on',j===i));
+  qi=i;
+}
+function nextQ(){showQ((qi+1)%quotes.length)}
+qt=setInterval(nextQ,5000);
+dots.forEach((d,j)=>d.addEventListener('click',()=>{clearInterval(qt);showQ(j);qt=setInterval(nextQ,7000)}));
+
+// technology feature switcher
+const trows=[...document.querySelectorAll('#techlist .tech-row')];
+const timgs=[...document.querySelectorAll('#techimg .ti')];
+function syncTechMedia(active){
+  timgs.forEach((item,i)=>{
+    const video=item.querySelector('video');
+    if(!video)return;
+    if(i===active){video.play().catch(()=>{})}
+    else{video.pause();if(video.readyState)video.currentTime=0}
+  });
+}
+trows.forEach(r=>{
+  r.addEventListener('click',()=>{
+    const i=+r.dataset.t;
+    trows.forEach(x=>x.classList.toggle('on',x===r));
+    timgs.forEach((im,j)=>im.classList.toggle('on',j===i));
+    syncTechMedia(i);
+  });
+});
+syncTechMedia(0);
+
+// UGC video: hover = tylus grojimas, click = garsas
+document.querySelectorAll('#films .film').forEach(f=>{
+  const v=f.querySelector('video');
+  f.addEventListener('mouseenter',()=>{
+    if(!f.classList.contains('sound')){v.muted=true}
+    v.play().then(()=>f.classList.add('playing')).catch(()=>{});
+  });
+  f.addEventListener('mouseleave',()=>{
+    v.pause();v.currentTime=0;v.muted=true;
+    f.classList.remove('playing','sound');
+  });
+  f.querySelector('.frame').addEventListener('click',()=>{
+    if(v.paused){ // mobile: pirmas tap
+      v.muted=false;f.classList.add('sound');
+      v.play().then(()=>f.classList.add('playing')).catch(()=>{});
+    }else if(v.muted){ // desktop: click hover metu
+      v.muted=false;f.classList.add('sound');
+    }else{ // antras click — nutildyti
+      v.muted=true;f.classList.remove('sound');
+    }
+  });
+});
+
+// size choice
+document.querySelectorAll('#sizes .choice').forEach(c=>{
+  c.addEventListener('click',()=>{
+    document.querySelectorAll('#sizes .choice').forEach(x=>x.classList.remove('on'));
+    c.classList.add('on');
+  });
+});
+
+// qty
+let q=1;
+function qty(d){q=Math.max(1,q+d);document.getElementById('qtyval').textContent=q}
+
+// mobile bar
+const mb=document.getElementById('mbar');
+const buyEl=document.getElementById('buy');
+window.addEventListener('scroll',()=>{
+  mb.classList.toggle('show',window.scrollY>buyEl.offsetTop+buyEl.offsetHeight-100);
+},{passive:true});
+</script>
+</body>
+</html>

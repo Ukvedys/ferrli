@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Ferrli — V9 · The Catalogue, refined</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&amp;display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   FERRLI Nº07 — "The Catalogue"
+   The real shop, hung like a gallery.
+   Four chapters — dryers, straighteners, cosmetics, accessories.
+   Product catalogue concept for the new Ferrli store.
+   ============================================================ */
+:root{
+  --white:#FFFFFF;
+  --paper:#F5F3F0;
+  --ink:#161513;
+  --body:#5F5B55;
+  --faint:#9B968E;
+  --line:rgba(22,21,19,.14);
+  --navy:#3A4C7A;
+  --serif:"Poppins",Arial,sans-serif;
+  --sans:"Poppins",Arial,sans-serif;
+  --blush:#F7D6DE;
+  --gold:#9C7715;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--white);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer}
+a{color:inherit}
+.wrap{max-width:1800px;margin:0 auto;padding:0 clamp(24px,4vw,72px)}
+
+.label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);font-weight:500}
+.display{font-family:var(--serif);font-weight:340;letter-spacing:-.01em;line-height:1.06}
+.display em{font-style:italic;font-weight:320}
+.body-text{font-size:16px;color:var(--body);line-height:1.75}
+
+.reveal{opacity:0;transform:translateY(10px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+
+.btn{background:var(--ink);color:#fff;border:none;border-radius:2px;padding:17px 40px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;transition:opacity .2s;display:inline-block;text-decoration:none}
+.btn:hover{opacity:.8}
+.btn-outline{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+
+/* ---------- header ---------- */
+header.site{height:112px;border:0;position:absolute;left:0;right:0;top:32px;z-index:30;background:transparent;transition:height .42s var(--ease),background .42s var(--ease),box-shadow .42s var(--ease),backdrop-filter .42s var(--ease)}
+header.site.scrolled{height:64px;position:fixed;background:rgba(255,255,255,.96);box-shadow:0 6px 24px rgba(22,21,19,.055);backdrop-filter:blur(14px)}
+header.site.scrolled{top:0}
+.announce{height:32px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:500;letter-spacing:.14em;text-transform:uppercase}
+.head-inner{max-width:1800px;margin:0 auto;padding:0 clamp(24px,4vw,72px);height:100%;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:28px}
+.logo{width:170px;height:100%;position:relative;text-decoration:none;display:block;justify-self:center;transition:width .42s var(--ease)}
+.logo-full{position:absolute;left:50%;top:50%;width:146px;display:flex;flex-direction:column;align-items:center;gap:7px;opacity:1;transform:translate(-50%,-50%) scale(1);transform-origin:center;transition:opacity .32s var(--ease),transform .42s var(--ease)}
+.logo-full img{display:block;height:auto}
+.logo-full .full-symbol{width:auto;height:30px}
+.logo-full .full-word{width:146px}
+.logo-full .full-beauty{width:86px;margin-top:1px}
+.logo-mark{position:absolute;left:50%;top:50%;display:block;width:auto;height:43px;opacity:0;transform:translate(-50%,-50%) scale(.72);transform-origin:center;transition:opacity .32s var(--ease),transform .42s var(--ease)}
+header.site.scrolled .logo{width:56px}
+header.site.scrolled .logo-full{opacity:0;transform:translate(-50%,-50%) scale(.76)}
+header.site.scrolled .logo-mark{opacity:1;transform:translate(-50%,-50%) scale(1)}
+nav.main{display:flex;gap:25px;align-items:center}
+nav.main a{text-decoration:none;font-size:12px;letter-spacing:.06em;color:var(--body);transition:color .2s;white-space:nowrap}
+nav.main a:hover{color:var(--ink)}
+nav.main a{position:relative;padding:8px 0}
+nav.main a::after{content:"";position:absolute;left:0;right:100%;bottom:2px;height:1px;background:var(--ink);transition:right .25s}
+nav.main a:hover::after{right:0}
+.head-actions{justify-self:end;display:flex;align-items:center;gap:8px}
+.icon-btn{width:42px;height:42px;border:0;background:transparent;display:grid;place-items:center;cursor:pointer;position:relative}
+.icon-btn svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.6}
+.bag-count{position:absolute;right:0;top:0;min-width:18px;height:18px;border-radius:999px;background:var(--gold);display:none;place-items:center;font-size:9px;font-weight:600;color:var(--ink)}
+.bag-count.on{display:grid}
+.search-panel{max-height:0;overflow:hidden;background:transparent;transition:max-height .35s var(--ease),top .42s var(--ease),background .2s ease;position:fixed;left:0;right:0;top:144px;z-index:29}
+header.site.scrolled + .search-panel{top:64px}
+.search-panel.on{max-height:96px;background:var(--paper);border-bottom:1px solid var(--line)}
+.search-panel .wrap{padding-top:20px;padding-bottom:20px;display:flex;gap:14px}
+.search-panel input{flex:1;border:0;border-bottom:1px solid var(--ink);background:transparent;padding:8px 0;outline:none;font-size:16px}
+.mobile-nav{display:none}
+
+/* ============================================================
+   CAMPAIGN HERO — V8 hierarchy above the V6 catalogue mosaic.
+   ============================================================ */
+.campaign-hero{min-height:min(820px,calc(100vh - 32px));position:relative;overflow:hidden;background:#f2c5c0}
+.campaign-copy{position:relative;z-index:2;max-width:1800px;min-height:min(820px,calc(100vh - 32px));margin:0 auto;padding:112px clamp(24px,4vw,72px);display:flex;flex-direction:column;justify-content:center}
+.campaign-copy .label{color:#7D5F55;margin-bottom:22px}
+.campaign-copy h1{max-width:620px;font:300 clamp(42px,4.6vw,68px)/1.05 var(--serif);letter-spacing:-.045em}
+.campaign-copy p{max-width:520px;margin-top:24px;color:#4D4947;font-size:17px;line-height:1.7}
+.campaign-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+.brand-seal{position:absolute;z-index:3;right:5vw;top:154px;width:150px;height:auto;display:block;filter:drop-shadow(0 10px 24px rgba(22,21,19,.08));transform:rotate(3deg)}
+
+/* ---------- category mosaic ---------- */
+.categories-section{padding:clamp(72px,7vw,112px) 0 0}
+.hero-wrap{max-width:1840px;margin:0 auto;padding:0 20px}
+.mosaic{display:flex;gap:14px;height:clamp(560px,72vh,760px)}
+.mosaic>*{min-width:0;flex:1 1 0;transition:flex-grow .55s cubic-bezier(.33,0,.2,1)}
+.mosaic>*:hover{flex-grow:1.18}
+.m-col{display:flex;flex-direction:column;gap:14px;min-height:0}
+.m-col>.mtile{flex:2 1 0;min-height:0;transition:flex-grow .55s cubic-bezier(.33,0,.2,1)}
+.m-col>.mtile.small{flex:1 1 0}
+.m-col>.mtile:hover{flex-grow:2.5}
+.m-col>.mtile.small:hover{flex-grow:1.4}
+.mtile{position:relative;display:block;overflow:hidden;border-radius:2px;background:var(--paper);text-decoration:none;min-height:0}
+.mtile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.mtile:hover img:not(.swap){transform:scale(1.025)}
+.mtile .swap{opacity:0;transform:scale(.93);transition:opacity .5s ease,transform .7s cubic-bezier(.25,0,.2,1);z-index:2}
+.mtile:hover .swap{opacity:1;transform:scale(1.06);transition:opacity .5s ease,transform 5s cubic-bezier(.16,0,.12,1)}
+.mtile.tool-reveal .swap{transform:scale(1)}
+.mtile.tool-reveal:hover .swap{transform:scale(1.13)}
+.m-label{position:absolute;left:14px;bottom:14px;right:auto;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-radius:2px;padding:20px 28px 18px;max-width:calc(100% - 28px);z-index:3;transform-origin:left bottom;transition:transform .45s cubic-bezier(.33,0,.2,1)}
+.mtile:hover .m-label{transform:scale(1.08)}
+.m-label h2{font-family:var(--serif);font-weight:380;font-size:clamp(30px,2.7vw,46px);letter-spacing:-.025em;line-height:1.02;color:var(--ink);white-space:nowrap}
+.mtile.small .m-label{padding:16px 22px 14px}
+.mtile.small .m-label h2{font-size:clamp(25px,2.1vw,34px)}
+.mtile .plate-ph .ph-cap{left:20px;bottom:18px}
+.mtile.blend{background:#F4D8D6}
+.mtile.blend img{object-fit:contain;mix-blend-mode:multiply;padding:6%}
+
+/* promise band — big, clear, nothing hidden */
+.promise{margin-top:0;background:var(--white)}
+.promise .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(28px,4vw,70px);padding-top:38px;padding-bottom:44px}
+.promise .pr{display:flex;align-items:flex-start;gap:13px;min-width:0}
+.promise .pr-icon{font-size:18px;line-height:1.15;color:var(--ink);flex:0 0 auto}
+.promise b{display:block;font-size:11px;line-height:1.35;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.promise span{display:block;margin-top:5px;font-size:10.5px;color:var(--body);line-height:1.55}
+
+/* ============================================================
+   CHAPTERS — bento: one wide feature, large siblings, a fact tile
+   ============================================================ */
+.chapter{border-top:1px solid var(--line);padding-top:24px;margin-top:clamp(96px,8vw,140px);display:flex;justify-content:space-between;align-items:baseline;gap:20px}
+.chapter .ch-lt{font-family:var(--serif);font-style:italic;font-weight:320;font-size:13px;color:var(--faint)}
+main>section:first-of-type .chapter{margin-top:clamp(56px,5vw,84px)}
+.fam-head{display:block;max-width:760px;padding-top:clamp(96px,8vw,140px)}
+main>section:first-of-type .fam-head{padding-top:clamp(72px,6vw,104px)}
+.fam-head h2{font-size:clamp(32px,3.4vw,52px)}
+.fam-head .body-text{max-width:720px;margin-top:16px}
+
+.bento{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px}
+.bento>*{min-width:0}
+.subrow{grid-column:1/-1;display:flex;align-items:baseline;gap:16px;padding:26px 0 4px}
+.subrow .label{color:var(--ink)}
+.subrow .s-lt{font-family:var(--serif);font-style:italic;font-weight:320;font-size:12.5px;color:var(--faint)}
+.subrow .s-line{flex:1;border-bottom:1px solid var(--line);transform:translateY(-4px)}
+
+/* --- feature card --- */
+.fcard{grid-column:1/-1;display:grid;grid-template-columns:3fr 2.2fr;border:1px solid var(--line);border-radius:2px;overflow:hidden;text-decoration:none;transition:border-color .3s;background:#fff}
+.fcard:hover{border-color:var(--ink)}
+.fcard .f-copy{padding:clamp(30px,3.2vw,56px);display:flex;flex-direction:column;align-items:flex-start;min-width:0}
+.fcard .f-tier{margin-top:auto;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);font-weight:600;display:flex;gap:14px;align-items:baseline}
+.fcard .f-tier em{font-family:var(--serif);font-style:italic;text-transform:none;letter-spacing:0;font-size:12px;font-weight:320}
+.fcard h3{font-family:var(--serif);font-weight:340;font-size:clamp(28px,2.4vw,44px);letter-spacing:-.015em;line-height:1.08;margin-top:18px}
+.fcard h3 em{font-style:italic;font-weight:320}
+.fcard .f-lt{font-family:var(--serif);font-style:italic;font-weight:320;font-size:15px;color:var(--faint);margin-top:8px}
+.fcard .f-line{margin-top:14px;font-size:15.5px;color:var(--body);line-height:1.7;max-width:420px}
+.fcard .f-spec{display:flex;gap:8px;margin-top:22px;flex-wrap:wrap}
+.fcard .f-spec span{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);border:1px solid var(--line);border-radius:999px;padding:5px 12px}
+.fcard .f-foot{padding-top:26px;display:flex;align-items:baseline;gap:14px;width:100%;border-top:1px solid var(--line);margin-top:auto}
+.fcard .f-foot .p{font-family:var(--serif);font-weight:340;font-size:28px;letter-spacing:-.01em}
+.fcard .f-foot .old{font-size:13.5px;color:var(--faint);text-decoration:line-through}
+.fcard .f-foot .go{margin-left:auto;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;border-bottom:1px solid var(--ink);padding-bottom:2px;white-space:nowrap}
+.fcard .f-foot .go i{font-style:normal;display:inline-block;transition:transform .25s}
+.fcard:hover .f-foot .go i{transform:translateX(4px)}
+.fcard .f-img{position:relative;background:#EFE6E2;min-height:420px;overflow:hidden}
+.fcard .f-img.sq{aspect-ratio:1/1;min-height:0;height:auto;align-self:start}
+.fcard .f-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.fcard:hover .f-img img{transform:scale(1.02)}
+.fcard .f-img .swap{opacity:0;transform:scale(1);transition:opacity .5s ease,transform .6s ease}
+.fcard:hover .f-img .swap{opacity:1;transform:scale(1.07);transition:opacity .5s ease,transform 4.5s cubic-bezier(.16,0,.12,1)}
+.c-img img.pblend,.f-img img.pblend{mix-blend-mode:multiply;object-fit:contain;padding:8%}
+.c-img img.pfit,.f-img img.pfit{object-fit:contain;padding:6%}
+.f-img img.pcover{mix-blend-mode:multiply;object-fit:cover;padding:0}
+.fcard:hover .f-img .swap{opacity:1}
+
+/* Section leaders share the same square, close-up editorial treatment. */
+.fcard.premium-card .f-img{background:radial-gradient(105% 105% at 50% 42%,#fff 0%,#F7F3F0 62%,#E9E0DA 100%)}
+.fcard.premium-card .f-img::after{content:"";position:absolute;inset:14px;border:1px solid rgba(23,22,21,.12);border-radius:1px;pointer-events:none;z-index:4}
+.fcard.premium-card .feature-product{mix-blend-mode:multiply;object-fit:contain;object-position:center;padding:0;transform:scale(1.12);transition:transform 1.1s cubic-bezier(.16,1,.3,1)}
+.fcard.premium-card:hover .feature-product{transform:scale(1.18)}
+.fcard.premium-card .feature-product.classic-zoom{transform:scale(1.30)}
+.fcard.premium-card:hover .feature-product.classic-zoom{transform:scale(1.36)}
+
+/* --- standard card --- */
+.card{border:1px solid var(--line);border-radius:2px;background:#fff;text-decoration:none;display:flex;flex-direction:column;transition:border-color .3s;scroll-margin-top:90px}
+.card:hover{border-color:var(--ink)}
+.card .c-img{position:relative;aspect-ratio:1/1;background:#EFE6E2;overflow:hidden}
+.card .c-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.card:hover .c-img img{transform:scale(1.03)}
+.product-tag{position:absolute;z-index:6;left:12px;top:12px;background:#fff;border-radius:2px;padding:7px 12px;font-size:9px;font-weight:600;letter-spacing:.11em;line-height:1;text-transform:uppercase;color:var(--ink);box-shadow:0 2px 10px rgba(22,21,19,.04)}
+.product-tag.pink{background:var(--blush)}
+.product-tag.black{background:var(--ink);color:#fff}
+.card .ph-no,.fcard .ph-no{display:none}
+.card .plate-ph .frame,.fcard .plate-ph .frame{display:none}
+.card .c-img .swap{opacity:0;transform:scale(1);transition:opacity .5s ease,transform .6s ease}
+.card:hover .c-img .swap{opacity:1;transform:scale(1.07);transition:opacity .5s ease,transform 4.5s cubic-bezier(.16,0,.12,1)}
+.card:hover .c-img .swap{opacity:1}
+.card .c-body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:9px;flex:1}
+.card .c-body::before{content:"★★★★★  Verified reviews";font-size:10px;letter-spacing:.08em;color:var(--gold);margin-bottom:2px}
+.card .c-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.card .c-tier{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);font-weight:600}
+.card .c-arr{font-family:var(--serif);font-size:18px;color:var(--faint);line-height:1;transition:transform .25s,color .25s}
+.card:hover .c-arr{transform:translateX(4px);color:var(--ink)}
+.card h3{font-family:var(--serif);font-weight:400;font-size:22px;letter-spacing:-.01em}
+.card h3 em{font-style:italic;font-weight:340}
+.card .c-lt{font-family:var(--serif);font-style:italic;font-weight:320;font-size:13px;color:var(--faint);margin-top:-4px}
+.card .c-line{font-size:13.5px;color:var(--body);line-height:1.6;flex:1}
+.card .c-price{display:flex;align-items:baseline;gap:10px;border-top:1px solid var(--line);padding-top:13px}
+.card .c-price .p{font-family:var(--serif);font-weight:340;font-size:22px;letter-spacing:-.01em}
+.card .c-price .old{font-size:12.5px;color:var(--faint);text-decoration:line-through}
+.card .c-price .c-note{margin-left:auto;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);font-weight:600}
+.card .c-price .c-note.save{color:var(--navy)}
+.card.flash{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink)}
+
+/* Cosmetics — one warm Ferrli campaign world, with product-only zoom. */
+#cosmetics .fcard.premium-card .f-img,
+#cosmetics .card .c-img{background:#F4F1ED}
+#cosmetics .fcard.premium-card .f-img::after{display:none}
+#cosmetics .fcard .plate-ph,
+#cosmetics .card .plate-ph{background:#F4F1ED}
+#cosmetics .card .c-img img,
+#cosmetics .fcard .f-img img.cosmetic-photo{object-fit:cover;object-position:center;padding:0;mix-blend-mode:normal;transform:scale(1);transition:transform 1s cubic-bezier(.16,1,.3,1)}
+#cosmetics .card:hover .c-img img,
+#cosmetics .fcard:hover .f-img img.cosmetic-photo{transform:scale(1.08);transition:transform 4s cubic-bezier(.16,0,.12,1)}
+#cosmetics .card .c-img .swap{display:none}
+
+/* Tools stay crisp and white; care and accessories retain the warm campaign world. */
+#dryers .f-img,#dryers .card .c-img,#straighteners .f-img,#straighteners .card .c-img{background:#fff}
+#dryers .fcard.premium-card .f-img,#straighteners .fcard.premium-card .f-img{background:#fff}
+#dryers .fcard.premium-card .f-img::after,#straighteners .fcard.premium-card .f-img::after{display:none}
+#dryers .plate-ph,#straighteners .plate-ph{background:#fff}
+#dryers .pblend,#straighteners .pblend{mix-blend-mode:normal}
+
+/* --- plate placeholder / image fallback --- */
+.plate-ph{position:absolute;inset:0;background:
+  radial-gradient(120% 90% at 50% 8%, #FAF8F5 0%, var(--paper) 58%, #EDE9E3 100%)}
+.plate-ph .frame{position:absolute;inset:14px;border:1px solid var(--line);border-radius:1px}
+.plate-ph svg{position:absolute;left:50%;top:47%;transform:translate(-50%,-50%);width:54%;max-width:225px;height:auto;stroke:var(--ink);opacity:.5;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.plate-ph .ph-no{position:absolute;right:24px;top:20px;font-family:var(--serif);font-style:italic;font-weight:320;font-size:44px;color:var(--ink);opacity:.12;line-height:1}
+.plate-ph .ph-cap{display:none}
+.plate-ph.fb .ph-mark{display:none}
+.plate-ph.fb .ph-mark{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);font-family:var(--serif);font-style:italic;font-weight:320;font-size:30px;color:var(--ink);opacity:.25}
+.fcard .plate-ph svg{width:40%}
+
+/* --- fact tile --- */
+.tile{border:1px solid var(--line);border-radius:2px;background:var(--paper);padding:clamp(24px,2.2vw,36px);display:flex;flex-direction:column;justify-content:flex-end;min-height:300px}
+.tile .t-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);font-weight:600;margin-bottom:auto}
+.tile b{font-family:var(--serif);font-weight:340;font-size:clamp(38px,2.9vw,56px);letter-spacing:-.02em;line-height:1;display:block}
+.tile b em{font-style:italic;font-weight:320}
+.tile span{margin-top:14px;font-size:14px;color:var(--body);line-height:1.65;max-width:300px}
+.tile.quote-tile{justify-content:center}
+.tile.quote-tile b{font-size:clamp(20px,1.5vw,27px);font-style:italic;line-height:1.35;letter-spacing:-.01em}
+
+/* ============================================================
+   THE MATCH — three-step concierge inside the catalogue grid
+   ============================================================ */
+.match-tile{padding:0;justify-content:stretch;min-height:560px;overflow:hidden;position:relative;scroll-margin-top:90px;background:#F3F0EC;transition:background .45s ease,border-color .45s ease}
+.match-tile span{margin-top:0;max-width:none}
+.match-shell{width:100%;min-height:inherit;padding:clamp(24px,2.2vw,34px);display:flex;flex-direction:column}
+.match-top{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.match-top .t-label{margin:0}
+.match-count{font-family:var(--serif);font-size:13px!important;font-style:italic;color:var(--faint)!important;white-space:nowrap}
+.match-progress{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:18px}
+.match-progress i{display:block;height:2px;background:#D8D1CB;overflow:hidden;position:relative}
+.match-progress i::after{content:"";position:absolute;inset:0;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.match-progress i.on::after{transform:scaleX(1)}
+.match-stage{display:flex;flex:1;margin-top:clamp(34px,3vw,54px)}
+.match-step{display:none;width:100%;flex-direction:column;animation:match-in .38s cubic-bezier(.16,1,.3,1)}
+.match-step.active{display:flex}
+@keyframes match-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.match-kicker{font-size:10px!important;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)!important;font-weight:600}
+.match-step h3{font-family:var(--serif);font-weight:340;font-size:clamp(27px,2.2vw,36px);letter-spacing:-.015em;line-height:1.08;margin-top:12px}
+.match-step h3 em{font-style:italic;font-weight:320}
+.match-options{display:flex;flex-direction:column;gap:8px;margin-top:clamp(24px,2.3vw,34px)}
+.match-option{width:100%;border:1px solid #D4CDC7;background:rgba(255,255,255,.55);border-radius:2px;padding:13px 15px;display:flex;align-items:baseline;justify-content:space-between;gap:12px;text-align:left;color:var(--ink);font:500 12px/1.25 var(--sans);letter-spacing:.06em;text-transform:uppercase;transition:background .22s,border-color .22s,color .22s,transform .22s}
+.match-option em{font-family:var(--serif);font-size:12px;font-style:italic;font-weight:320;letter-spacing:0;text-transform:none;color:var(--faint);transition:color .22s}
+.match-option:hover,.match-option:focus-visible{background:var(--ink);border-color:var(--ink);color:#fff;transform:translateX(3px);outline:none}
+.match-option:hover em,.match-option:focus-visible em{color:rgba(255,255,255,.6)}
+.match-step-foot{margin-top:auto;padding-top:24px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.match-hint{font-size:10.5px!important;line-height:1.5!important;color:var(--faint)!important}
+.match-back,.match-restart{border:0;background:none;padding:0;color:var(--body);font:600 10px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid currentColor;cursor:pointer}
+.match-back:hover,.match-restart:hover{color:var(--ink)}
+
+.match-tile.is-result{background:var(--ink);border-color:var(--ink);color:#fff}
+.match-tile.is-result .match-top .t-label,.match-tile.is-result .match-count{color:rgba(255,255,255,.5)!important}
+.match-tile.is-result .match-progress i{background:rgba(255,255,255,.18)}
+.match-tile.is-result .match-progress i::after{background:#fff}
+.match-product{height:clamp(130px,12vw,180px);margin-bottom:22px;background:#F1ECE7;overflow:hidden;position:relative;border-radius:1px}
+.match-product img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;padding:3%;transform:scale(1.08)}
+.match-result-no{font-family:var(--serif);font-size:14px!important;font-style:italic;color:rgba(255,255,255,.5)!important}
+.match-result h3{color:#fff;margin-top:7px;font-size:clamp(25px,2vw,32px)}
+.match-result-why{font-size:12.5px!important;line-height:1.55!important;color:rgba(255,255,255,.6)!important;margin-top:10px!important}
+.match-result-foot{display:flex;align-items:baseline;gap:10px;margin-top:auto;padding-top:20px;border-top:1px solid rgba(255,255,255,.18)}
+.match-result-price{font-family:var(--serif);font-size:25px!important;color:#fff!important}
+.match-result-old{font-size:11.5px!important;color:rgba(255,255,255,.4)!important;text-decoration:line-through}
+.match-result-link{margin-left:auto;color:#fff;text-decoration:none;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid #fff;padding-bottom:2px}
+.match-result-actions{display:flex;justify-content:flex-start;margin-top:18px}
+.match-restart{color:rgba(255,255,255,.55)}
+.match-restart:hover{color:#fff}
+
+/* ============================================================
+   ACCESSORIES — six small frames
+   ============================================================ */
+.acc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px}
+.acc-grid>*{min-width:0}
+.acc-grid .card .c-img{aspect-ratio:4/3.1}
+.acc-grid .card h3{font-size:20px}
+
+/* ============================================================
+   TECHNOLOGY — V8 clarity, expressed in the V6 editorial system
+   ============================================================ */
+.tech-section{padding:clamp(88px,8vw,132px) 0 14px}
+.tech-layout{display:grid;grid-template-columns:minmax(250px,.78fr) minmax(0,2.25fr);gap:clamp(38px,5vw,84px);align-items:start}
+.tech-intro{padding-top:20px;max-width:360px}
+.tech-intro h2{font:300 clamp(34px,3.2vw,54px)/1.08 var(--serif);letter-spacing:-.035em}
+.tech-intro h2 em{display:block;color:#B77B6F;font-weight:300}
+.tech-intro p{margin-top:22px;color:var(--body);font-size:14px;line-height:1.7}
+.tech-intro .btn{margin-top:28px}
+.tech-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.tech-card{border:1px solid var(--line);background:#fff;overflow:hidden}
+.tech-card img{width:100%;aspect-ratio:1.38/1;object-fit:cover;object-position:center 31%}
+.tech-copy{padding:19px 20px 22px;background:linear-gradient(180deg,#fff,var(--paper))}
+.tech-copy h3{font-size:11px;font-weight:600;letter-spacing:.11em;text-transform:uppercase}
+.tech-copy p{margin-top:7px;font-size:11.5px;line-height:1.55;color:var(--body)}
+
+/* ============================================================
+   BRAND BELIEF — editorial pause carried over from V8
+   ============================================================ */
+.brand-belief{margin-top:clamp(84px,8vw,136px)}
+.belief-shell{display:grid;grid-template-columns:minmax(0,1.22fr) minmax(360px,.78fr);min-height:620px;background:var(--ink);color:#fff;overflow:hidden}
+.belief-media{position:relative;min-height:620px;overflow:hidden}
+.belief-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 43%}
+.belief-copy{padding:clamp(46px,6vw,96px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.section-kicker{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--faint)}
+.belief-copy .section-kicker{color:var(--blush)}
+.belief-copy h2{font:300 clamp(34px,3.4vw,58px)/1.08 var(--serif);letter-spacing:-.04em;margin-top:20px;max-width:650px}
+.belief-copy .btn{margin-top:34px;background:#fff;color:var(--ink)}
+
+/* ============================================================
+   STORIES — expandable rail for the approved client videos
+   ============================================================ */
+.stories{margin-top:clamp(96px,8vw,140px);background:var(--blush);padding:clamp(62px,6vw,94px) clamp(24px,4vw,72px);margin-left:calc(clamp(24px,4vw,72px) * -1);margin-right:calc(clamp(24px,4vw,72px) * -1);overflow:hidden}
+.two-copy h2{font:300 clamp(34px,3.2vw,54px)/1.08 var(--serif);letter-spacing:-.035em}
+.two-copy p{max-width:720px;margin-top:16px;color:var(--body);font-size:14px;line-height:1.7}
+.story-controls{display:flex;gap:8px;margin-top:22px}
+.rail-btn{width:44px;height:44px;border:1px solid rgba(22,21,19,.5);border-radius:50%;background:transparent;display:grid;place-items:center;font-size:17px;transition:background .2s,color .2s}
+.rail-btn:hover{background:var(--ink);color:#fff}
+.video-row{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:34px 0 10px;scrollbar-width:none}
+.video-row::-webkit-scrollbar{display:none}
+.video-card{flex:0 0 clamp(250px,25vw,340px);aspect-ratio:9/16;border:1px solid rgba(22,21,19,.18);border-radius:2px;overflow:hidden;position:relative;background:#222;scroll-snap-align:start}
+.video-card video{width:100%;height:100%;object-fit:cover}
+.video-card::after{content:"";position:absolute;inset:55% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.68));pointer-events:none}
+.video-play{position:absolute;z-index:2;left:20px;top:20px;width:44px;height:44px;border:1px solid #fff;border-radius:50%;background:rgba(0,0,0,.12);color:#fff;display:grid;place-items:center}
+.video-caption{position:absolute;z-index:2;left:20px;right:20px;bottom:18px;color:#fff}
+.video-caption b{font-size:11px;letter-spacing:.09em;text-transform:uppercase}
+.video-caption span{display:block;font-size:10px;opacity:.72;margin-top:3px}
+.video-product{display:flex;justify-content:space-between;gap:10px;margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.38);font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none}
+
+/* ============================================================
+   PROFESSIONALS — approved profiles, no invented endorsements
+   ============================================================ */
+.professionals{margin-top:clamp(96px,8vw,140px);background:var(--ink);color:#fff;padding:clamp(58px,6vw,92px) clamp(24px,4vw,72px)}
+.professionals-head{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);gap:clamp(36px,7vw,120px);align-items:end}
+.professionals-head h2{font:300 clamp(34px,3.4vw,58px)/1.08 var(--serif);letter-spacing:-.04em;max-width:800px}
+.professionals-head p{font-size:14px;line-height:1.75;color:rgba(255,255,255,.58);max-width:560px}
+.pro-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:48px;border-top:1px solid rgba(255,255,255,.2);border-left:1px solid rgba(255,255,255,.2)}
+.pro-card{min-height:330px;padding:26px;border-right:1px solid rgba(255,255,255,.2);border-bottom:1px solid rgba(255,255,255,.2);display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;transition:background .35s var(--ease),color .35s var(--ease)}
+.pro-card:hover{background:var(--blush);color:var(--ink)}
+.pro-initials{font-size:clamp(48px,5vw,82px);font-weight:300;line-height:1;letter-spacing:-.06em;color:rgba(255,255,255,.22);transition:color .35s var(--ease)}
+.pro-card:hover .pro-initials{color:rgba(22,21,19,.24)}
+.pro-status{display:block;font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--blush)}
+.pro-card:hover .pro-status{color:#7D5F55}
+.pro-card h3{font-size:17px;font-weight:400;margin-top:10px}
+.pro-card p{font-size:11px;color:rgba(255,255,255,.52);margin-top:3px;transition:color .35s var(--ease)}
+.pro-card:hover p{color:var(--body)}
+.pro-link{display:block;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-top:22px}
+
+/* ============================================================
+   PROOF
+   ============================================================ */
+.proof-quote{margin-top:52px;text-align:center}
+.proof-quote .pq{font-family:var(--serif);font-weight:340;font-style:italic;font-size:clamp(23px,2.1vw,38px);line-height:1.35;max-width:760px;margin:0 auto}
+.proof-quote .pq-who{margin-top:20px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.counters{display:grid;grid-template-columns:repeat(3,1fr);margin-top:64px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.counters>*{min-width:0;text-align:center;padding:30px 14px;border-right:1px solid var(--line)}
+.counters>*:last-child{border-right:none}
+.counters b{font-family:var(--serif);font-weight:340;font-size:32px;display:block;letter-spacing:-.02em}
+.counters span{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);display:block;margin-top:9px}
+
+/* ============================================================
+   BRAND STORY + INSTAGRAM — quiet editorial finish from V8
+   ============================================================ */
+.brand-story{margin-top:clamp(96px,8vw,140px);display:grid;grid-template-columns:1fr 1fr;min-height:620px;background:var(--paper);overflow:hidden}
+.brand-story-media{position:relative;min-height:620px;overflow:hidden}
+.brand-story-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.brand-story-copy{padding:clamp(46px,7vw,110px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.brand-story-copy h2{font:300 clamp(34px,3.4vw,58px)/1.08 var(--serif);letter-spacing:-.04em;margin-top:20px;max-width:650px}
+.brand-story-copy .btn{margin-top:34px}
+
+.instagram{margin-top:clamp(96px,8vw,140px)}
+.instagram-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:32px}
+.instagram-head h2{font:300 clamp(34px,3.4vw,58px)/1.08 var(--serif);letter-spacing:-.04em;margin-top:12px}
+.instagram-head>a{font-size:10px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid;padding-bottom:5px;white-space:nowrap}
+.instagram-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.instagram-grid a{position:relative;aspect-ratio:1;overflow:hidden;background:var(--paper)}
+.instagram-grid img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.instagram-grid a:hover img{transform:scale(1.06)}
+
+/* ============================================================
+   CTA
+   ============================================================ */
+.cta{margin-top:clamp(96px,8vw,140px);background:#E4DCD6;border-radius:2px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+.cta>*{min-width:0}
+.cta .c-copy{padding:clamp(40px,4.5vw,72px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.cta .c-kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#8C8177;font-weight:600;margin-bottom:20px}
+.cta h2{font-family:var(--serif);font-weight:340;font-size:clamp(30px,2.9vw,46px);letter-spacing:-.015em;line-height:1.1}
+.cta h2 em{font-style:italic}
+.cta .c-sub{margin-top:16px;font-size:16px;color:#6B6058;line-height:1.65;max-width:380px}
+.cta .c-price{margin-top:28px;font-family:var(--serif);font-weight:340;font-size:26px}
+.cta .c-price s{font-family:var(--sans);font-size:14px;color:#8C8177;margin-left:10px}
+.cta .c-price small{font-family:var(--sans);font-size:12.5px;color:#8C8177;margin-left:12px}
+.cta .btn{margin-top:22px;padding:17px 52px}
+.cta .c-micro{margin-top:18px;font-size:11.5px;color:#8C8177}
+.cta .c-img{position:relative;min-height:420px}
+.cta .c-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 26%}
+
+/* ---------- footer ---------- */
+footer{margin-top:130px;border-top:1px solid var(--line);padding:40px 0 56px}
+footer .wrap{display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap}
+footer .f-l img{height:18px;width:auto;display:block;opacity:.85}
+footer .f-m{font-size:11.5px;color:var(--faint)}
+footer .f-r{display:flex;gap:24px;font-size:12px;color:var(--body)}
+footer .f-r a{text-decoration:none}
+footer .f-r a:hover{color:var(--ink)}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+@media (max-width:1100px){
+  .fcard{grid-template-columns:1fr 1fr}
+  .bento,.acc-grid{grid-template-columns:repeat(2,1fr)}
+  .tech-layout{grid-template-columns:1fr}
+  .tech-intro{max-width:620px;padding-top:0}
+  .professionals-head{grid-template-columns:1fr}
+  .pro-grid{grid-template-columns:repeat(2,1fr)}
+  .instagram-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:940px){
+  .wrap{padding:0 22px}
+  header.site{height:112px}
+  header.site.scrolled{height:60px}
+  .head-inner{padding:0 22px;grid-template-columns:1fr auto}
+  .logo{width:126px;justify-self:start}
+  .logo-full{width:116px;gap:6px}
+  .logo-full .full-symbol{height:24px}
+  .logo-full .full-word{width:116px}
+  .logo-full .full-beauty{width:68px}
+  .logo-mark{height:38px}
+  header.site.scrolled .logo{width:42px}
+  nav.main{display:none}
+  .head-actions{grid-column:2}
+  .search-panel{top:144px}
+  header.site.scrolled + .search-panel{top:60px}
+  body{overflow-x:clip}
+  .mobile-nav{display:none}
+  .mobile-nav::-webkit-scrollbar{display:none}
+  .mobile-nav a{flex:none;text-decoration:none;color:var(--body);font-size:10px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:8px 12px;background:var(--white)}
+  .mobile-nav a:active{border-color:var(--ink);color:var(--ink)}
+  section[id]{scroll-margin-top:58px}
+
+  .campaign-hero{min-height:0;display:block}
+  .campaign-copy{min-height:0;display:block;padding:412px 14px 46px;background:transparent}
+  .campaign-copy h1{max-width:100%;font-size:clamp(38px,10.8vw,46px)}
+  .campaign-copy p{font-size:15px}
+  .campaign-actions{display:grid;grid-template-columns:1fr}
+  .campaign-actions .btn{width:100%;text-align:center}
+  .brand-seal{width:108px;right:16px;top:154px}
+  .categories-section{padding-top:64px}
+  .hero-wrap{padding:0 14px}
+  .mosaic{display:flex;flex-direction:column;height:auto;gap:12px}
+  .mosaic>*{flex:none;width:100%}
+  .mosaic .mtile{aspect-ratio:4/2.9}
+  .m-col{display:flex;flex-direction:column;gap:12px}
+  .m-col .mtile{flex:none;aspect-ratio:4/2.9}
+  .m-col .mtile.small{flex:none;aspect-ratio:4/1.6}
+
+  .assure-strip .wrap{grid-template-columns:1fr}
+  .assure-strip .as{border-right:none;border-bottom:1px solid var(--line);padding:12px 0}
+  .assure-strip .as:last-child{border-bottom:none}
+  .assure-strip .as:nth-child(2),.assure-strip .as:nth-child(3){padding-left:0}
+  .promise .wrap{grid-template-columns:repeat(2,1fr);gap:26px 34px}
+
+  .chapter{margin-top:84px}
+  .fam-head{padding-top:84px}
+  .bento{grid-template-columns:1fr;gap:14px;margin-top:36px}
+  .fcard{grid-template-columns:1fr}
+  .fcard .f-img{min-height:0;aspect-ratio:4/4;order:-1}
+  .fcard .f-copy{padding:26px 24px 30px}
+  .tile{min-height:240px}
+  .match-tile{min-height:540px}
+  .match-shell{padding:26px 24px}
+
+  .acc-grid{grid-template-columns:1fr;gap:14px}
+  .tech-cards{grid-template-columns:1fr}
+  .brand-belief{margin-top:80px}
+  .belief-shell{grid-template-columns:1fr;min-height:0}
+  .belief-media{min-height:0;aspect-ratio:4/3}
+  .belief-copy{padding:42px 28px 48px}
+  .stories{margin-left:-22px;margin-right:-22px;padding-left:22px;padding-right:22px}
+  .video-card{flex-basis:82%}
+  .professionals{margin-left:-22px;margin-right:-22px;padding-left:22px;padding-right:22px}
+
+  .counters{grid-template-columns:1fr;margin-top:44px}
+  .counters>*{border-right:none;border-bottom:1px solid var(--line);padding:24px 14px}
+  .counters>*:last-child{border-bottom:none}
+
+  .brand-story{grid-template-columns:1fr;min-height:0}
+  .brand-story-media{min-height:0;aspect-ratio:4/3}
+  .brand-story-copy{padding:42px 28px 48px}
+  .instagram-grid{grid-template-columns:repeat(2,1fr)}
+
+  .cta{grid-template-columns:1fr;margin-top:80px}
+  .cta .c-img{min-height:0;aspect-ratio:4/3;order:-1}
+  .cta .c-copy{padding:32px 24px 40px}
+
+  footer{margin-top:88px}
+}
+@media (max-width:560px){
+  .promise .wrap{grid-template-columns:1fr;gap:24px}
+  .pro-grid{grid-template-columns:1fr}
+  .pro-card{min-height:260px}
+  .instagram-head{align-items:flex-start;flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<div class="announce">Complimentary delivery on orders over €80 · 2-year tool warranty</div>
+<header class="site">
+  <div class="head-inner">
+    <nav class="main" aria-label="Main navigation">
+      <a href="#categories">Catalogue</a>
+      <a href="#dryers">Dryers</a>
+      <a href="#straighteners">Straighteners</a>
+      <a href="#cosmetics">Cosmetics</a>
+      <a href="#match">The Match</a>
+    </nav>
+    <a class="logo" href="#top" aria-label="Ferrli Beauty home">
+      <span class="logo-full" aria-hidden="true">
+        <img class="full-symbol" src="../images/logo/F%20sign.svg" alt="">
+        <img class="full-word" src="../images/logo/Ferrli.svg" alt="">
+        <img class="full-beauty" src="../images/logo/BEAUTY.svg" alt="">
+      </span>
+      <img class="logo-mark" src="../images/logo/F%20sign.svg" alt="" aria-hidden="true">
+    </a>
+    <div class="head-actions">
+      <button class="icon-btn" id="search-toggle" aria-label="Open search" aria-expanded="false"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg></button>
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 21c.7-4.1 3-6.2 7-6.2s6.3 2.1 7 6.2"/></svg></button>
+      <button class="icon-btn" aria-label="Shopping bag"><svg viewBox="0 0 24 24"><path d="M5 8.5h14l-1 12H6l-1-12Z"/><path d="M9 9V6.5a3 3 0 0 1 6 0V9"/></svg><span class="bag-count" id="bag-count">0</span></button>
+    </div>
+  </div>
+</header>
+<div class="search-panel" id="search-panel"><div class="wrap"><input id="site-search" type="search" placeholder="Search products" aria-label="Search products"><button class="btn" id="search-close">Close</button></div></div>
+
+<section class="campaign-hero" id="top">
+  <img class="brand-seal" src="../v6-kolekcija/img/beauty-tech-innovation-award-badge.svg" alt="Beauty Tech Innovation Award — Healthy Hair">
+  <div class="campaign-copy">
+    <h1>Beautiful hair shouldn’t come at the cost of healthy hair.</h1>
+  </div>
+</section>
+
+<div class="promise reveal">
+  <div class="wrap">
+    <div class="pr"><span class="pr-icon">→</span><div><b>Next-day delivery</b><span>Order cut-off and destination apply</span></div></div>
+    <div class="pr"><span class="pr-icon">◇</span><div><b>Hair-protecting technology</b><span>Care engineered into every tool</span></div></div>
+    <div class="pr"><span class="pr-icon">2</span><div><b>2-year warranty</b><span>Local support beyond the first style</span></div></div>
+    <div class="pr"><span class="pr-icon">♡</span><div><b>Made for real routines</b><span>Everyday styling, carefully considered</span></div></div>
+  </div>
+</div>
+
+<!-- ============ CATEGORIES — the original V6 mosaic ============ -->
+<section class="categories-section" id="categories">
+<div class="hero-wrap">
+  <div class="mosaic reveal">
+
+    <a class="mtile tool-reveal" href="#dryers">
+      <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span></span>
+      <img src="img/hero-01-dryers.jpg?v=3" data-fb="img/cutout.png" alt="Hair dryers">
+      <img class="swap" src="img/hero-01-product.jpg" alt="SUPERIONIC gold hair dryer">
+      <span class="m-label">
+        <h2>Hair dryers</h2>
+      </span>
+    </a>
+
+    <a class="mtile tool-reveal" href="#straighteners">
+      <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span></span>
+      <img src="img/hero-02-straighteners.jpg?v=3" data-fb="https://www.ferrlihair.lt/wp-content/uploads/2023/10/siauras-ir-large-tiesintuvas-foto.png" alt="Hair straighteners">
+      <img class="swap" src="img/hero-02-product.jpg" alt="Infrared hair straightener">
+      <span class="m-label">
+        <h2>Straighteners</h2>
+      </span>
+    </a>
+
+    <div class="m-col">
+      <a class="mtile" href="#cosmetics">
+        <img src="img/hero-03-cosmetics.jpg?v=3" data-fb="https://www.ferrlihair.lt/wp-content/uploads/2025/11/LUMERA-by-Ferrli-2.png" alt="Kosmetika">
+        <span class="m-label">
+          <h2>Cosmetics</h2>
+        </span>
+      </a>
+      <a class="mtile small" href="#accessories">
+        <img src="img/hero-04-accessories.jpg?v=3" data-fb="https://www.ferrlihair.lt/wp-content/uploads/2023/10/IMG_3806-1-1-600x600.webp" alt="Aksesuarai">
+        <span class="m-label">
+          <h2>Accessories</h2>
+        </span>
+      </a>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<main class="wrap">
+
+  <!-- ============ 01 HAIR DRYERS ============ -->
+  <section id="dryers">
+    <div class="fam-head reveal">
+      <h2 class="display">Hair dryers</h2>
+      <p class="body-text">Ionic, infrared and ultra-light — the family that made Ferrli's name. Every dryer here styles as it dries.</p>
+    </div>
+    <div class="bento">
+
+      <a class="fcard premium-card reveal" href="#" id="ionic-ultra">
+        <span class="f-copy">
+          <span class="f-tier">Hair dryer — flagship <em>the quiet one</em></span>
+          <h3>FERRLI IONIC <em>Ultra.</em></h3>
+          <span class="f-line">350 grams in the hand, 54 decibels in the room — and 500 million negative ions in every stream of air. The quietest dryer in its class, in premium, gold and green.</span>
+          <span class="f-spec"><span>350 g</span><span>54 dB</span><span>500M ions</span><span>Self-clean</span></span>
+          <span class="f-foot"><span class="p">€299</span><span class="old">€499</span><span class="go">View <i>→</i></span></span>
+        </span>
+        <span class="f-img sq">
+          <span class="product-tag black">Flagship</span>
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-no">01</span></span>
+          <img class="pcover" src="img/cards/f01.jpg" alt="FERRLI IONIC Ultra dryer">
+          <img class="swap" src="img/cards/f01-hover.jpg?v=3" alt="FERRLI IONIC Ultra — campaign">
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="super-ionic">
+        <span class="c-img">
+          <span class="product-tag pink">Bestseller</span>
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">02</span><span class="ph-cap">Plate Nº 02 · ferrlihair.lt</span></span>
+          <img loading="lazy" class="pblend" src="img/cards/p02.jpg?v=2" alt="Ferrli SUPER IONIC hair dryer">
+          <img class="swap" loading="lazy" src="img/cards/p02-hover.jpg?v=2" alt="SUPER IONIC in use">
+        </span>
+        <span class="c-body">
+          <h3>SUPER <em>IONIC.</em></h3>
+          <span class="c-line">Salon-power airflow that halves your drying time — the ionic stream keeps frizz out while it works.</span>
+          <span class="c-price"><span class="p">€199</span><span class="old">€499</span><span class="c-note save">Save €300</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="product-silk.html" id="silk-plus">
+        <span class="c-img">
+          <span class="product-tag pink">Most loved</span>
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">03</span><span class="ph-cap">Plate Nº 03 · ferrlihair.lt</span></span>
+          <img loading="lazy" class="pblend" src="img/cards/p03.jpg" alt="Bomby Styler Silk+">
+          <img class="swap" loading="lazy" src="img/cards/p03-hover-hq.jpg" alt="Bomby Styler Silk+ in use">
+        </span>
+        <span class="c-body">
+          <h3>Bomby Styler <em>Silk+.</em></h3>
+          <span class="c-line">Dries, lifts and shapes in the one motion you already brush with — salon volume in 15 minutes, no technique to learn.</span>
+          <span class="c-price"><span class="p">€169</span><span class="old">€249</span><span class="c-note">The detail page →</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="bomby-classic">
+        <span class="c-img">
+          <span class="product-tag">Everyday</span>
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">04</span><span class="ph-cap">Plate Nº 04 · ferrlihair.lt</span></span>
+          <img loading="lazy" class="pblend" src="img/cards/p04.jpg" alt="Bomby Styler classic infrared">
+          <img class="swap" loading="lazy" src="img/cards/p04-hover.jpg" alt="Bomby Styler classic in use">
+        </span>
+        <span class="c-body">
+          <h3>Bomby Styler <em>classic.</em></h3>
+          <span class="c-line">The gentlest way into styling dryers — infrared warmth dries from within, so hair stays soft, never scorched.</span>
+          <span class="c-price"><span class="p">€99</span><span class="old">€159</span><span class="c-note save">Save €60</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="infrared-dryer">
+        <span class="c-img">
+          <span class="product-tag pink">Infrared</span>
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">05</span><span class="ph-cap">Plate Nº 05 · ferrlihair.lt</span></span>
+          <img loading="lazy" class="pblend" src="https://www.ferrlihair.lt/wp-content/uploads/2023/10/img_4809.png" alt="Infrared hair dryer">
+          <img class="swap" loading="lazy" src="img/cards/p05-hover.jpg" alt="Infrared Dryer in use">
+        </span>
+        <span class="c-body">
+          <h3>Infrared <em>Dryer.</em></h3>
+          <span class="c-line">Dries from within at lower heat — the infrared core and negative-ion stream leave hair shinier, not drier.</span>
+          <span class="c-price"><span class="p">€169</span><span class="old">€199</span><span class="c-note">The classic</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="phenomenal">
+        <span class="c-img">
+          <span class="product-tag black">6-in-1</span>
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">06</span><span class="ph-cap">Plate Nº 06 · ferrlihair.lt</span></span>
+          <img loading="lazy" class="pblend" src="img/cards/p06.jpg" alt="PHENOMENAL styler">
+          <img class="swap" loading="lazy" src="img/cards/p06-hover.jpg" alt="PHENOMENAL styler in use">
+        </span>
+        <span class="c-body">
+          <h3>PHENOMENAL <em>styler.</em></h3>
+          <span class="c-line">One device replaces the whole drawer — dry, curl, straighten and volumise with six attachments, packed in a vegan-leather case.</span>
+          <span class="c-price"><span class="p">€299</span><span class="old">€429</span><span class="c-note save">Save €130</span></span>
+        </span>
+      </a>
+
+      <div class="tile match-tile reveal" id="match" aria-labelledby="match-title">
+        <div class="match-shell">
+          <div class="match-top">
+            <span class="t-label" id="match-title">Find your Ferrli</span>
+            <span class="match-count" id="match-count">01 / 03</span>
+          </div>
+          <div class="match-progress" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+
+          <div class="match-stage" aria-live="polite">
+            <div class="match-step active" data-match-step="length">
+              <span class="match-kicker">First, your hair</span>
+              <h3>What length are you <em>styling?</em></h3>
+              <div class="match-options">
+                <button class="match-option" type="button" data-match-choice data-q="length" data-v="short">Short <em>above shoulders</em></button>
+                <button class="match-option" type="button" data-match-choice data-q="length" data-v="mid">Mid-length <em>shoulder to chest</em></button>
+                <button class="match-option" type="button" data-match-choice data-q="length" data-v="long">Long <em>below the chest</em></button>
+              </div>
+              <div class="match-step-foot"><span class="match-hint">Three quick choices. One considered match.</span></div>
+            </div>
+
+            <div class="match-step" data-match-step="goal">
+              <span class="match-kicker">Now, the finish</span>
+              <h3>What do you want it to <em>do?</em></h3>
+              <div class="match-options">
+                <button class="match-option" type="button" data-match-choice data-q="goal" data-v="volume">Volume <em>soft waves</em></button>
+                <button class="match-option" type="button" data-match-choice data-q="goal" data-v="sleek">Sleek <em>smooth &amp; straight</em></button>
+                <button class="match-option" type="button" data-match-choice data-q="goal" data-v="curls">Curls <em>defined &amp; lasting</em></button>
+                <button class="match-option" type="button" data-match-choice data-q="goal" data-v="dry">Dry fast <em>no styling needed</em></button>
+              </div>
+              <div class="match-step-foot"><button class="match-back" type="button" data-match-back>Back</button></div>
+            </div>
+
+            <div class="match-step" data-match-step="heat">
+              <span class="match-kicker">Last detail</span>
+              <h3>How should the heat <em>feel?</em></h3>
+              <div class="match-options">
+                <button class="match-option" type="button" data-match-choice data-q="heat" data-v="balanced">Balanced <em>performance first</em></button>
+                <button class="match-option" type="button" data-match-choice data-q="heat" data-v="gentle">As gentle as possible <em>lower heat</em></button>
+              </div>
+              <div class="match-step-foot"><button class="match-back" type="button" data-match-back>Back</button><span class="match-hint">Gentle favours infrared, steam and airflow.</span></div>
+            </div>
+
+            <div class="match-step match-result" data-match-step="result">
+              <div class="match-product"><img id="match-product-img" src="img/cards/p03.jpg" alt="Recommended Ferrli product"></div>
+              <span class="match-result-no" id="match-result-no">Nº 03</span>
+              <h3 id="match-result-name">Bomby Styler <em>Silk+.</em></h3>
+              <span class="match-result-why" id="match-result-why">Chosen for your hair and preferred finish.</span>
+              <div class="match-result-foot">
+                <span class="match-result-price" id="match-result-price">€169</span>
+                <span class="match-result-old" id="match-result-old">€249</span>
+                <a class="match-result-link" id="match-result-link" href="product-silk.html">View →</a>
+              </div>
+              <div class="match-result-actions"><button class="match-restart" type="button" id="match-restart">Start again</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ 02 STRAIGHTENERS ============ -->
+  <section id="straighteners">
+    <div class="fam-head reveal">
+      <h2 class="display">Styling tools</h2>
+      <p class="body-text">Infrared plates, steam or directed air — and the curling shelf. Shape chosen deliberately, at the lowest temperature that will hold it.</p>
+    </div>
+    <div class="bento">
+
+      <a class="fcard premium-card reveal" href="#" id="ferrli-classic">
+        <span class="f-copy">
+          <span class="f-tier">Straightener <em>the staple</em></span>
+          <h3>Ferrli <em>classic.</em></h3>
+          <span class="f-line">Mirror-titanium plates and infrared rays straighten from the inside, not the surface — rated to 230°, used far lower. The tool Ferrli's reputation was pressed on.</span>
+          <span class="f-spec"><span>Mirror titanium</span><span>Infrared</span><span>Silver ions</span><span>≤ 230°</span></span>
+          <span class="f-foot"><span class="p">€128</span><span class="old">€180</span><span class="go">View <i>→</i></span></span>
+        </span>
+        <span class="f-img sq">
+          <span class="product-tag pink">Bestseller</span>
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">07</span><span class="ph-cap">Plate Nº 07 · ferrlihair.lt</span></span>
+          <img loading="lazy" class="feature-product classic-zoom" src="img/cards/p07.jpg" alt="Ferrli classic infrared straightener">
+          <img class="swap" loading="lazy" src="img/cards/p07-hover-v2.jpg" alt="Ferrli classic straightener in use">
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="ferrli-large">
+        <span class="c-img">
+          <span class="product-tag">Long hair</span>
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">08</span><span class="ph-cap">Plate Nº 08 · ferrlihair.lt</span></span>
+          <img loading="lazy" class="pblend" src="img/cards/p08.jpg" alt="Ferrli Large tiesintuvas">
+          <img class="swap" loading="lazy" src="img/cards/p08-hover-v2.jpg" alt="Ferrli Large straightener in use">
+        </span>
+        <span class="c-body">
+          <h3>Ferrli <em>Large.</em></h3>
+          <span class="c-line">Wide mirror-titanium plates cover long or thick hair in half the passes — straight in minutes, not half an hour.</span>
+          <span class="c-price"><span class="p">€128</span><span class="old">€180</span><span class="c-note">The wide one</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="nano">
+        <span class="c-img">
+          <span class="product-tag">Precision</span>
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">09</span><span class="ph-cap">Plate Nº 09 · ferrlihair.lt</span></span>
+          <img loading="lazy" class="pblend" src="https://www.ferrlihair.lt/wp-content/uploads/2023/10/sss.webp" alt="Ferrli Nano Tourmaline tiesintuvas">
+          <img class="swap" loading="lazy" src="img/cards/p09-hover-v2.jpg" alt="Nano Tourmaline straightener in use">
+        </span>
+        <span class="c-body">
+          <h3>Nano <em>Tourmaline.</em></h3>
+          <span class="c-line">Slim tourmaline plates reach fringes, roots and short layers — precision styling right at the skin, without the burn.</span>
+          <span class="c-price"><span class="p">€149</span><span class="c-note">The precise</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="steam-me">
+        <span class="c-img">
+          <span class="product-tag black">Steam</span>
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">10</span><span class="ph-cap">Plate Nº 10 · ferrlihair.lt</span></span>
+          <img loading="lazy" class="pblend" src="img/cards/p10.jpg" alt="STEAM ME turbo veidrodinis tiesintuvas">
+          <img class="swap" loading="lazy" src="img/cards/p10-hover-v2.jpg" alt="STEAM ME straightener in use">
+        </span>
+        <span class="c-body">
+          <h3>STEAM <em>ME.</em></h3>
+          <span class="c-line">Steam seals moisture in while mirror plates glide — a glass finish at temperatures ordinary irons can’t offer.</span>
+          <span class="c-price"><span class="p">€149</span><span class="old">€299</span><span class="c-note save">Save €150</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="phen-straightener">
+        <span class="c-img">
+          <span class="product-tag black">Airflow</span>
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">11</span><span class="ph-cap">Plate Nº 11 · ferrlihair.lt</span></span>
+          <img loading="lazy" class="pblend" src="img/cards/p11.jpg" alt="Phenomenal straightener">
+          <img class="swap" loading="lazy" src="img/cards/p11-hover-v2.jpg" alt="Phenomenal airflow straightener in use">
+        </span>
+        <span class="c-body">
+          <h3>Phenomenal <em>straightener.</em></h3>
+          <span class="c-line">No hot plates at all — directed airflow dries and straightens in one pass, gentle enough for every single day.</span>
+          <span class="c-price"><span class="p">€199</span><span class="old">€369</span><span class="c-note save">Save €170</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="wavy">
+        <span class="c-img">
+          <span class="product-tag pink">Soft waves</span>
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">12</span><span class="ph-cap">Plate Nº 12 · ferrlihair.lt</span></span>
+          <img loading="lazy" class="pblend" src="img/cards/p12.jpg" alt="Wavy Dream hair waver">
+          <img class="swap" loading="lazy" src="img/cards/p12-hover-v2.jpg" alt="Wavy Dream hair waver in use">
+        </span>
+        <span class="c-body">
+          <h3>Wavy <em>Dream.</em></h3>
+          <span class="c-line">Instant soft waves that hold to day two — mirror titanium and tourmaline lock the moisture inside the hair.</span>
+          <span class="c-price"><span class="p">€128</span><span class="old">€149</span><span class="c-note">The wave</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="five-sec">
+        <span class="c-img">
+          <span class="product-tag black">Full set</span>
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">13</span><span class="ph-cap">Plate Nº 13 · ferrlihair.lt</span></span>
+          <img loading="lazy" src="img/cards/p13.jpg" alt="Ferrli 5 seconds garbanojimo rinkinys">
+          <img class="swap" loading="lazy" src="img/cards/p13-hover-v2.jpg" alt="Ferrli 5 seconds curling set in use">
+        </span>
+        <span class="c-body">
+          <h3>5 seconds <em>Set.</em></h3>
+          <span class="c-line">A defined curl in five seconds — the full kit with ion generator, for tight spirals or soft bends alike.</span>
+          <span class="c-price"><span class="p">€189</span><span class="c-note">The kit</span></span>
+        </span>
+      </a>
+
+    </div>
+  </section>
+
+  <section class="tech-section" id="technology">
+    <div class="tech-layout">
+      <div class="tech-intro reveal">
+        <h2>Beauty lives <em>in the details.</em></h2>
+        <p>Engineered with infrared heat, ionic care and thoughtful construction to protect your hair while elevating every finish.</p>
+        <a class="btn" href="product-silk.html#technology">Explore technology</a>
+      </div>
+      <div class="tech-cards">
+        <article class="tech-card reveal"><img src="img/tech-ionic.png" alt="Ferrli ionic care technology"><div class="tech-copy"><h3>Ionic care</h3><p>Calms static, reduces frizz and brings out a smoother natural shine.</p></div></article>
+        <article class="tech-card reveal"><img src="img/tech-infrared.png" alt="Ferrli infrared heat technology"><div class="tech-copy"><h3>Infrared heat</h3><p>Warms hair more evenly so styling needs less stress at the surface.</p></div></article>
+        <article class="tech-card reveal"><img src="img/tech-bristles.png" alt="Ferrli mixed bristle system"><div class="tech-copy"><h3>Designed to perform</h3><p>Boar and nylon bristles smooth, detangle and hold shape in every pass.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="brand-belief" aria-labelledby="belief-title">
+    <div class="belief-shell">
+      <div class="belief-media"><img src="img/hero-v8.jpg" alt="Woman styling her hair with the Ferrli Bomby Styler"></div>
+      <div class="belief-copy reveal">
+        <div class="section-kicker">Beauty without the trade-off</div>
+        <h2 id="belief-title">You shouldn’t have to choose between beautiful hair and healthy hair.</h2>
+        <a class="btn" href="#match">Find your tool</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="stories" id="stories">
+    <div class="two-copy reveal">
+      <h2>See why women love Ferrli</h2>
+      <p>Discover how Ferrli tools fit into everyday rituals for beautiful hair without making styling complicated.</p>
+      <div class="story-controls" aria-label="Video gallery controls"><button class="rail-btn" id="video-prev" type="button" aria-label="Previous videos">←</button><button class="rail-btn" id="video-next" type="button" aria-label="Next videos">→</button></div>
+    </div>
+    <div class="video-row" id="video-rail" aria-label="Women using Ferrli products">
+      <article class="video-card reveal"><video muted loop playsinline preload="metadata" poster="img/video/poster-1.jpg"><source src="img/video/ugc-1.mp4" type="video/mp4"></video><button class="video-play" aria-label="Play video">▶</button><div class="video-caption"><b>Volume in one pass</b><span>Everyday Ferrli routine</span><a class="video-product" href="product-silk.html"><span>Bomby Styler Silk+</span><i>→</i></a></div></article>
+      <article class="video-card reveal"><video muted loop playsinline preload="metadata" poster="img/video/poster-2.jpg"><source src="img/video/ugc-2.mp4" type="video/mp4"></video><button class="video-play" aria-label="Play video">▶</button><div class="video-caption"><b>Smooth without the rush</b><span>Everyday Ferrli routine</span><a class="video-product" href="product-silk.html"><span>Bomby Styler Silk+</span><i>→</i></a></div></article>
+      <article class="video-card reveal"><video muted loop playsinline preload="metadata" poster="img/video/poster-3.jpg"><source src="img/video/ugc-3.mp4" type="video/mp4"></video><button class="video-play" aria-label="Play video">▶</button><div class="video-caption"><b>Soft shape, less effort</b><span>Everyday Ferrli routine</span><a class="video-product" href="product-silk.html"><span>Bomby Styler Silk+</span><i>→</i></a></div></article>
+      <article class="video-card reveal"><video muted loop playsinline preload="metadata" poster="img/video/poster-4.jpg"><source src="img/video/ugc-4.mp4" type="video/mp4"></video><button class="video-play" aria-label="Play video">▶</button><div class="video-caption"><b>Salon finish at home</b><span>Everyday Ferrli routine</span><a class="video-product" href="product-silk.html"><span>Bomby Styler Silk+</span><i>→</i></a></div></article>
+      <article class="video-card reveal"><video muted loop playsinline preload="metadata" poster="img/video/poster-5.jpg"><source src="img/video/ugc-5.mp4" type="video/mp4"></video><button class="video-play" aria-label="Play video">▶</button><div class="video-caption"><b>Polished in minutes</b><span>Everyday Ferrli routine</span><a class="video-product" href="product-silk.html"><span>Bomby Styler Silk+</span><i>→</i></a></div></article>
+    </div>
+  </section>
+
+  <!-- ============ 03 COSMETICS ============ -->
+  <section id="cosmetics">
+    <div class="fam-head reveal">
+      <h2 class="display">Healthy hair starts here</h2>
+      <p class="body-text">Ferrli haircare and the new Boom Bloom scalp line — protection, moisture and shine for the days between stylings.</p>
+    </div>
+    <div class="bento">
+
+      <a class="fcard premium-card reveal" href="#" id="lumera">
+        <span class="f-copy">
+          <span class="f-tier">Light therapy <em>the season's obsession</em></span>
+          <h3>Ferrli <em>Luméra.</em></h3>
+          <span class="f-line">The salon light-therapy treatment, at home — an LED mask that gets asked about more than any tool in the catalogue.</span>
+          <span class="f-spec"><span>LED therapy</span><span>Home ritual</span><span>3 × €99.67</span></span>
+          <span class="f-foot"><span class="p">€299</span><span class="old">€490</span><span class="go">View <i>→</i></span></span>
+        </span>
+        <span class="f-img sq">
+          <span class="product-tag pink">New ritual</span>
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">14</span><span class="ph-cap">Plate Nº 14 · ferrlihair.lt</span></span>
+          <img loading="lazy" class="cosmetic-photo" src="img/cards/p14-paper-v3.jpg" alt="Ferrli Luméra LED mask">
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="luxe">
+        <span class="c-img">
+          <span class="product-tag">Hair care</span>
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">15</span><span class="ph-cap">Plate Nº 15 · ferrlihair.lt</span></span>
+          <img loading="lazy" src="img/cards/p15-paper-v3.jpg" alt="LUXE RADIANCE haircare set">
+        </span>
+        <span class="c-body">
+          <h3>LUXE <em>RADIANCE.</em></h3>
+          <span class="c-line">Protection, nourishment and shine in one set — the gloss ritual that keeps colour alive between salon visits.</span>
+          <span class="c-price"><span class="p">€89</span><span class="old">€128</span><span class="c-note save">Save €39</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="volume-care">
+        <span class="c-img">
+          <span class="product-tag">Fine hair</span>
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">16</span><span class="ph-cap">Plate Nº 16 · ferrlihair.lt</span></span>
+          <img loading="lazy" src="img/cards/p16-paper-v3.jpg" alt="VOLUME &amp; CARE haircare set">
+        </span>
+        <span class="c-body">
+          <h3>VOLUME <em>&amp; CARE.</em></h3>
+          <span class="c-line">Moisture and lift for fine hair — volume that survives the whole day without stiffness or heaviness.</span>
+          <span class="c-price"><span class="p">€95</span><span class="old">€137</span><span class="c-note save">Save €42</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="perfect-look">
+        <span class="c-img">
+          <span class="product-tag pink">Popular</span>
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">17</span><span class="ph-cap">Plate Nº 17 · ferrlihair.lt</span></span>
+          <img loading="lazy" src="img/cards/p17-paper-v3.jpg" alt="PERFECT LOOK haircare set">
+        </span>
+        <span class="c-body">
+          <h3>PERFECT <em>LOOK.</em></h3>
+          <span class="c-line">From heat protection to finishing shine — the all-rounder set for everyone who styles daily.</span>
+          <span class="c-price"><span class="p">€95</span><span class="old">€138</span><span class="c-note save">Save €43</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="murumuru">
+        <span class="c-img">
+          <span class="product-tag">Leave-in</span>
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">18</span><span class="ph-cap">Plate Nº 18 · ferrlihair.lt</span></span>
+          <img loading="lazy" src="img/cards/p18-paper-v3.jpg" alt="MURUMURU Glow mask">
+        </span>
+        <span class="c-body">
+          <h3>MURUMURU <em>Glow.</em></h3>
+          <span class="c-line">Murumuru-butter leave-in mask — glow that lasts between washes, no rinsing, no residue.</span>
+          <span class="c-price"><span class="p">€39</span><span class="c-note">The glow</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="boom-bloom">
+        <span class="c-img">
+          <span class="product-tag pink">New</span>
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">19</span><span class="ph-cap">Plate Nº 19 · ferrlihair.lt</span></span>
+          <img loading="lazy" src="img/cards/p19-paper-v3.jpg" alt="Boom Bloom shampoo">
+        </span>
+        <span class="c-body">
+          <h3>Boom <em>Bloom.</em></h3>
+          <span class="c-line">Scalp-first care — a moisturising, protective shampoo gentle enough for every day, from the new Boom Bloom line.</span>
+          <span class="c-price"><span class="p">€39</span><span class="c-note save">New line</span></span>
+        </span>
+      </a>
+
+      <div class="tile quote-tile reveal">
+        <span class="t-label">House rule</span>
+        <b>“The tool does the style. The shelf keeps it alive.”</b>
+        <span>Ferrli haircare, 2026</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ 04 ACCESSORIES ============ -->
+  <section id="accessories">
+    <div class="fam-head reveal">
+      <h2 class="display">Finish the ritual</h2>
+      <p class="body-text">Attachments, brushes and cases — the quiet parts that keep a five-year tool feeling new.</p>
+    </div>
+    <div class="acc-grid">
+
+      <a class="card reveal" href="#" id="curl-bomb">
+        <span class="c-img">
+          <span class="product-tag pink">Popular</span>
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">a</span><span class="ph-cap">Plate a · ferrlihair.lt</span></span>
+          <img loading="lazy" class="pblend" src="https://www.ferrlihair.lt/wp-content/uploads/2023/10/IMG_3806-1-1-600x600.webp" alt="SUPERIONIC Curl Bomb antgalis">
+        </span>
+        <span class="c-body">
+          <h3>Curl <em>Bomb.</em></h3>
+          <span class="c-line">Curls formed by airflow, not hot tongs — the tourmaline-coated attachment for your SUPERIONIC dryer.</span>
+          <span class="c-price"><span class="p">€89</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="straight-bomb">
+        <span class="c-img">
+          <span class="product-tag">Smoothing</span>
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">b</span><span class="ph-cap">Plate b · ferrlihair.lt</span></span>
+          <img loading="lazy" class="pblend" src="https://www.ferrlihair.lt/wp-content/uploads/2023/10/IMG_3805-1.webp" alt="SUPERIONIC Straight Bomb antgalis">
+        </span>
+        <span class="c-body">
+          <h3>Straight <em>Bomb.</em></h3>
+          <span class="c-line">Straightens and smooths in the airstream — no hot plates ever touch your hair.</span>
+          <span class="c-price"><span class="p">€39</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="silk-ring">
+        <span class="c-img">
+          <span class="product-tag">Silk care</span>
+          <span class="plate-ph">
+            <span class="frame"></span>
+            <svg viewBox="0 0 160 160">
+              <circle cx="80" cy="74" r="34"/>
+              <circle cx="80" cy="74" r="22"/>
+              <path d="M80 32 v-10 M110 44 l7 -7 M122 74 h10 M110 104 l7 7 M80 116 v10 M50 104 l-7 7 M38 74 h-10 M50 44 l-7 -7"/>
+            </svg>
+            <span class="ph-no">c</span>
+            <span class="ph-cap">Plate c · Photography at ferrlihair.lt</span>
+          </span>
+        </span>
+        <span class="c-body">
+          <h3>Silk Protein <em>ring.</em></h3>
+          <span class="c-line">A ring of silk proteins dissolved into the airflow — added softness with every single dry.</span>
+          <span class="c-price"><span class="p">€39</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="mag-case">
+        <span class="c-img">
+          <span class="product-tag black">Storage</span>
+          <span class="plate-ph">
+            <span class="frame"></span>
+            <svg viewBox="0 0 160 160">
+              <rect x="26" y="42" width="108" height="76" rx="10"/>
+              <path d="M26 80 h108"/>
+              <circle cx="62" cy="62" r="10"/>
+              <path d="M62 52 h30 a4 4 0 0 1 4 4 v12 a4 4 0 0 1 -4 4 h-30"/>
+              <path d="M56 72 l-3 26 a4 4 0 0 0 4 5 h4 a4 4 0 0 0 4 -5 l-2 -24"/>
+              <circle cx="104" cy="99" r="5"/>
+              <circle cx="120" cy="99" r="5"/>
+            </svg>
+            <span class="ph-no">d</span>
+            <span class="ph-cap">Plate d · Photography at ferrlihair.lt</span>
+          </span>
+        </span>
+        <span class="c-body">
+          <h3>Magnetic <em>Case.</em></h3>
+          <span class="c-line">Magnets catch the dryer the moment you reach the shelf — no fumbling, no scratched barrels.</span>
+          <span class="c-price"><span class="p">€69</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="brush-me">
+        <span class="c-img">
+          <span class="product-tag">Detangle</span>
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">e</span><span class="ph-cap">Plate e · ferrlihair.lt</span></span>
+          <img loading="lazy" src="https://www.ferrlihair.lt/wp-content/uploads/2023/10/IMG_6674.webp" alt="FERRLI Brush me comb">
+        </span>
+        <span class="c-body">
+          <h3>Brush <em>me.</em></h3>
+          <span class="c-line">The daily comb that’s gentle on wet hair — wide teeth glide through knots without snapping strands.</span>
+          <span class="c-price"><span class="p">€22</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="glow-brush">
+        <span class="c-img">
+          <span class="product-tag pink">Shine</span>
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span><span class="ph-no">f</span><span class="ph-cap">Plate f · ferrlihair.lt</span></span>
+          <img loading="lazy" src="https://www.ferrlihair.lt/wp-content/uploads/2023/12/image_6483441-6.jpg" alt="Glow let it glow brush">
+        </span>
+        <span class="c-body">
+          <h3>Glow <em>brush.</em></h3>
+          <span class="c-line">The paddle that pairs with the Glow mask ritual — detangles without pulling, polishes as it goes.</span>
+          <span class="c-price"><span class="p">€39</span></span>
+        </span>
+      </a>
+
+    </div>
+  </section>
+
+  <section class="professionals" id="professionals" aria-labelledby="professionals-title">
+    <div class="professionals-head reveal">
+      <h2 id="professionals-title">In the hands of professionals</h2>
+      <p>Approved Ferrli stylists and creators — their profiles are here now, with stories and portraits added only as they are supplied.</p>
+    </div>
+    <div class="pro-grid">
+      <a class="pro-card reveal" href="https://www.instagram.com/christosmichailidis" target="_blank" rel="noopener">
+        <span class="pro-initials">CM</span>
+        <span><span class="pro-status">Profile supplied</span><h3>Christos Michailidis</h3><p>Stylist / creator</p><span class="pro-link">Instagram ↗</span></span>
+      </a>
+      <a class="pro-card reveal" href="https://www.instagram.com/mrhairaleksarabrenovic" target="_blank" rel="noopener">
+        <span class="pro-initials">AR</span>
+        <span><span class="pro-status">Profile supplied</span><h3>Aleksa Rabrenovic</h3><p>Stylist / creator</p><span class="pro-link">Instagram ↗</span></span>
+      </a>
+      <a class="pro-card reveal" href="https://www.instagram.com/anna.tolok.stylist" target="_blank" rel="noopener">
+        <span class="pro-initials">AT</span>
+        <span><span class="pro-status">Profile supplied</span><h3>Anna Tolok</h3><p>Stylist / creator</p><span class="pro-link">Instagram ↗</span></span>
+      </a>
+      <a class="pro-card reveal" href="https://www.instagram.com/liliana_beauty_hairstyle" target="_blank" rel="noopener">
+        <span class="pro-initials">LB</span>
+        <span><span class="pro-status">Profile supplied</span><h3>Liliana Beauty</h3><p>Stylist / creator</p><span class="pro-link">Instagram ↗</span></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ PROOF ============ -->
+  <section id="proof">
+    <div class="chapter reveal"><span class="label">05 — Proof</span><span class="ch-lt">Real routines, real results</span></div>
+    <div class="proof-quote reveal">
+      <div class="pq">“I returned the premium-brand styler. Same result — the difference paid for a holiday.”</div>
+      <div class="pq-who">Monika, 34 — verified buyer</div>
+    </div>
+    <div class="counters">
+      <div class="reveal"><b>12,000+</b><span>customers</span></div>
+      <div class="reveal"><b>4.9 / 5</b><span>average rating</span></div>
+      <div class="reveal"><b>94%</b><span>would recommend</span></div>
+    </div>
+  </section>
+
+  <section class="brand-story" id="story" aria-labelledby="story-title">
+    <div class="brand-story-media"><img loading="lazy" src="img/hero-03-cosmetics.jpg?v=3" alt="Ferrli products in a unified campaign setting"></div>
+    <div class="brand-story-copy reveal">
+      <div class="section-kicker">Hair care, elevated</div>
+      <h2 id="story-title">Professional-looking hair should feel possible every day.</h2>
+      <a class="btn btn-outline" href="#technology">Our approach</a>
+    </div>
+  </section>
+
+  <section class="instagram" id="instagram" aria-labelledby="instagram-title">
+    <div class="instagram-head reveal">
+      <div><div class="section-kicker">Follow the ritual</div><h2 id="instagram-title">@ferrlihair</h2></div>
+      <a href="https://www.instagram.com/ferrlihair/" target="_blank" rel="noopener">View Instagram ↗</a>
+    </div>
+    <div class="instagram-grid">
+      <a href="https://www.instagram.com/ferrlihair/" target="_blank" rel="noopener"><img loading="lazy" src="img/cards/p03-hover-hq.jpg" alt="Ferrli styling inspiration"></a>
+      <a href="https://www.instagram.com/ferrlihair/" target="_blank" rel="noopener"><img loading="lazy" src="img/cards/f01.jpg" alt="Ferrli Ionic Ultra dryer"></a>
+      <a href="https://www.instagram.com/ferrlihair/" target="_blank" rel="noopener"><img loading="lazy" src="img/hero-03-cosmetics.jpg?v=3" alt="Ferrli hair care inspiration"></a>
+      <a href="https://www.instagram.com/ferrlihair/" target="_blank" rel="noopener"><img loading="lazy" src="img/cards/p07-hover-v2.jpg" alt="Ferrli straightener in use"></a>
+      <a href="https://www.instagram.com/ferrlihair/" target="_blank" rel="noopener"><img loading="lazy" src="img/cards/p15-paper-v3.jpg" alt="Ferrli Luxe Radiance set"></a>
+      <a href="https://www.instagram.com/ferrlihair/" target="_blank" rel="noopener"><img loading="lazy" src="img/hero-04-accessories.jpg?v=3" alt="Ferrli accessories"></a>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="cta reveal">
+    <div class="c-copy">
+      <div class="c-kicker">Where most people start</div>
+      <h2>Meet the styler<br>everyone <em>talks about.</em></h2>
+      <p class="c-sub">Nº 03, the Bomby Styler Silk+ — the tool that built the name. Dries, lifts and shapes in the one motion you already know.</p>
+      <div class="c-price">€169 <s>€249</s> <small>Nº 03 · Bomby Styler Silk+</small></div>
+      <a class="btn" href="product-silk.html">View</a>
+      <div class="c-micro">Delivery in 1–2 working days · 24-month warranty · easy returns</div>
+    </div>
+    <div class="c-img">
+      <img src="img/podium.png" alt="Bomby Styler Silk+ on podium">
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="f-l"><img src="img/ferrli2.svg" alt="Ferrli"></span>
+    <span class="f-m">© 2026 · V9 “The Catalogue, refined” — Object.lt</span>
+    <span class="f-r">
+      <a href="#">Shipping</a>
+      <a href="#">Returns</a>
+      <a href="#">Contact</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+const siteHeader=document.querySelector('header.site');
+const syncHeader=()=>siteHeader.classList.toggle('scrolled',window.scrollY>18);
+syncHeader();
+window.addEventListener('scroll',syncHeader,{passive:true});
+document.querySelector('.logo').addEventListener('click',event=>{
+  event.preventDefault();
+  history.replaceState(null,'',location.pathname+location.search);
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+
+const searchToggle=document.getElementById('search-toggle');
+const searchPanel=document.getElementById('search-panel');
+const siteSearch=document.getElementById('site-search');
+const productCards=[...document.querySelectorAll('.card,.fcard')];
+const setSearch=open=>{searchPanel.classList.toggle('on',open);searchToggle.setAttribute('aria-expanded',String(open));if(open)setTimeout(()=>siteSearch.focus(),220)};
+searchToggle.addEventListener('click',()=>setSearch(!searchPanel.classList.contains('on')));
+document.getElementById('search-close').addEventListener('click',()=>{setSearch(false);siteSearch.value='';productCards.forEach(card=>card.hidden=false)});
+siteSearch.addEventListener('input',()=>{const query=siteSearch.value.trim().toLowerCase();productCards.forEach(card=>card.hidden=query&&!card.textContent.toLowerCase().includes(query))});
+
+// reveal on scroll
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+const videoRail=document.getElementById('video-rail');
+const scrollVideos=direction=>videoRail.scrollBy({left:direction*Math.max(260,videoRail.clientWidth*.72),behavior:'smooth'});
+document.getElementById('video-prev').addEventListener('click',()=>scrollVideos(-1));
+document.getElementById('video-next').addEventListener('click',()=>scrollVideos(1));
+document.querySelectorAll('.video-card').forEach(card=>{
+  const video=card.querySelector('video');
+  const button=card.querySelector('.video-play');
+  const setIcon=()=>button.textContent=video.paused?'▶':'Ⅱ';
+  button.addEventListener('click',()=>{if(video.paused)video.play().catch(()=>{});else video.pause();setIcon()});
+  card.addEventListener('mouseenter',()=>video.play().then(setIcon).catch(()=>{}));
+  card.addEventListener('mouseleave',()=>{video.pause();setIcon()});
+});
+
+// broken remote images → the plate behind shows through
+document.querySelectorAll('.c-img img, .f-img img, .mtile img, .match-product img').forEach(im=>{
+  const step=()=>{
+    if(im.dataset.fb){im.src=im.dataset.fb;delete im.dataset.fb}
+    else{im.style.display='none'}
+  };
+  im.addEventListener('error',step);
+  if(im.complete && im.naturalWidth===0){step()}
+});
+
+// ============ THE MATCH — three-step catalogue concierge ============
+const P={
+  silk:{no:'Nº 03',name:'Bomby Styler <em>Silk+.</em>',price:'€169',old:'€249',href:'product-silk.html',img:'img/cards/p03.jpg'},
+  classicBomby:{no:'Nº 04',name:'Bomby Styler <em>classic.</em>',price:'€99',old:'€159',href:'#bomby-classic',img:'img/cards/p04.jpg'},
+  phenomenal:{no:'Nº 06',name:'PHENOMENAL <em>styler.</em>',price:'€299',old:'€429',href:'#phenomenal',img:'img/cards/p06.jpg'},
+  classic:{no:'Nº 07',name:'Ferrli <em>classic.</em>',price:'€128',old:'€180',href:'#ferrli-classic',img:'img/cards/p07.jpg'},
+  large:{no:'Nº 08',name:'Ferrli <em>Large.</em>',price:'€128',old:'€180',href:'#ferrli-large',img:'img/cards/p08.jpg'},
+  nano:{no:'Nº 09',name:'Nano <em>Tourmaline.</em>',price:'€149',old:'',href:'#nano',img:'img/cards/p09-hover-v2.jpg'},
+  steam:{no:'Nº 10',name:'STEAM <em>ME.</em>',price:'€149',old:'€299',href:'#steam-me',img:'img/cards/p10.jpg'},
+  wavy:{no:'Nº 12',name:'Wavy <em>Dream.</em>',price:'€128',old:'€149',href:'#wavy',img:'img/cards/p12.jpg'},
+  fivesec:{no:'Nº 13',name:'5 seconds <em>Set.</em>',price:'€189',old:'',href:'#five-sec',img:'img/cards/p13.jpg'},
+  infrared:{no:'Nº 05',name:'Infrared <em>Dryer.</em>',price:'€169',old:'€199',href:'#infrared-dryer',img:'img/cards/p05-hover.jpg'},
+  ionic:{no:'Nº 01',name:'FERRLI IONIC <em>Ultra.</em>',price:'€299',old:'€499',href:'#ionic-ultra',img:'img/cards/f01.jpg'},
+  superionic:{no:'Nº 02',name:'SUPER <em>IONIC.</em>',price:'€199',old:'€499',href:'#super-ionic',img:'img/cards/p02.jpg'}
+};
+const MAP={
+  balanced:{
+    volume:{short:'classicBomby',mid:'silk',long:'phenomenal'},
+    sleek:{short:'nano',mid:'classic',long:'large'},
+    curls:{short:'wavy',mid:'wavy',long:'fivesec'},
+    dry:{short:'infrared',mid:'ionic',long:'superionic'}
+  },
+  gentle:{
+    volume:{short:'silk',mid:'silk',long:'silk'},
+    sleek:{short:'steam',mid:'steam',long:'steam'},
+    curls:{short:'wavy',mid:'wavy',long:'wavy'},
+    dry:{short:'ionic',mid:'ionic',long:'ionic'}
+  }
+};
+const WHY={
+  length:{short:'short hair',mid:'mid-length hair',long:'long hair'},
+  goal:{volume:'volume & soft waves',sleek:'sleek & straight',curls:'defined curls',dry:'fast drying'},
+  heat:{balanced:'balanced heat',gentle:'the gentlest heat'}
+};
+const state={};
+const matchTile=document.getElementById('match');
+const matchSteps=[...document.querySelectorAll('[data-match-step]')];
+const matchBars=[...document.querySelectorAll('.match-progress i')];
+let matchIndex=0;
+
+function showMatchStep(index){
+  matchIndex=index;
+  matchSteps.forEach((step,i)=>step.classList.toggle('active',i===index));
+  matchBars.forEach((bar,i)=>bar.classList.toggle('on',index>=3||i<=index));
+  matchTile.classList.toggle('is-result',index===3);
+  document.getElementById('match-count').textContent=index===3?'Your result':'0'+(index+1)+' / 03';
+}
+
+function renderMatch(){
+  const id=MAP[state.heat][state.goal][state.length];
+  const p=P[id];
+  const oldPrice=document.getElementById('match-result-old');
+  const productImage=document.getElementById('match-product-img');
+  document.getElementById('match-result-no').textContent=p.no;
+  document.getElementById('match-result-name').innerHTML=p.name;
+  document.getElementById('match-result-price').textContent=p.price;
+  document.getElementById('match-result-link').setAttribute('href',p.href);
+  document.getElementById('match-result-why').textContent='Chosen for '+WHY.length[state.length]+', '+WHY.goal[state.goal]+' and '+WHY.heat[state.heat]+'.';
+  oldPrice.textContent=p.old;
+  oldPrice.hidden=!p.old;
+  productImage.src=p.img;
+  productImage.alt=p.name.replace(/<[^>]+>/g,'');
+}
+
+document.querySelectorAll('[data-match-choice]').forEach(choice=>{
+  choice.addEventListener('click',()=>{
+    state[choice.dataset.q]=choice.dataset.v;
+    if(matchIndex===2){renderMatch();showMatchStep(3)}
+    else{showMatchStep(matchIndex+1)}
+  });
+});
+document.querySelectorAll('[data-match-back]').forEach(back=>{
+  back.addEventListener('click',()=>showMatchStep(Math.max(0,matchIndex-1)));
+});
+document.getElementById('match-restart').addEventListener('click',()=>{
+  Object.keys(state).forEach(key=>delete state[key]);
+  showMatchStep(0);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 512 512" fill="none">
+  <title>FERRLI Healthy Hair Technology badge</title>
+  <desc>Transparent circular badge with a subtle champagne-gold accent.</desc>
+
+  <defs>
+    <path
+      id="badgeTextArc"
+      d="M 101 256 A 155 155 0 0 0 411 256"
+    />
+  </defs>
+
+  <!-- Warm ivory badge field; everything beyond this circle stays transparent -->
+  <circle cx="256" cy="256" r="214" fill="#F7F1ED"/>
+
+  <!-- Fine outer structure -->
+  <path d="M113.1 96.9 A214 214 0 0 0 113.1 415.1"
+        stroke="#161513" stroke-width="2.25"/>
+  <path d="M410.8 108.2 A214 214 0 0 1 410.8 403.8"
+        stroke="#161513" stroke-width="2.25"/>
+  <circle cx="256" cy="256" r="198" stroke="#161513" stroke-opacity=".28" stroke-width="1"/>
+
+  <!-- Restrained champagne-gold ribbon -->
+  <path
+    d="M 113.1 96.9 A 214 214 0 0 1 410.8 108.2"
+    stroke="#B89256"
+    stroke-width="7"
+    stroke-linecap="round"
+  />
+  <path
+    d="M 410.8 403.8 A 214 214 0 0 1 113.1 415.1"
+    stroke="#B89256"
+    stroke-width="3"
+    stroke-linecap="round"
+    opacity=".72"
+  />
+
+  <!-- Brand initial -->
+  <text
+    x="256"
+    y="248"
+    text-anchor="middle"
+    fill="#161513"
+    font-family="Fraunces, Georgia, 'Times New Roman', serif"
+    font-size="100"
+    font-style="italic"
+    font-weight="400"
+  >F</text>
+
+  <!-- Hair / airflow detail -->
+  <path d="M211 279 C231 268 245 268 260 279 C275 290 290 290 309 279"
+        stroke="#B89256" stroke-width="3" stroke-linecap="round"/>
+  <path d="M221 292 C238 284 250 284 263 292 C276 300 288 300 302 292"
+        stroke="#161513" stroke-opacity=".72" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Technology statement -->
+  <text
+    fill="#161513"
+    font-family="Instrument Sans, 'Helvetica Neue', Arial, sans-serif"
+    font-size="18"
+    font-weight="600"
+    letter-spacing="4.2"
+  >
+    <textPath href="#badgeTextArc" startOffset="50%" text-anchor="middle">
+      HEALTHY HAIR TECHNOLOGY
+    </textPath>
+  </text>
+
+  <!-- Small premium details -->
+  <circle cx="82" cy="256" r="3.25" fill="#B89256"/>
+  <circle cx="430" cy="256" r="3.25" fill="#B89256"/>
+  <text
+    x="256"
+    y="168"
+    text-anchor="middle"
+    fill="#161513"
+    font-family="Instrument Sans, 'Helvetica Neue', Arial, sans-serif"
+    font-size="12"
+    font-weight="600"
+    letter-spacing="4.6"
+  >FERRLI</text>
+</svg>

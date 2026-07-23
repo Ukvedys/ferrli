@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 512 512" fill="none">
+  <title>Beauty Tech Innovation Award — Healthy Hair</title>
+  <desc>Independent award-style badge for excellence in healthy-hair technology.</desc>
+
+  <!-- Opaque award field; the area outside the seal remains transparent -->
+  <circle cx="256" cy="256" r="218" fill="#F7F1ED"/>
+
+  <!-- Award seal -->
+  <circle cx="256" cy="256" r="218" stroke="#161513" stroke-width="2.5"/>
+  <circle cx="256" cy="256" r="202" stroke="#161513" stroke-opacity=".22" stroke-width="1.25"/>
+  <path d="M111 93 A218 218 0 0 1 401 93"
+        stroke="#B89256" stroke-width="8" stroke-linecap="round"/>
+  <path d="M401 419 A218 218 0 0 1 111 419"
+        stroke="#B89256" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Clear award title -->
+  <text x="256" y="124" text-anchor="middle"
+        fill="#161513"
+        font-family="Instrument Sans, 'Helvetica Neue', Arial, sans-serif"
+        font-size="16" font-weight="600" letter-spacing="3.5">
+    AWARD FOR INNOVATION
+  </text>
+
+  <!-- Beauty-technology symbol: a protected hair strand with circuit points -->
+  <g transform="translate(256 227)">
+    <path d="M-44 51 C-57 24 -53 -9 -31 -42 C-16 -64 5 -74 27 -75"
+          stroke="#161513" stroke-width="7" stroke-linecap="round"/>
+    <path d="M-20 61 C-1 43 6 20 2 -8 C-1 -28 6 -46 28 -61"
+          stroke="#B89256" stroke-width="8" stroke-linecap="round"/>
+    <path d="M12 54 C35 36 44 12 39 -15"
+          stroke="#161513" stroke-width="4" stroke-linecap="round" opacity=".74"/>
+
+    <!-- Circuit nodes -->
+    <circle cx="-31" cy="-42" r="6" fill="#F7F1ED" stroke="#B89256" stroke-width="3"/>
+    <circle cx="2" cy="-8" r="5" fill="#F7F1ED" stroke="#161513" stroke-width="2.5"/>
+    <circle cx="39" cy="-15" r="5" fill="#F7F1ED" stroke="#B89256" stroke-width="2.5"/>
+
+    <!-- Beauty spark -->
+    <path d="M45 -82 L50 -68 L64 -63 L50 -58 L45 -44 L40 -58 L26 -63 L40 -68 Z"
+          fill="#B89256"/>
+    <circle cx="66" cy="-84" r="3.5" fill="#161513"/>
+  </g>
+
+  <!-- Primary statement stays legible at hero size -->
+  <text x="256" y="334" text-anchor="middle"
+        fill="#161513"
+        font-family="Instrument Sans, 'Helvetica Neue', Arial, sans-serif"
+        font-size="34" font-weight="600" letter-spacing="2.6">
+    BEAUTY TECH
+  </text>
+  <text x="256" y="370" text-anchor="middle"
+        fill="#161513"
+        font-family="Instrument Sans, 'Helvetica Neue', Arial, sans-serif"
+        font-size="15" font-weight="600" letter-spacing="5">
+    HEALTHY HAIR
+  </text>
+
+  <!-- Seal details -->
+  <path d="M147 348 H194" stroke="#B89256" stroke-width="2"/>
+  <path d="M318 348 H365" stroke="#B89256" stroke-width="2"/>
+  <circle cx="132" cy="256" r="4" fill="#B89256"/>
+  <circle cx="380" cy="256" r="4" fill="#B89256"/>
+</svg>
