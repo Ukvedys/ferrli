@@ -338,6 +338,13 @@ main>section:first-of-type .fam-head{padding-top:clamp(72px,6vw,104px)}
 .belief-copy .section-kicker{color:var(--blush)}
 .belief-copy h2{font:300 clamp(34px,3.4vw,58px)/1.08 var(--serif);letter-spacing:-.04em;margin-top:20px;max-width:650px}
 .belief-copy .btn{margin-top:34px;background:#fff;color:var(--ink)}
+.belief-match{display:none;min-height:620px;background:#F3F0EC;color:var(--ink)}
+.belief-shell.match-open .belief-copy{display:none}
+.belief-shell.match-open .belief-match{display:flex}
+.belief-match .match-shell{min-height:620px}
+.match-tools{display:flex;align-items:center;gap:16px}
+.match-close{border:0;background:transparent;color:var(--body);font:600 9px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid currentColor;padding:0 0 3px}
+.match-close:hover,.match-close:focus-visible{color:var(--ink);outline:none}
 
 /* ============================================================
    STORIES — expandable rail for the approved client videos
@@ -510,6 +517,7 @@ footer .f-r a:hover{color:var(--ink)}
   .belief-shell{grid-template-columns:1fr;min-height:0}
   .belief-media{min-height:0;aspect-ratio:4/3}
   .belief-copy{padding:42px 28px 48px}
+  .belief-match,.belief-match .match-shell{min-height:560px}
   .stories{margin-left:-22px;margin-right:-22px;padding-left:22px;padding-right:22px}
   .video-card{flex-basis:82%}
   .professionals{margin-left:-22px;margin-right:-22px;padding-left:22px;padding-right:22px}
@@ -721,63 +729,47 @@ footer .f-r a:hover{color:var(--ink)}
         </span>
       </a>
 
-      <div class="tile match-tile reveal" id="match" aria-labelledby="match-title">
-        <div class="match-shell">
-          <div class="match-top">
-            <span class="t-label" id="match-title">Find your Ferrli</span>
-            <span class="match-count" id="match-count">01 / 03</span>
-          </div>
-          <div class="match-progress" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+      <a class="card reveal" href="#" id="super-ionic-duplicate">
+        <span class="c-img">
+          <span class="product-tag pink">Bestseller</span>
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span></span>
+          <img loading="lazy" class="pblend" src="img/cards/p02.jpg?v=2" alt="Ferrli SUPER IONIC hair dryer">
+          <img class="swap" loading="lazy" src="img/cards/p02-hover.jpg?v=2" alt="SUPER IONIC in use">
+        </span>
+        <span class="c-body">
+          <h3>SUPER <em>IONIC.</em></h3>
+          <span class="c-line">Salon-power airflow that halves your drying time — the ionic stream keeps frizz out while it works.</span>
+          <span class="c-price"><span class="p">€199</span><span class="old">€499</span><span class="c-note save">Save €300</span></span>
+        </span>
+      </a>
 
-          <div class="match-stage" aria-live="polite">
-            <div class="match-step active" data-match-step="length">
-              <span class="match-kicker">First, your hair</span>
-              <h3>What length are you <em>styling?</em></h3>
-              <div class="match-options">
-                <button class="match-option" type="button" data-match-choice data-q="length" data-v="short">Short <em>above shoulders</em></button>
-                <button class="match-option" type="button" data-match-choice data-q="length" data-v="mid">Mid-length <em>shoulder to chest</em></button>
-                <button class="match-option" type="button" data-match-choice data-q="length" data-v="long">Long <em>below the chest</em></button>
-              </div>
-              <div class="match-step-foot"><span class="match-hint">Three quick choices. One considered match.</span></div>
-            </div>
+      <a class="card reveal" href="product-silk.html" id="silk-plus-duplicate">
+        <span class="c-img">
+          <span class="product-tag pink">Most loved</span>
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span></span>
+          <img loading="lazy" class="pblend" src="img/cards/p03.jpg" alt="Bomby Styler Silk+">
+          <img class="swap" loading="lazy" src="img/cards/p03-hover-hq.jpg" alt="Bomby Styler Silk+ in use">
+        </span>
+        <span class="c-body">
+          <h3>Bomby Styler <em>Silk+.</em></h3>
+          <span class="c-line">Dries, lifts and shapes in the one motion you already brush with — salon volume in 15 minutes, no technique to learn.</span>
+          <span class="c-price"><span class="p">€169</span><span class="old">€249</span><span class="c-note">The detail page →</span></span>
+        </span>
+      </a>
 
-            <div class="match-step" data-match-step="goal">
-              <span class="match-kicker">Now, the finish</span>
-              <h3>What do you want it to <em>do?</em></h3>
-              <div class="match-options">
-                <button class="match-option" type="button" data-match-choice data-q="goal" data-v="volume">Volume <em>soft waves</em></button>
-                <button class="match-option" type="button" data-match-choice data-q="goal" data-v="sleek">Sleek <em>smooth &amp; straight</em></button>
-                <button class="match-option" type="button" data-match-choice data-q="goal" data-v="curls">Curls <em>defined &amp; lasting</em></button>
-                <button class="match-option" type="button" data-match-choice data-q="goal" data-v="dry">Dry fast <em>no styling needed</em></button>
-              </div>
-              <div class="match-step-foot"><button class="match-back" type="button" data-match-back>Back</button></div>
-            </div>
-
-            <div class="match-step" data-match-step="heat">
-              <span class="match-kicker">Last detail</span>
-              <h3>How should the heat <em>feel?</em></h3>
-              <div class="match-options">
-                <button class="match-option" type="button" data-match-choice data-q="heat" data-v="balanced">Balanced <em>performance first</em></button>
-                <button class="match-option" type="button" data-match-choice data-q="heat" data-v="gentle">As gentle as possible <em>lower heat</em></button>
-              </div>
-              <div class="match-step-foot"><button class="match-back" type="button" data-match-back>Back</button><span class="match-hint">Gentle favours infrared, steam and airflow.</span></div>
-            </div>
-
-            <div class="match-step match-result" data-match-step="result">
-              <div class="match-product"><img id="match-product-img" src="img/cards/p03.jpg" alt="Recommended Ferrli product"></div>
-              <span class="match-result-no" id="match-result-no">Nº 03</span>
-              <h3 id="match-result-name">Bomby Styler <em>Silk+.</em></h3>
-              <span class="match-result-why" id="match-result-why">Chosen for your hair and preferred finish.</span>
-              <div class="match-result-foot">
-                <span class="match-result-price" id="match-result-price">€169</span>
-                <span class="match-result-old" id="match-result-old">€249</span>
-                <a class="match-result-link" id="match-result-link" href="product-silk.html">View →</a>
-              </div>
-              <div class="match-result-actions"><button class="match-restart" type="button" id="match-restart">Start again</button></div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <a class="card reveal" href="#" id="phenomenal-duplicate">
+        <span class="c-img">
+          <span class="product-tag black">6-in-1</span>
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span></span>
+          <img loading="lazy" class="pblend" src="img/cards/p06.jpg" alt="PHENOMENAL styler">
+          <img class="swap" loading="lazy" src="img/cards/p06-hover.jpg" alt="PHENOMENAL styler in use">
+        </span>
+        <span class="c-body">
+          <h3>PHENOMENAL <em>styler.</em></h3>
+          <span class="c-line">One device replaces the whole drawer — dry, curl, straighten and volumise with six attachments, packed in a vegan-leather case.</span>
+          <span class="c-price"><span class="p">€299</span><span class="old">€429</span><span class="c-note save">Save €130</span></span>
+        </span>
+      </a>
 
     </div>
   </section>
@@ -890,6 +882,34 @@ footer .f-r a:hover{color:var(--ink)}
         </span>
       </a>
 
+      <a class="card reveal" href="#" id="ferrli-large-duplicate">
+        <span class="c-img">
+          <span class="product-tag">Long hair</span>
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span></span>
+          <img loading="lazy" class="pblend" src="img/cards/p08.jpg" alt="Ferrli Large tiesintuvas">
+          <img class="swap" loading="lazy" src="img/cards/p08-hover-v2.jpg" alt="Ferrli Large straightener in use">
+        </span>
+        <span class="c-body">
+          <h3>Ferrli <em>Large.</em></h3>
+          <span class="c-line">Wide mirror-titanium plates cover long or thick hair in half the passes — straight in minutes, not half an hour.</span>
+          <span class="c-price"><span class="p">€128</span><span class="old">€180</span><span class="c-note">The wide one</span></span>
+        </span>
+      </a>
+
+      <a class="card reveal" href="#" id="steam-me-duplicate">
+        <span class="c-img">
+          <span class="product-tag black">Steam</span>
+          <span class="plate-ph fb"><span class="frame"></span><span class="ph-mark">ferrli</span></span>
+          <img loading="lazy" class="pblend" src="img/cards/p10.jpg" alt="STEAM ME turbo veidrodinis tiesintuvas">
+          <img class="swap" loading="lazy" src="img/cards/p10-hover-v2.jpg" alt="STEAM ME straightener in use">
+        </span>
+        <span class="c-body">
+          <h3>STEAM <em>ME.</em></h3>
+          <span class="c-line">Steam seals moisture in while mirror plates glide — a glass finish at temperatures ordinary irons can’t offer.</span>
+          <span class="c-price"><span class="p">€149</span><span class="old">€299</span><span class="c-note save">Save €150</span></span>
+        </span>
+      </a>
+
     </div>
   </section>
 
@@ -914,7 +934,67 @@ footer .f-r a:hover{color:var(--ink)}
       <div class="belief-copy reveal">
         <div class="section-kicker">Beauty without the trade-off</div>
         <h2 id="belief-title">You shouldn’t have to choose between beautiful hair and healthy hair.</h2>
-        <a class="btn" href="#match">Find your tool</a>
+        <button class="btn" id="open-match" type="button" aria-controls="match" aria-expanded="false">Find your tool</button>
+      </div>
+      <div class="belief-match match-tile" id="match" tabindex="-1" aria-labelledby="match-title" aria-hidden="true">
+        <div class="match-shell">
+          <div class="match-top">
+            <span class="t-label" id="match-title">Find your Ferrli</span>
+            <span class="match-tools">
+              <span class="match-count" id="match-count">01 / 03</span>
+              <button class="match-close" id="match-close" type="button">Close</button>
+            </span>
+          </div>
+          <div class="match-progress" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+
+          <div class="match-stage" aria-live="polite">
+            <div class="match-step active" data-match-step="length">
+              <span class="match-kicker">First, your hair</span>
+              <h3>What length are you <em>styling?</em></h3>
+              <div class="match-options">
+                <button class="match-option" type="button" data-match-choice data-q="length" data-v="short">Short <em>above shoulders</em></button>
+                <button class="match-option" type="button" data-match-choice data-q="length" data-v="mid">Mid-length <em>shoulder to chest</em></button>
+                <button class="match-option" type="button" data-match-choice data-q="length" data-v="long">Long <em>below the chest</em></button>
+              </div>
+              <div class="match-step-foot"><span class="match-hint">Three quick choices. One considered match.</span></div>
+            </div>
+
+            <div class="match-step" data-match-step="goal">
+              <span class="match-kicker">Now, the finish</span>
+              <h3>What do you want it to <em>do?</em></h3>
+              <div class="match-options">
+                <button class="match-option" type="button" data-match-choice data-q="goal" data-v="volume">Volume <em>soft waves</em></button>
+                <button class="match-option" type="button" data-match-choice data-q="goal" data-v="sleek">Sleek <em>smooth &amp; straight</em></button>
+                <button class="match-option" type="button" data-match-choice data-q="goal" data-v="curls">Curls <em>defined &amp; lasting</em></button>
+                <button class="match-option" type="button" data-match-choice data-q="goal" data-v="dry">Dry fast <em>no styling needed</em></button>
+              </div>
+              <div class="match-step-foot"><button class="match-back" type="button" data-match-back>Back</button></div>
+            </div>
+
+            <div class="match-step" data-match-step="heat">
+              <span class="match-kicker">Last detail</span>
+              <h3>How should the heat <em>feel?</em></h3>
+              <div class="match-options">
+                <button class="match-option" type="button" data-match-choice data-q="heat" data-v="balanced">Balanced <em>performance first</em></button>
+                <button class="match-option" type="button" data-match-choice data-q="heat" data-v="gentle">As gentle as possible <em>lower heat</em></button>
+              </div>
+              <div class="match-step-foot"><button class="match-back" type="button" data-match-back>Back</button><span class="match-hint">Gentle favours infrared, steam and airflow.</span></div>
+            </div>
+
+            <div class="match-step match-result" data-match-step="result">
+              <div class="match-product"><img id="match-product-img" src="img/cards/p03.jpg" alt="Recommended Ferrli product"></div>
+              <span class="match-result-no" id="match-result-no">Nº 03</span>
+              <h3 id="match-result-name">Bomby Styler <em>Silk+.</em></h3>
+              <span class="match-result-why" id="match-result-why">Chosen for your hair and preferred finish.</span>
+              <div class="match-result-foot">
+                <span class="match-result-price" id="match-result-price">€169</span>
+                <span class="match-result-old" id="match-result-old">€249</span>
+                <a class="match-result-link" id="match-result-link" href="product-silk.html">View →</a>
+              </div>
+              <div class="match-result-actions"><button class="match-restart" type="button" id="match-restart">Start again</button></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1320,6 +1400,24 @@ const matchTile=document.getElementById('match');
 const matchSteps=[...document.querySelectorAll('[data-match-step]')];
 const matchBars=[...document.querySelectorAll('.match-progress i')];
 let matchIndex=0;
+const beliefShell=document.querySelector('.belief-shell');
+const openMatch=document.getElementById('open-match');
+const closeMatch=document.getElementById('match-close');
+
+function setMatchOpen(open){
+  beliefShell.classList.toggle('match-open',open);
+  openMatch.setAttribute('aria-expanded',String(open));
+  matchTile.setAttribute('aria-hidden',String(!open));
+  if(open){
+    matchTile.focus({preventScroll:true});
+    matchTile.scrollIntoView({behavior:'smooth',block:'center'});
+  }else{
+    openMatch.focus({preventScroll:true});
+  }
+}
+
+openMatch.addEventListener('click',()=>setMatchOpen(true));
+closeMatch.addEventListener('click',()=>setMatchOpen(false));
 
 function showMatchStep(index){
   matchIndex=index;
